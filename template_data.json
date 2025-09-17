@@ -1,0 +1,1915 @@
+{
+  "headers": [
+    "agency_name",
+    "ori",
+    "wadeps_agency_id",
+    "incident_number",
+    "incident_date",
+    "incident_time",
+    "contact_reason",
+    "response_type",
+    "incident_location_county",
+    "incident_location_detail",
+    "incident_location_city",
+    "location_type",
+    "location_type_indoor",
+    "location_type_outdoor",
+    "incident_type_offense_against_person",
+    "incident_type_property_offense",
+    "incident_type_public_order_offense",
+    "incident_type_vehicle_stop",
+    "incident_type_pedestrian_stop",
+    "incident_type_civil_caretaking",
+    "incident_type_warrant",
+    "incident_type_other",
+    "incident_type_other_specify",
+    "incident_detail_offense_against_person_assault",
+    "incident_detail_offense_against_person_homicide",
+    "incident_detail_offense_against_person_rape",
+    "incident_detail_offense_against_person_robbery",
+    "incident_detail_offense_against_person_civil_order_violation",
+    "incident_detail_offense_against_person_other",
+    "incident_detail_offense_against_person_other_specify",
+    "incident_detail_property_offense_arson",
+    "incident_detail_property_offense_burglary",
+    "incident_detail_property_offense_theft",
+    "incident_detail_property_offense_mischief",
+    "incident_detail_property_offense_trespassing",
+    "incident_detail_property_offense_vehicle_theft_prowl",
+    "incident_detail_property_offense_other",
+    "incident_detail_property_offense_other_specify",
+    "incident_detail_public_order_offense_public_disturbance",
+    "incident_detail_public_order_offense_drug_related",
+    "incident_detail_public_order_offense_sex_related",
+    "incident_detail_public_order_offense_weapon_related",
+    "incident_detail_public_order_offense_transit_related",
+    "incident_detail_public_order_offense_other",
+    "incident_detail_public_order_offense_other_specify",
+    "incident_detail_vehicle_offense_dui",
+    "incident_detail_vehicle_offense_accident",
+    "incident_detail_vehicle_offense_moving_violation",
+    "incident_detail_vehicle_offense_non_moving_violation",
+    "incident_detail_vehicle_offense_other",
+    "incident_detail_vehicle_offense_other_specify",
+    "incident_detail_civil_caretaking_mental_health_wellness_check",
+    "incident_detail_civil_caretaking_civil_infraction",
+    "incident_detail_civil_caretaking_eviction_order_enforcement",
+    "incident_detail_civil_caretaking_domestic_order_enforcement",
+    "incident_detail_civil_caretaking_other",
+    "incident_detail_civil_caretaking_other_specify",
+    "arrest",
+    "arrest_reason_obstruction_resistance",
+    "arrest_reason_person_crime",
+    "arrest_reason_property_crime",
+    "arrest_reason_offense_against_public_order",
+    "arrest_reason_vehicle_violation",
+    "arrest_reason_warrant",
+    "arrest_reason_other",
+    "arrest_reason_other_specify",
+    "arrest_detail_offense_against_person_assault",
+    "arrest_detail_offense_against_person_homicide",
+    "arrest_detail_offense_against_person_rape",
+    "arrest_detail_offense_against_person_robbery",
+    "arrest_detail_offense_against_person_civil_order_violation",
+    "arrest_detail_offense_against_person_other",
+    "arrest_detail_offense_against_person_other_specify",
+    "arrest_detail_property_offense_arson",
+    "arrest_detail_property_offense_burglary",
+    "arrest_detail_property_offense_theft",
+    "arrest_detail_property_offense_mischief",
+    "arrest_detail_property_offense_trespassing",
+    "arrest_detail_property_offense_vehicle_theft_prowl",
+    "arrest_detail_property_offense_other",
+    "arrest_detail_property_offense_other_specify",
+    "arrest_detail_public_order_offense_public_disturbance",
+    "arrest_detail_public_order_offense_drug_related",
+    "arrest_detail_public_order_offense_sex_related",
+    "arrest_detail_public_order_offense_weapon_related",
+    "arrest_detail_public_order_offense_transit_related",
+    "arrest_detail_public_order_offense_other",
+    "arrest_detail_public_order_offense_other_specify",
+    "arrest_detail_vehicle_offense_dui",
+    "arrest_detail_vehicle_offense_accident",
+    "arrest_detail_vehicle_offense_moving_violation",
+    "arrest_detail_vehicle_offense_non_moving_violation",
+    "arrest_detail_vehicle_offense_other",
+    "arrest_detail_vehicle_offense_other_specify",
+    "incident_dv_enhancement",
+    "arrest_dv_enhancement",
+    "officers_total",
+    "officers_force",
+    "persons_total",
+    "subjects_force",
+    "minors",
+    "point",
+    "discharge",
+    "ecw",
+    "chemical",
+    "less_lethal_discharge",
+    "impact",
+    "strike",
+    "vehicle_person",
+    "vehicle_vehicle",
+    "pit_manuever",
+    "canine",
+    "neck",
+    "force_other",
+    "force_other_specify",
+    "time_to_force",
+    "video",
+    "time_to_force_bwc",
+    "subject_id",
+    "subject_age",
+    "subject_gender",
+    "perceived_subject_race_ethnicity_american_indian_or_alaska_native",
+    "perceived_subject_race_ethnicity_asian",
+    "perceived_subject_race_ethnicity_black_or_african_american",
+    "perceived_subject_race_ethnicity_hispanic_or_latino",
+    "perceived_subject_race_ethnicity_middle_eastern_or_north_african",
+    "perceived_subject_race_ethnicity_native_hawaiian_or_pacific_islander",
+    "perceived_subject_race_ethnicity_white",
+    "perceived_subject_race_ethnicity_unknown",
+    "verified_subject_race_ethnicity_american_indian_or_alaska_native",
+    "verified_subject_race_ethnicity_asian",
+    "verified_subject_race_ethnicity_black_or_african_american",
+    "verified_subject_race_ethnicity_hispanic_or_latino",
+    "verified_subject_race_ethnicity_middle_eastern_or_north_african",
+    "verified_subject_race_ethnicity_native_hawaiian_or_pacific_islander",
+    "verified_subject_race_ethnicity_white",
+    "verified_subject_race_ethnicity_unknown",
+    "subject_tribal",
+    "subject_injury_apparent_minor_injury_cuts_bruises",
+    "subject_injury_severe_laceration",
+    "subject_injury_loss_of_teeth",
+    "subject_injury_canine_bite",
+    "subject_injury_apparent_broken_bones",
+    "subject_injury_possible_internal_injury",
+    "subject_injury_unconscious",
+    "subject_injury_gunshot_wound",
+    "subject_injury_death",
+    "subject_injury_unknown",
+    "subject_injury_major_other",
+    "subject_injury_major_other_specify",
+    "subject_impairment_alcohol",
+    "subject_impairment_drugs",
+    "subject_impairment_mental_health",
+    "subject_impairment_unknown",
+    "subject_armed",
+    "subject_weapon_type_blunt_object",
+    "subject_weapon_type_edged_object",
+    "subject_weapon_type_ecw",
+    "subject_weapon_type_chemical_explosive",
+    "subject_weapon_type_projectile",
+    "subject_weapon_type_firearm",
+    "subject_weapon_type_vehicle",
+    "subject_flight",
+    "subject_threat_officers",
+    "subject_threat_others",
+    "subject_threat_self",
+    "subject_resistance",
+    "civil_disobedience",
+    "officer_name",
+    "officer_cjtc",
+    "officer_assignment",
+    "officer_years_of_service",
+    "officer_injury_apparent_minor_injury_cuts_bruises",
+    "officer_injury_severe_laceration",
+    "officer_injury_loss_of_teeth",
+    "officer_injury_canine_bite",
+    "officer_injury_apparent_broken_bones",
+    "officer_injury_possible_internal_injury",
+    "officer_injury_unconscious",
+    "officer_injury_gunshot_wound",
+    "officer_injury_death",
+    "officer_injury_major_other",
+    "officer_injury_major_other_specify"
+  ],
+  "validations": {
+    "response_type": {
+      "type": "list",
+      "values": [
+        "Social contact",
+        "Reasonable suspicion",
+        "Probable cause"
+      ]
+    },
+    "contact_reason": {
+      "type": "list",
+      "values": [
+        "Public request for service",
+        "Agency request for service",
+        "Unit- or officer-initiated",
+        "Planned activity"
+      ]
+    },
+    "location_type": {
+      "type": "list",
+      "values": [
+        "Indoor",
+        "Outdoor",
+        "Both"
+      ]
+    },
+    "location_type_indoor": {
+      "type": "list",
+      "values": [
+        "Single family residence",
+        "Apartment or multifamily residence",
+        "Commercial/Business premises",
+        "Government facility (court/school/university offices)",
+        "Medical facility (clinic/hospital/etc)",
+        "Transit facility",
+        "Other"
+      ]
+    },
+    "location_type_outdoor": {
+      "type": "list",
+      "values": [
+        "Residential private property (yard)",
+        "Commercial private property (parking lot)",
+        "Government property (around official buildings)",
+        "Public right of way (highway/street/sidewalk/boat launch)",
+        "Transit property",
+        "Public lands (parks/national)",
+        "Other"
+      ]
+    },
+    "arrest": {
+      "type": "list",
+      "values": [
+        "Arrested",
+        "Civil detention",
+        "No arrest or detention"
+      ]
+    },
+    "subject_impairment_unknown": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_blunt_object": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_edged_object": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_ecw": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_chemical_explosive": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_projectile": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_firearm": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_weapon_type_vehicle": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_assignment": {
+      "type": "list",
+      "values": [
+        "Patrol",
+        "Traffic",
+        "Administrative",
+        "Specialty"
+      ]
+    },
+    "point": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "discharge": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "ecw": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "chemical": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "less_lethal_discharge": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "impact": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "strike": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "neck": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "force_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_gender": {
+      "type": "list",
+      "values": [
+        "Male",
+        "Female",
+        "Non-binary",
+        "Transgender",
+        "Unknown"
+      ]
+    },
+    "subject_tribal": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes",
+        "Refused",
+        "Unknown"
+      ]
+    },
+    "subject_flight": {
+      "type": "list",
+      "values": [
+        "None",
+        "Flight or attempted flight"
+      ]
+    },
+    "subject_threat_officers": {
+      "type": "list",
+      "values": [
+        "None",
+        "Verbal threat",
+        "Threatening posture/furtive movements",
+        "Assault",
+        "Use or display of a less-lethal weapon",
+        "Use or display of a deadly weapon"
+      ]
+    },
+    "subject_threat_others": {
+      "type": "list",
+      "values": [
+        "None",
+        "Verbal threat",
+        "Threatening posture/furtive movements",
+        "Assault",
+        "Use or display of a less-lethal weapon",
+        "Use or display of a deadly weapon"
+      ]
+    },
+    "subject_threat_self": {
+      "type": "list",
+      "values": [
+        "None",
+        "Verbal threat of self-harm",
+        "Self-harm or attempted self-harm"
+      ]
+    },
+    "subject_resistance": {
+      "type": "list",
+      "values": [
+        "No resistance",
+        "Verbal resistance or passive resistance",
+        "Threatening posture or verbal threats",
+        "Physical non-compliance or flight",
+        "Active physical resistance",
+        "Use of a less-lethal weapon",
+        "Use of deadly weapon or lethal force"
+      ]
+    },
+    "video": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "minors": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes",
+        "Unknown"
+      ]
+    },
+    "arrest_dv_enhancement": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "civil_disobedience": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_armed": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_impairment_alcohol": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_impairment_drugs": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_impairment_mental_health": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_apparent_minor_injury_cuts_bruises": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_severe_laceration": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_loss_of_teeth": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_canine_bite": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_apparent_broken_bones": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_possible_internal_injury": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_unconscious": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_gunshot_wound": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_death": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_apparent_minor_injury_cuts_bruises": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_severe_laceration": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_loss_of_teeth": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_canine_bite": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_apparent_broken_bones": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_possible_internal_injury": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_unconscious": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_gunshot_wound": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_death": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "officer_injury_major_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "subject_injury_major_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "perceived_subject_race_ethnicity_american_indian_or_alaska_native": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "verified_subject_race_ethnicity_american_indian_or_alaska_native": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_dv_enhancement": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "vehicle_person": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "vehicle_vehicle": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_offense_against_person": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_property_offense": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_public_order_offense": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_vehicle_stop": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_civil_caretaking": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_warrant": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_assault": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_homicide": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_rape": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_robbery": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_civil_order_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_offense_against_person_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_arson": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_burglary": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_theft": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_mischief": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_trespassing": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_vehicle_theft_prowl": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_property_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_public_disturbance": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_drug_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_sex_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_weapon_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_transit_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_public_order_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_vehicle_offense_dui": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_vehicle_offense_accident": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_vehicle_offense_moving_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_vehicle_offense_non_moving_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_vehicle_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_civil_caretaking_mental_health_wellness_check": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_civil_caretaking_civil_infraction": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_civil_caretaking_eviction_order_enforcement": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_civil_caretaking_domestic_order_enforcement": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_detail_civil_caretaking_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_assault": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_homicide": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_rape": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_robbery": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_civil_order_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_offense_against_person_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_arson": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_burglary": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_theft": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_mischief": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_trespassing": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_vehicle_theft_prowl": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_property_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_public_disturbance": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_drug_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_sex_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_weapon_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_transit_related": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_public_order_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_vehicle_offense_dui": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_vehicle_offense_accident": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_vehicle_offense_moving_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_vehicle_offense_non_moving_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_detail_vehicle_offense_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_obstruction_resistance": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_person_crime": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_property_crime": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_offense_against_public_order": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_vehicle_violation": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_warrant": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "arrest_reason_other": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "canine": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "incident_type_pedestrian_stop": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "time_to_force": {
+      "type": "list",
+      "values": [
+        "Immediate",
+        "Less than 1 minute",
+        "1-5:59 minutes",
+        "6-10:59 minutes",
+        "Greater than 10 minutes"
+      ]
+    },
+    "pit_manuever": {
+      "type": "list",
+      "values": [
+        "PIT manuever over 40mph",
+        "PIT manuever under 40mph",
+        "Not a PIT manuever"
+      ]
+    },
+    "incident_location_detail": {
+      "type": "list",
+      "values": [
+        "Unincorporated Area",
+        "State HWY",
+        "Interstate HWY",
+        "City"
+      ]
+    },
+    "subject_injury_unknown": {
+      "type": "list",
+      "values": [
+        "No",
+        "Yes"
+      ]
+    },
+    "agency_name": {
+      "type": "list",
+      "values": [
+        "Aberdeen Police Department",
+        "Adams County Sheriff's Office",
+        "Airway Heights Police Department",
+        "Algona Police Department",
+        "Anacortes Police Department",
+        "Arlington Police Department",
+        "Asotin County Sheriff's Office",
+        "Asotin Police Department",
+        "Auburn Police Department",
+        "Bainbridge Island Police Department",
+        "Battle Ground Police Department",
+        "Beaux Arts Police Department",
+        "Bellevue Police Department",
+        "Bellingham Police Department",
+        "Benton County Sheriff's Office",
+        "Bingen-White Salmon Police Department",
+        "Black Diamond Police Department",
+        "Blaine Police Department",
+        "Bonney Lake Police Department",
+        "Bothell Police Department",
+        "Bremerton Police Department",
+        "Brewster Police Department",
+        "Brier Police Department",
+        "Buckley Police Department",
+        "Burien Police Department",
+        "Burlington Police Department",
+        "Camas Police Department",
+        "Carnation Police Department",
+        "Castle Rock Police Department",
+        "Central Washington University Police and Public Safety",
+        "Centralia Police Department",
+        "Chehalis Police Department",
+        "Chehalis Tribal Public Safety Department",
+        "Chelan County Sheriff's Office",
+        "Cheney Police Department",
+        "Chewelah Police Department",
+        "Clallam County Sheriff's Office",
+        "Clark County Sheriff's Office",
+        "Clarkston Police Department",
+        "Cle Elum-Roslyn Police Department",
+        "Clyde Hill Police Department",
+        "Colfax Police Department",
+        "College Place Police Department",
+        "Colton Police Department",
+        "Columbia County Sheriff's Office",
+        "Colville Police Department",
+        "Colville Tribal Police",
+        "Connell Police Department",
+        "Cosmopolis Police Department",
+        "Coulee City Police Department",
+        "Coulee Dam Police Department",
+        "Coupeville Marshal's Office",
+        "Covington Police Department",
+        "Cowlitz County Sheriff's Office",
+        "Cowlitz Indian Tribal Public Safety Department",
+        "Darrington Police Department",
+        "Des Moines Police Department",
+        "Douglas County Sheriff's Office",
+        "DuPont Police Department",
+        "Duvall Police Department",
+        "East Wenatchee Police Department",
+        "Eastern Washington University Police Department",
+        "Eatonville Police Department",
+        "Edgewood Police Department",
+        "Edmonds Police Department",
+        "Ellensburg Police Department",
+        "Elma Police Department",
+        "Elwha Tribal Police",
+        "Enumclaw Police Department",
+        "Ephrata Police Department",
+        "Everett Police Department",
+        "Evergreen State College Police Department",
+        "Everson Police Department",
+        "Federal Way Police Department",
+        "Ferndale Police Department",
+        "Ferry County Sheriff's Office",
+        "Fife Police Department",
+        "Fircrest Police Department",
+        "Forks Police Department",
+        "Franklin County Sheriff's Office",
+        "Garfield County Sheriff's Office",
+        "Garfield Police Department",
+        "Gig Harbor Police Department",
+        "Gold Bar Police Department",
+        "Goldendale Police Department",
+        "Grand Coulee Police Department",
+        "Grandview Police Department",
+        "Granger Police Department",
+        "Granite Falls Police Department",
+        "Grant County Sheriff's Office",
+        "Grays Harbor County Sheriff's Office",
+        "Hoh Tribal Law Enforcement",
+        "Hoquiam Police Department",
+        "Ilwaco Police Department",
+        "Index Police Department",
+        "Island County Sheriff's Office",
+        "Issaquah Police Department",
+        "Jefferson County Sheriff's Office",
+        "Kalama Police Department",
+        "Kalispel Tribal Public Safety Department",
+        "Kelso Police Department",
+        "Kenmore Police Department",
+        "Kennewick Police Department",
+        "Kent Police Department",
+        "Kettle Falls Police Department",
+        "King County Airport Police",
+        "King County Metro Transit Police Department",
+        "King County Sheriff's Office",
+        "Kirkland Police Department",
+        "Kitsap County Sheriff's Office",
+        "Kittitas County Sheriff's Office",
+        "Kittitas Police Department",
+        "Klickitat County Sheriff's Office",
+        "La Center Police Department",
+        "La Push Tribal Police Department",
+        "Lacey Police Department",
+        "Lake Forest Park Police Department",
+        "Lake Stevens Police Department",
+        "Lakewood Police Department",
+        "Langley Police Department",
+        "Lewis County Sheriff's Office",
+        "Liberty Lake Police Department",
+        "Lincoln County Sheriff's Office",
+        "Long Beach Police Department",
+        "Longview Police Department",
+        "Lower Elwha Tribal Police Department",
+        "Lummi Nation Police Department",
+        "Lynden Police Department",
+        "Lynnwood Police Department",
+        "Mabton Police Department",
+        "Makah Tribal Police Department",
+        "Maple Valley Police Department",
+        "Marysville Police Department",
+        "Mason County Sheriff's Office",
+        "Mattawa Police Department",
+        "McCleary Police Department",
+        "Medical Lake Police Department",
+        "Medina Police Department",
+        "Mercer Island Police Department",
+        "Mill Creek Police Department",
+        "Milton Police Department",
+        "Monroe Police Department",
+        "Montesano Police Department",
+        "Morton Police Department",
+        "Moses Lake Police Department",
+        "Mount Vernon Police Department",
+        "Mountlake Terrace Police Department",
+        "Moxee Police Department",
+        "Muckleshoot Tribal Police Department",
+        "Mukilteo Police Department",
+        "Napavine Police Department",
+        "Newcastle Police Department",
+        "Newport Police Department",
+        "Nisqually Tribal Police Department",
+        "Nooksack Tribal Police Department",
+        "Normandy Park Police Department",
+        "Oak Harbor Police Department",
+        "Oakesdale Police Department",
+        "Oakville Police Department",
+        "Ocean Shores Police Department",
+        "Olympia Police Department",
+        "Omak Police Department",
+        "Oroville Police Department",
+        "Orting Police Department",
+        "Othello Police Department",
+        "Pacific County Sheriff's Office",
+        "Pacific Police Department",
+        "Palouse Police Department",
+        "Pasco Police Department",
+        "Pe Ell Police Department",
+        "Pend Oreille County Sheriff's Office",
+        "Pierce County Sheriff's Department",
+        "Pierce Transit Police Department",
+        "Port Angeles Police Department",
+        "Port Gamble S'Klallam Tribal Police Department",
+        "Port of Pasco Police Department",
+        "Port of Seattle Police Department",
+        "Port Orchard Police Department",
+        "Port Townsend Police Department",
+        "Poulsbo Police Department",
+        "Prosser Police Department",
+        "Pullman Police Department",
+        "Puyallup Police Department",
+        "Puyallup Tribal Law Enforcement",
+        "Quileute Tribal Police",
+        "Quinault Tribal Police Department",
+        "Quincy Police Department",
+        "Rainier Police Department",
+        "Raymond Police Department",
+        "Reardan Police Department",
+        "Redmond Police Department",
+        "Renton Police Department",
+        "Republic Police Department",
+        "Richland Police Department",
+        "Ridgefield Police Department",
+        "Ritzville Police Department",
+        "Rosalia Police Department",
+        "Roy Police Department",
+        "Royal City Police Department",
+        "Ruston Police Department",
+        "Sammamish Police Department",
+        "San Juan County Sheriff's Office",
+        "Sauk-Suiattle Police Department",
+        "SeaTac Police Department",
+        "Seattle Police Department",
+        "Seattle University Department of Public Safety",
+        "Sedro-Woolley Police Department",
+        "Selah Police Department",
+        "Sequim Police Department",
+        "Shelton Police Department",
+        "Shoalwater Bay Tribal Police Department",
+        "Shoreline Police Department",
+        "Skagit County Sheriff's Office",
+        "Skamania County Sheriff's Office",
+        "Skokomish Police Department",
+        "Skykomish Police Department",
+        "Snohomish County Sheriff's Office",
+        "Snohomish Police Department",
+        "Snoqualmie Police Department",
+        "Snoqualmie Tribal Police Department",
+        "Soap Lake Police Department",
+        "South Bend Police Department",
+        "Spokane County Sheriff's Office",
+        "Spokane International Airport Police Department",
+        "Spokane Police Department",
+        "Spokane Tribal Police Department",
+        "Spokane Valley Police Department",
+        "Springdale Police Department",
+        "Squaxin Island Tribe Public Safety and Justice Department",
+        "Stanwood Police Department",
+        "Steilacoom Department of Public Safety",
+        "Stevens County Sheriff's Office",
+        "Stillaguamish Police Department",
+        "Sultan Police Department",
+        "Sumas Police Department",
+        "Sumner Police Department",
+        "Sunnyside Police Department",
+        "Suquamish Police Department",
+        "Swinomish Police Department",
+        "Tacoma Police Department",
+        "Tenino Police Department",
+        "Thurston County Sheriff's Office",
+        "Tieton Police Department",
+        "Toledo Police Department",
+        "Tonasket Police Department",
+        "Toppenish Police Department",
+        "Tukwila Police Department",
+        "Tulalip Tribal Police Department",
+        "Tumwater Police Department",
+        "Twisp Police Department",
+        "Union Gap Police Department",
+        "Uniontown Police Department",
+        "University of Washington Police Department",
+        "University Place Police Department",
+        "Upper Skagit Tribal Police Department",
+        "Vader Police Department",
+        "Vancouver Police Department",
+        "Washington State Department of Corrections",
+        "Washington Department of Fish and Wildlife Enforcement",
+        "Washington Department of Labor & Industries",
+        "Department of Natural Resources Police",
+        "Washington State Department of Social and Health Services",
+        "Washington State Gambling Commission Regulation and Enforcement Unit",
+        "Washington State Medicaid Fraud Control Division",
+        "Washington State Office of Independent Investigations",
+        "Washington State Utilities and Transportation Commission",
+        "Washington State Lottery Commission",
+        "Office of the Insurance Commissioner Criminal Investigations Unit",
+        "Washington State Liquor and Cannabis Board's Enforcement",
+        "Washington State Parks and Recreation Commission",
+        "Washington State Patrol",
+        "Washington State University Police Department-Pullman campus",
+        "WSU Vancouver Public Safety",
+        "Wahkiakum County Sheriff's Office",
+        "Walla Walla County Sheriff's Office",
+        "Walla Walla Police Department",
+        "Wapato Police Department",
+        "Warden Police Department",
+        "Washougal Police Department",
+        "Wenatchee Police Department",
+        "West Richland Police Department",
+        "Western Washington University Police Department",
+        "Westport Police Department",
+        "Whatcom County Sheriff's Office",
+        "Whitman County Sheriff's Office",
+        "Wilbur Police Department",
+        "Winlock Police Department",
+        "Winthrop Marshal's Office",
+        "Woodinville Police Department",
+        "Woodland Police Department",
+        "Woodway Police Department",
+        "Yakama Nation Police Department",
+        "Yakima County Sheriff's Office",
+        "Yakima Police Department",
+        "Yarrow Point Police Department",
+        "Yelm Police Department",
+        "Zillah Police Department"
+      ]
+    },
+    "incident_location_county": {
+      "type": "list",
+      "values": [
+        "Adams County",
+        "Asotin County",
+        "Benton County",
+        "Chelan County",
+        "Clallam County",
+        "Clark County",
+        "Columbia County",
+        "Cowlitz County",
+        "Douglas County",
+        "Ferry County",
+        "Franklin County",
+        "Garfield County",
+        "Grant County",
+        "Grays Harbor County",
+        "Island County",
+        "Jefferson County",
+        "King County",
+        "Kitsap County",
+        "Kittitas County",
+        "Klickitat County",
+        "Lewis County",
+        "Lincoln County",
+        "Mason County",
+        "Okanogan County",
+        "Pacific County",
+        "Pend Oreille County",
+        "Pierce County",
+        "San Juan County",
+        "Skagit County",
+        "Skamania County",
+        "Snohomish County",
+        "Spokane County",
+        "Stevens County",
+        "Thurston County",
+        "Wahkiakum County",
+        "Walla Walla County",
+        "Whatcom County",
+        "Whitman County",
+        "Yakima County"
+      ]
+    },
+    "incident_location_city": {
+      "type": "list",
+      "values": [
+        "Aberdeen",
+        "Airway Heights",
+        "Albion",
+        "Algona",
+        "Almira",
+        "Anacortes",
+        "Arlington",
+        "Asotin",
+        "Auburn",
+        "Bainbridge Island",
+        "Battle Ground",
+        "Beaux Arts Village",
+        "Bellevue",
+        "Bellingham",
+        "Benton City",
+        "Bingen",
+        "Black Diamond",
+        "Blaine",
+        "Bonney Lake",
+        "Bothell",
+        "Bremerton",
+        "Brewster",
+        "Bridgeport",
+        "Brier",
+        "Buckley",
+        "Bucoda",
+        "Burien",
+        "Burlington",
+        "Camas",
+        "Carbonado",
+        "Carnation",
+        "Cashmere",
+        "Castle Rock",
+        "Cathlamet",
+        "Centralia",
+        "Chehalis",
+        "Chelan",
+        "Cheney",
+        "Chewelah",
+        "Clarkston",
+        "Cle Elum",
+        "Clyde Hill",
+        "Colfax",
+        "College Place",
+        "Colton",
+        "Colville",
+        "Conconully",
+        "Concrete",
+        "Connell",
+        "Cosmopolis",
+        "Coulee City",
+        "Coulee Dam",
+        "Coupeville",
+        "Covington",
+        "Creston",
+        "Cusick",
+        "Darrington",
+        "Davenport",
+        "Dayton",
+        "Deer Park",
+        "Des Moines",
+        "DuPont",
+        "Duvall",
+        "East Wenatchee",
+        "Eatonville",
+        "Edgewood",
+        "Edmonds",
+        "Electric City",
+        "Ellensburg",
+        "Elma",
+        "Elmer City",
+        "Endicott",
+        "Entiat",
+        "Enumclaw",
+        "Ephrata",
+        "Everett",
+        "Everson",
+        "Fairfield",
+        "Farmington",
+        "Federal Way",
+        "Ferndale",
+        "Fife",
+        "Fircrest",
+        "Forks",
+        "Friday Harbor",
+        "Garfield",
+        "George",
+        "Gig Harbor",
+        "Gold Bar",
+        "Goldendale",
+        "Grand Coulee",
+        "Grandview",
+        "Granger",
+        "Granite Falls",
+        "Hamilton",
+        "Harrah",
+        "Harrington",
+        "Hartline",
+        "Hatton",
+        "Hoquiam",
+        "Hunts Point",
+        "Ilwaco",
+        "Index",
+        "Ione",
+        "Issaquah",
+        "Kahlotus",
+        "Kalama",
+        "Kelso",
+        "Kenmore",
+        "Kennewick",
+        "Kent",
+        "Kettle Falls",
+        "Kirkland",
+        "Kittitas",
+        "Krupp",
+        "La Center",
+        "La Conner",
+        "Lacey",
+        "LaCrosse",
+        "Lake Forest Park",
+        "Lake Stevens",
+        "Lakewood",
+        "Lamont",
+        "Langley",
+        "Latah",
+        "Leavenworth",
+        "Liberty Lake",
+        "Lind",
+        "Long Beach",
+        "Longview",
+        "Lyman",
+        "Lynden",
+        "Lynnwood",
+        "Mabton",
+        "Malden",
+        "Mansfield",
+        "Maple Valley",
+        "Marcus",
+        "Marysville",
+        "Mattawa",
+        "McCleary",
+        "Medical Lake",
+        "Medina",
+        "Mercer Island",
+        "Mesa",
+        "Metaline",
+        "Metaline Falls",
+        "Mill Creek",
+        "Millwood",
+        "Milton",
+        "Monroe",
+        "Montesano",
+        "Morton",
+        "Moses Lake",
+        "Mossyrock",
+        "Mount Vernon",
+        "Mountlake Terrace",
+        "Moxee",
+        "Mukilteo",
+        "Naches",
+        "Napavine",
+        "Nespelem",
+        "Newcastle",
+        "Newport",
+        "Nooksack",
+        "Normandy Park",
+        "North Bend",
+        "North Bonneville",
+        "Northport",
+        "Oak Harbor",
+        "Oakesdale",
+        "Oakville",
+        "Ocean Shores",
+        "Odessa",
+        "Okanogan",
+        "Olympia",
+        "Omak",
+        "Oroville",
+        "Orting",
+        "Othello",
+        "Pacific",
+        "Palouse",
+        "Pasco",
+        "Pateros",
+        "Pe Ell",
+        "Pomeroy",
+        "Port Angeles",
+        "Port Orchard",
+        "Port Townsend",
+        "Poulsbo",
+        "Prescott",
+        "Prosser",
+        "Pullman",
+        "Puyallup",
+        "Quincy",
+        "Rainier",
+        "Raymond",
+        "Reardan",
+        "Redmond",
+        "Renton",
+        "Republic",
+        "Richland",
+        "Ridgefield",
+        "Ritzville",
+        "Riverside",
+        "Rock Island",
+        "Rockford",
+        "Rosalia",
+        "Roslyn",
+        "Roy",
+        "Royal City",
+        "Ruston",
+        "Sammamish",
+        "SeaTac",
+        "Seattle",
+        "Sedro-Woolley",
+        "Selah",
+        "Sequim",
+        "Shelton",
+        "Shoreline",
+        "Skykomish",
+        "Snohomish",
+        "Snoqualmie",
+        "Soap Lake",
+        "South Bend",
+        "South Cle Elum",
+        "South Prairie",
+        "Spangle",
+        "Spokane",
+        "Spokane Valley",
+        "Sprague",
+        "Springdale",
+        "St. John",
+        "Stanwood",
+        "Starbuck",
+        "Steilacoom",
+        "Stevenson",
+        "Sultan",
+        "Sumas",
+        "Sumner",
+        "Sunnyside",
+        "Tacoma",
+        "Tekoa",
+        "Tenino",
+        "Tieton",
+        "Toledo",
+        "Tonasket",
+        "Toppenish",
+        "Tukwila",
+        "Tumwater",
+        "Twisp",
+        "Union Gap",
+        "Uniontown",
+        "University Place",
+        "Vader",
+        "Vancouver",
+        "Waitsburg",
+        "Walla Walla",
+        "Wapato",
+        "Warden",
+        "Washougal",
+        "Washtucna",
+        "Waterville",
+        "Waverly",
+        "Wenatchee",
+        "West Richland",
+        "Westport",
+        "White Salmon",
+        "Wilbur",
+        "Wilkeson",
+        "Wilson Creek",
+        "Winlock",
+        "Winthrop",
+        "Woodinville",
+        "Woodland",
+        "Woodway",
+        "Yacolt",
+        "Yakima",
+        "Yarrow Point",
+        "Yelm",
+        "Zillah"
+      ]
+    },
+    "ori": {
+      "type": "pattern",
+      "pattern": "^[A-Z0-9]{9}$",
+      "description": "9-character alphanumeric"
+    },
+    "incident_date": {
+      "type": "date",
+      "format": ["MM/DD/YYYY", "YYYY-MM-DD"]
+    },
+    "incident_time": {
+      "type": "time",
+      "format": "HH:MM"
+    },
+    "arrest_reason_other_specify": {
+      "type": "list",
+      "values": [
+        "1",
+        "2",
+        "Yes",
+        "No"
+      ]
+    },
+    "arrest_detail_offense_against_person_other_specify": {
+      "type": "list",
+      "values": [
+        "1",
+        "2",
+        "Yes",
+        "No"
+      ]
+    },
+    "arrest_detail_property_offense_other_specify": {
+      "type": "list",
+      "values": [
+        "1",
+        "2",
+        "Yes",
+        "No"
+      ]
+    },
+    "arrest_detail_public_order_offense_other_specify": {
+      "type": "list",
+      "values": [
+        "1",
+        "2",
+        "Yes",
+        "No"
+      ]
+    },
+    "arrest_detail_vehicle_offense_other_specify": {
+      "type": "list",
+      "values": [
+        "1",
+        "2",
+        "Yes",
+        "No"
+      ]
+    },
+    "officers_total": {
+      "type": "number",
+      "min": 0,
+      "max": 99
+    },
+    "officers_force": {
+      "type": "number",
+      "min": 0,
+      "max": 99
+    },
+    "persons_total": {
+      "type": "number",
+      "min": 0,
+      "max": 99
+    },
+    "subjects_force": {
+      "type": "number",
+      "min": 0,
+      "max": 99
+    },
+    "subject_age": {
+      "type": "number",
+      "min": 0,
+      "max": 120
+    },
+    "officer_years_of_service": {
+      "type": "number",
+      "min": 0,
+      "max": 50
+    }
+  },
+  "totalHeaders": 183,
+  "totalValidations": 154,
+  "source": "WADEPS_Smartform_Template.xlsx",
+  "convertedDate": "2025-09-15T13:40:54.123091"
+}
