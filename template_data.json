@@ -110,7 +110,7 @@
     "strike",
     "vehicle_person",
     "vehicle_vehicle",
-    "pit_manuever",
+    "pit_maneuver",
     "canine",
     "neck",
     "force_other",
@@ -1166,9 +1166,9 @@
     "pit_manuever": {
       "type": "list",
       "values": [
-        "PIT manuever over 40mph",
-        "PIT manuever under 40mph",
-        "Not a PIT manuever"
+        "A PIT maneuver (Precision Immobilization Technique)over 40mph",
+        "A PIT maneuver (Precision Immobilization Technique) under 40mph",
+        "Not a PIT maneuver (Precision Immobilization Technique)"
       ]
     },
     "incident_location_detail": {
