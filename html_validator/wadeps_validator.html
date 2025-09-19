@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WADEPS CSV Validator - Drag & Drop File Checker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1F5027 0%, #1F5027 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><path d="M 10,20 Q 8,10 15,8 L 22,7 L 25,4 L 28,6 L 32,5 L 35,3 L 38,5 L 42,4 L 45,6 L 48,5 Q 55,5 58,10 L 60,15 L 62,18 L 65,20 L 68,25 L 70,30 L 72,35 L 70,40 L 68,45 L 65,50 L 60,55 L 55,58 L 50,60 L 45,62 L 40,60 L 35,58 L 30,55 L 25,50 L 20,45 L 15,40 L 12,35 L 10,30 Z" fill="%23deede3" opacity="0.3"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .header {
+            background: #deede3;
+            color: #1F5027;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 3px solid #1F5027;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            animation: fadeInDown 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: #1F5027;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.85;
+            animation: fadeInUp 0.5s ease 0.2s both;
+            color: #1F5027;
+        }
+
+        .main-content {
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .drop-zone {
+            border: 3px dashed #1F5027;
+            border-radius: 20px;
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #deede3 0%, #deede3 100%);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drop-zone.drag-over {
+            background: linear-gradient(135deg, #1F5027 0%, #1F5027 100%);
+            border-color: #1F5027;
+            transform: scale(1.02);
+        }
+
+        .drop-zone.drag-over .drop-zone-content {
+            color: white;
+        }
+
+        .drop-zone-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .drop-zone h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #1F5027;
+        }
+
+        .drop-zone.drag-over h2 {
+            color: white;
+        }
+
+        .drop-zone p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .drop-zone.drag-over p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .browse-btn {
+            background: #1F5027;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .browse-btn:hover {
+            background: #1F5027;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(31, 80, 39, 0.3);
+        }
+
+        .drop-zone.drag-over .browse-btn {
+            background: white;
+            color: #1F5027;
+        }
+
+        .validation-results {
+            margin-top: 40px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .validation-results.active {
+            display: block;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: #deede3;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .result-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .status-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+
+        .status-icon.success {
+            background: #1F5027;
+            color: white;
+        }
+
+        .status-icon.warning {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .status-icon.error {
+            background: #ef4444;
+            color: white;
+        }
+
+        .status-text h3 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .status-text p {
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.primary {
+            background: #1F5027;
+            color: white;
+        }
+
+        .action-btn.primary:hover {
+            background: #1F5027;
+        }
+
+        .action-btn.secondary {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        .action-btn.secondary:hover {
+            background: #d1d5db;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .summary-card.success .value {
+            color: #1F5027;
+        }
+
+        .summary-card.warning .value {
+            color: #f59e0b;
+        }
+
+        .summary-card.error .value {
+            color: #ef4444;
+        }
+
+        .summary-card .label {
+            color: #666;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab:hover {
+            color: #1F5027;
+        }
+
+        .tab.active {
+            color: #1F5027;
+            font-weight: 600;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #1F5027;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .error-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .error-table th {
+            background: #deede3;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .error-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .error-table tr:hover {
+            background: #deede3;
+        }
+
+        .error-severity {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .error-severity.high {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .error-severity.medium {
+            background: #fed7aa;
+            color: #f59e0b;
+        }
+
+        .error-severity.low {
+            background: #dbeafe;
+            color: #3b82f6;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e5e7eb;
+            display: none;
+            z-index: 1000;
+        }
+
+        .progress-bar.active {
+            display: block;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1F5027, #1F5027);
+            width: 0;
+            transition: width 0.3s ease;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: #1F5027;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .filter-select {
+            padding: 10px 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95em;
+            background: white;
+            cursor: pointer;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            animation: slideInUp 0.3s ease;
+            z-index: 1000;
+        }
+
+        .success-banner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(31, 80, 39, 0.95);
+            color: white;
+            padding: 30px 50px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            display: none;
+            z-index: 2000;
+            text-align: center;
+            animation: bounceIn 0.5s ease;
+        }
+
+        .success-banner.show {
+            display: block;
+        }
+
+        .success-banner .arrow {
+            font-size: 2em;
+            animation: bounce 2s infinite;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .toast.show {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.success {
+            border-left: 4px solid #1F5027;
+        }
+
+        .toast.error {
+            border-left: 4px solid #ef4444;
+        }
+
+        .help-text {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .help-text h4 {
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .help-text p {
+            color: #1e40af;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .tabs {
+                overflow-x: auto;
+            }
+
+            .error-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>
+                <img src="WADEPS_green-logo-acronym.png" alt="WADEPS Logo" style="height: 50px; width: auto; vertical-align: middle;">
+                CSV Validator
+            </h1>
+            <p>Drag and drop your CSV file to validate it against WADEPS SmartForm requirements</p>
+            <div style="margin-top: 15px; font-size: 0.9em;">
+                <span id="templateStatus" style="color: #1F5027; font-weight: bold;">Using embedded template</span>
+                <button id="updateTemplateBtn" style="margin-left: 15px; padding: 5px 10px; background: #1F5027; color: white; border: none; border-radius: 5px; cursor: pointer;" onclick="document.getElementById('templateInput').click()">
+                    Update Template
+                </button>
+                <input type="file" id="templateInput" accept=".json" style="display: none;">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-zone-content">
+                    <div class="drop-zone-icon">⬆</div>
+                    <h2>Drop your CSV file here</h2>
+                    <p>or click to browse your computer</p>
+                    <button class="browse-btn" onclick="event.stopPropagation(); document.getElementById('fileInput').click()">
+                        Choose File
+                    </button>
+                    <input type="file" id="fileInput" class="file-input" accept=".csv">
+                    <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">
+                        Supported format: CSV (.csv)
+                    </p>
+                </div>
+            </div>
+
+            <div class="help-text">
+                <h4>How to use this validator:</h4>
+                <p>
+                    1. <strong>Drag and drop</strong> your CSV file onto the upload area above, or click "Choose File" to browse<br>
+                    2. The validator will instantly check your file against WADEPS requirements<br>
+                    3. Review the results and fix any issues found<br>
+                    4. Download a detailed report for your records
+                </p>
+            </div>
+
+            <div class="validation-results" id="validationResults">
+                <div class="result-header">
+                    <div class="result-status">
+                        <div class="status-icon" id="statusIcon">
+                            <span id="statusEmoji">✓</span>
+                        </div>
+                        <div class="status-text">
+                            <h3 id="statusTitle">Validation Complete</h3>
+                            <p id="statusMessage">File has been validated</p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn secondary" onclick="dl_report('json')">
+                            ⬇ Download JSON
+                        </button>
+                        <button class="action-btn secondary" onclick="dl_report('text')">
+                            ⊡ Download Report
+                        </button>
+                        <button class="action-btn primary" onclick="reset()">
+                            ↻ Validate Another
+                        </button>
+                    </div>
+                </div>
+
+                <div class="summary-cards">
+                    <div class="summary-card" id="rowsCard">
+                        <div class="value">0</div>
+                        <div class="label">Total Rows</div>
+                    </div>
+                    <div class="summary-card" id="headersCard">
+                        <div class="value">0</div>
+                        <div class="label">Headers Checked</div>
+                    </div>
+                    <div class="summary-card" id="errorsCard">
+                        <div class="value">0</div>
+                        <div class="label">Errors Found</div>
+                    </div>
+                    <div class="summary-card" id="warningsCard">
+                        <div class="value">0</div>
+                        <div class="label">Warnings</div>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab active" onclick="tab('headers')">Headers</button>
+                    <button class="tab" onclick="tab('errors')">Errors</button>
+                    <button class="tab" onclick="tab('warnings')">Warnings</button>
+                    <button class="tab" onclick="tab('subjectId')">Subject IDs</button>
+                </div>
+
+                <div id="headersTab" class="tab-content active">
+                    <h3>Header Validation</h3>
+                    <div id="headerResults"></div>
+                </div>
+
+                <div id="errorsTab" class="tab-content">
+                    <h3>Validation Errors</h3>
+                    <div class="filter-controls">
+                        <input type="text" class="filter-input" placeholder="Search errors..." id="errorSearch">
+                        <select class="filter-select" id="errorFilter">
+                            <option value="">All Columns</option>
+                        </select>
+                    </div>
+                    <div id="errorResults"></div>
+                </div>
+
+                <div id="warningsTab" class="tab-content">
+                    <h3>Warnings</h3>
+                    <div id="warningResults"></div>
+                </div>
+
+                <div id="subjectIdTab" class="tab-content">
+                    <h3>Subject ID Validation</h3>
+                    <div id="subjectIdResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <span id="toastIcon">✓</span>
+        <span id="toastMessage">Message</span>
+    </div>
+
+    <script>
+//template_data
+        let TPL = {"headers":["agency_name","ori","wadeps_agency_id","incident_number","incident_date","incident_time","contact_reason","response_type","incident_location_county","incident_location_detail","incident_location_city","location_type","location_type_indoor","location_type_outdoor","incident_type_offense_against_person","incident_type_property_offense","incident_type_public_order_offense","incident_type_vehicle_stop","incident_type_pedestrian_stop","incident_type_civil_caretaking","incident_type_warrant","incident_type_other","incident_type_other_specify","incident_detail_offense_against_person_assault","incident_detail_offense_against_person_homicide","incident_detail_offense_against_person_rape","incident_detail_offense_against_person_robbery","incident_detail_offense_against_person_civil_order_violation","incident_detail_offense_against_person_other","incident_detail_offense_against_person_other_specify","incident_detail_property_offense_arson","incident_detail_property_offense_burglary","incident_detail_property_offense_theft","incident_detail_property_offense_mischief","incident_detail_property_offense_trespassing","incident_detail_property_offense_vehicle_theft_prowl","incident_detail_property_offense_other","incident_detail_property_offense_other_specify","incident_detail_public_order_offense_public_disturbance","incident_detail_public_order_offense_drug_related","incident_detail_public_order_offense_sex_related","incident_detail_public_order_offense_weapon_related","incident_detail_public_order_offense_transit_related","incident_detail_public_order_offense_other","incident_detail_public_order_offense_other_specify","incident_detail_vehicle_offense_dui","incident_detail_vehicle_offense_accident","incident_detail_vehicle_offense_moving_violation","incident_detail_vehicle_offense_non_moving_violation","incident_detail_vehicle_offense_other","incident_detail_vehicle_offense_other_specify","incident_detail_civil_caretaking_mental_health_wellness_check","incident_detail_civil_caretaking_civil_infraction","incident_detail_civil_caretaking_eviction_order_enforcement","incident_detail_civil_caretaking_domestic_order_enforcement","incident_detail_civil_caretaking_other","incident_detail_civil_caretaking_other_specify","arrest","arrest_reason_obstruction_resistance","arrest_reason_person_crime","arrest_reason_property_crime","arrest_reason_offense_against_public_order","arrest_reason_vehicle_violation","arrest_reason_warrant","arrest_reason_other","arrest_reason_other_specify","arrest_detail_offense_against_person_assault","arrest_detail_offense_against_person_homicide","arrest_detail_offense_against_person_rape","arrest_detail_offense_against_person_robbery","arrest_detail_offense_against_person_civil_order_violation","arrest_detail_offense_against_person_other","arrest_detail_offense_against_person_other_specify","arrest_detail_property_offense_arson","arrest_detail_property_offense_burglary","arrest_detail_property_offense_theft","arrest_detail_property_offense_mischief","arrest_detail_property_offense_trespassing","arrest_detail_property_offense_vehicle_theft_prowl","arrest_detail_property_offense_other","arrest_detail_property_offense_other_specify","arrest_detail_public_order_offense_public_disturbance","arrest_detail_public_order_offense_drug_related","arrest_detail_public_order_offense_sex_related","arrest_detail_public_order_offense_weapon_related","arrest_detail_public_order_offense_transit_related","arrest_detail_public_order_offense_other","arrest_detail_public_order_offense_other_specify","arrest_detail_vehicle_offense_dui","arrest_detail_vehicle_offense_accident","arrest_detail_vehicle_offense_moving_violation","arrest_detail_vehicle_offense_non_moving_violation","arrest_detail_vehicle_offense_other","arrest_detail_vehicle_offense_other_specify","incident_dv_enhancement","arrest_dv_enhancement","officers_total","officers_force","persons_total","subjects_force","minors","point","discharge","ecw","chemical","less_lethal_discharge","impact","strike","vehicle_person","vehicle_vehicle","pit_manuever","canine","neck","force_other","force_other_specify","time_to_force","video","time_to_force_bwc","subject_id","subject_age","subject_gender","perceived_subject_race_ethnicity_american_indian_or_alaska_native","perceived_subject_race_ethnicity_asian","perceived_subject_race_ethnicity_black_or_african_american","perceived_subject_race_ethnicity_hispanic_or_latino","perceived_subject_race_ethnicity_middle_eastern_or_north_african","perceived_subject_race_ethnicity_native_hawaiian_or_pacific_islander","perceived_subject_race_ethnicity_white","perceived_subject_race_ethnicity_unknown","verified_subject_race_ethnicity_american_indian_or_alaska_native","verified_subject_race_ethnicity_asian","verified_subject_race_ethnicity_black_or_african_american","verified_subject_race_ethnicity_hispanic_or_latino","verified_subject_race_ethnicity_middle_eastern_or_north_african","verified_subject_race_ethnicity_native_hawaiian_or_pacific_islander","verified_subject_race_ethnicity_white","verified_subject_race_ethnicity_unknown","subject_tribal","subject_injury_apparent_minor_injury_cuts_bruises","subject_injury_severe_laceration","subject_injury_loss_of_teeth","subject_injury_canine_bite","subject_injury_apparent_broken_bones","subject_injury_possible_internal_injury","subject_injury_unconscious","subject_injury_gunshot_wound","subject_injury_death","subject_injury_unknown","subject_injury_major_other","subject_injury_major_other_specify","subject_impairment_alcohol","subject_impairment_drugs","subject_impairment_mental_health","subject_impairment_unknown","subject_armed","subject_weapon_type_blunt_object","subject_weapon_type_edged_object","subject_weapon_type_ecw","subject_weapon_type_chemical_explosive","subject_weapon_type_projectile","subject_weapon_type_firearm","subject_weapon_type_vehicle","subject_flight","subject_threat_officers","subject_threat_others","subject_threat_self","subject_resistance","civil_disobedience","officer_name","officer_cjtc","officer_assignment","officer_years_of_service","officer_injury_apparent_minor_injury_cuts_bruises","officer_injury_severe_laceration","officer_injury_loss_of_teeth","officer_injury_canine_bite","officer_injury_apparent_broken_bones","officer_injury_possible_internal_injury","officer_injury_unconscious","officer_injury_gunshot_wound","officer_injury_death","officer_injury_major_other","officer_injury_major_other_specify"],"validations":{"response_type":{"type":"list","values":["Social contact","Reasonable suspicion","Probable cause"]},"contact_reason":{"type":"list","values":["Public request for service","Agency request for service","Unit- or officer-initiated","Planned activity"]},"location_type":{"type":"list","values":["Indoor","Outdoor","Both"]},"location_type_indoor":{"type":"list","values":["Single family residence","Apartment or multifamily residence","Commercial/Business premises","Government facility (court/school/university offices)","Medical facility (clinic/hospital/etc)","Transit facility","Other"]},"location_type_outdoor":{"type":"list","values":["Residential private property (yard)","Commercial private property (parking lot)","Government property (around official buildings)","Public right of way (highway/street/sidewalk/boat launch)","Transit property","Public lands (parks/national)","Other"]},"arrest":{"type":"list","values":["Arrested","Civil detention","No arrest or detention"]},"subject_impairment_unknown":{"type":"list","values":["No","Yes"]},"subject_weapon_type_blunt_object":{"type":"list","values":["No","Yes"]},"subject_weapon_type_edged_object":{"type":"list","values":["No","Yes"]},"subject_weapon_type_ecw":{"type":"list","values":["No","Yes"]},"subject_weapon_type_chemical_explosive":{"type":"list","values":["No","Yes"]},"subject_weapon_type_projectile":{"type":"list","values":["No","Yes"]},"subject_weapon_type_firearm":{"type":"list","values":["No","Yes"]},"subject_weapon_type_vehicle":{"type":"list","values":["No","Yes"]},"officer_assignment":{"type":"list","values":["Patrol","Traffic","Administrative","Specialty"]},"point":{"type":"list","values":["No","Yes"]},"discharge":{"type":"list","values":["No","Yes"]},"ecw":{"type":"list","values":["No","Yes"]},"chemical":{"type":"list","values":["No","Yes"]},"less_lethal_discharge":{"type":"list","values":["No","Yes"]},"impact":{"type":"list","values":["No","Yes"]},"strike":{"type":"list","values":["No","Yes"]},"neck":{"type":"list","values":["No","Yes"]},"force_other":{"type":"list","values":["No","Yes"]},"subject_gender":{"type":"list","values":["Male","Female","Non-binary","Transgender","Unknown"]},"subject_tribal":{"type":"list","values":["No","Yes","Refused","Unknown"]},"subject_flight":{"type":"list","values":["None","Flight or attempted flight"]},"subject_threat_officers":{"type":"list","values":["None","Verbal threat","Threatening posture/furtive movements","Assault","Use or display of a less-lethal weapon","Use or display of a deadly weapon"]},"subject_threat_others":{"type":"list","values":["None","Verbal threat","Threatening posture/furtive movements","Assault","Use or display of a less-lethal weapon","Use or display of a deadly weapon"]},"subject_threat_self":{"type":"list","values":["None","Verbal threat of self-harm","Self-harm or attempted self-harm"]},"subject_resistance":{"type":"list","values":["No resistance","Verbal resistance or passive resistance","Threatening posture or verbal threats","Physical non-compliance or flight","Active physical resistance","Use of a less-lethal weapon","Use of deadly weapon or lethal force"]},"video":{"type":"list","values":["No","Yes"]},"minors":{"type":"list","values":["No","Yes","Unknown"]},"arrest_dv_enhancement":{"type":"list","values":["No","Yes"]},"civil_disobedience":{"type":"list","values":["No","Yes"]},"subject_armed":{"type":"list","values":["No","Yes"]},"subject_impairment_alcohol":{"type":"list","values":["No","Yes"]},"subject_impairment_drugs":{"type":"list","values":["No","Yes"]},"subject_impairment_mental_health":{"type":"list","values":["No","Yes"]},"subject_injury_apparent_minor_injury_cuts_bruises":{"type":"list","values":["No","Yes"]},"subject_injury_severe_laceration":{"type":"list","values":["No","Yes"]},"subject_injury_loss_of_teeth":{"type":"list","values":["No","Yes"]},"subject_injury_canine_bite":{"type":"list","values":["No","Yes"]},"subject_injury_apparent_broken_bones":{"type":"list","values":["No","Yes"]},"subject_injury_possible_internal_injury":{"type":"list","values":["No","Yes"]},"subject_injury_unconscious":{"type":"list","values":["No","Yes"]},"subject_injury_gunshot_wound":{"type":"list","values":["No","Yes"]},"subject_injury_death":{"type":"list","values":["No","Yes"]},"officer_injury_apparent_minor_injury_cuts_bruises":{"type":"list","values":["No","Yes"]},"officer_injury_severe_laceration":{"type":"list","values":["No","Yes"]},"officer_injury_loss_of_teeth":{"type":"list","values":["No","Yes"]},"officer_injury_canine_bite":{"type":"list","values":["No","Yes"]},"officer_injury_apparent_broken_bones":{"type":"list","values":["No","Yes"]},"officer_injury_possible_internal_injury":{"type":"list","values":["No","Yes"]},"officer_injury_unconscious":{"type":"list","values":["No","Yes"]},"officer_injury_gunshot_wound":{"type":"list","values":["No","Yes"]},"officer_injury_death":{"type":"list","values":["No","Yes"]},"officer_injury_major_other":{"type":"list","values":["No","Yes"]},"subject_injury_major_other":{"type":"list","values":["No","Yes"]},"perceived_subject_race_ethnicity_american_indian_or_alaska_native":{"type":"list","values":["No","Yes"]},"verified_subject_race_ethnicity_american_indian_or_alaska_native":{"type":"list","values":["No","Yes"]},"incident_dv_enhancement":{"type":"list","values":["No","Yes"]},"vehicle_person":{"type":"list","values":["No","Yes"]},"vehicle_vehicle":{"type":"list","values":["No","Yes"]},"incident_type_offense_against_person":{"type":"list","values":["No","Yes"]},"incident_type_property_offense":{"type":"list","values":["No","Yes"]},"incident_type_public_order_offense":{"type":"list","values":["No","Yes"]},"incident_type_vehicle_stop":{"type":"list","values":["No","Yes"]},"incident_type_civil_caretaking":{"type":"list","values":["No","Yes"]},"incident_type_warrant":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_assault":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_homicide":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_rape":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_robbery":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_civil_order_violation":{"type":"list","values":["No","Yes"]},"incident_detail_offense_against_person_other":{"type":"list","values":["No","Yes"]},"incident_type_other":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_arson":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_burglary":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_theft":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_mischief":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_trespassing":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_vehicle_theft_prowl":{"type":"list","values":["No","Yes"]},"incident_detail_property_offense_other":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_public_disturbance":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_drug_related":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_sex_related":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_weapon_related":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_transit_related":{"type":"list","values":["No","Yes"]},"incident_detail_public_order_offense_other":{"type":"list","values":["No","Yes"]},"incident_detail_vehicle_offense_dui":{"type":"list","values":["No","Yes"]},"incident_detail_vehicle_offense_accident":{"type":"list","values":["No","Yes"]},"incident_detail_vehicle_offense_moving_violation":{"type":"list","values":["No","Yes"]},"incident_detail_vehicle_offense_non_moving_violation":{"type":"list","values":["No","Yes"]},"incident_detail_vehicle_offense_other":{"type":"list","values":["No","Yes"]},"incident_detail_civil_caretaking_mental_health_wellness_check":{"type":"list","values":["No","Yes"]},"incident_detail_civil_caretaking_civil_infraction":{"type":"list","values":["No","Yes"]},"incident_detail_civil_caretaking_eviction_order_enforcement":{"type":"list","values":["No","Yes"]},"incident_detail_civil_caretaking_domestic_order_enforcement":{"type":"list","values":["No","Yes"]},"incident_detail_civil_caretaking_other":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_assault":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_homicide":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_rape":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_robbery":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_civil_order_violation":{"type":"list","values":["No","Yes"]},"arrest_detail_offense_against_person_other":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_arson":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_burglary":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_theft":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_mischief":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_trespassing":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_vehicle_theft_prowl":{"type":"list","values":["No","Yes"]},"arrest_detail_property_offense_other":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_public_disturbance":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_drug_related":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_sex_related":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_weapon_related":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_transit_related":{"type":"list","values":["No","Yes"]},"arrest_detail_public_order_offense_other":{"type":"list","values":["No","Yes"]},"arrest_detail_vehicle_offense_dui":{"type":"list","values":["No","Yes"]},"arrest_detail_vehicle_offense_accident":{"type":"list","values":["No","Yes"]},"arrest_detail_vehicle_offense_moving_violation":{"type":"list","values":["No","Yes"]},"arrest_detail_vehicle_offense_non_moving_violation":{"type":"list","values":["No","Yes"]},"arrest_detail_vehicle_offense_other":{"type":"list","values":["No","Yes"]},"arrest_reason_obstruction_resistance":{"type":"list","values":["No","Yes"]},"arrest_reason_person_crime":{"type":"list","values":["No","Yes"]},"arrest_reason_property_crime":{"type":"list","values":["No","Yes"]},"arrest_reason_offense_against_public_order":{"type":"list","values":["No","Yes"]},"arrest_reason_vehicle_violation":{"type":"list","values":["No","Yes"]},"arrest_reason_warrant":{"type":"list","values":["No","Yes"]},"arrest_reason_other":{"type":"list","values":["No","Yes"]},"canine":{"type":"list","values":["No","Yes"]},"incident_type_pedestrian_stop":{"type":"list","values":["No","Yes"]},"time_to_force":{"type":"list","values":["Immediate","Less than 1 minute","1-5:59 minutes","6-10:59 minutes","11 minutes or more"]},"pit_manuever":{"type":"list","values":["A PIT maneuver (Precision Immobilization Technique)over 40mph","A PIT maneuver (Precision Immobilization Technique) under 40mph","Not a PIT maneuver (Precision Immobilization Technique)"]},"incident_location_detail":{"type":"list","values":["Unincorporated Area","State HWY","Interstate HWY","City"]},"subject_injury_unknown":{"type":"list","values":["No","Yes"]},"agency_name":{"type":"list","values":["Aberdeen Police Department","Adams County Sheriff's Office","Airway Heights Police Department","Algona Police Department","Anacortes Police Department","Arlington Police Department","Asotin County Sheriff's Office","Asotin Police Department","Auburn Police Department","Bainbridge Island Police Department","Battle Ground Police Department","Beaux Arts Police Department","Bellevue Police Department","Bellingham Police Department","Benton County Sheriff's Office","Bingen-White Salmon Police Department","Black Diamond Police Department","Blaine Police Department","Bonney Lake Police Department","Bothell Police Department","Bremerton Police Department","Brewster Police Department","Brier Police Department","Buckley Police Department","Burien Police Department","Burlington Police Department","Camas Police Department","Carnation Police Department","Castle Rock Police Department","Central Washington University Police and Public Safety","Centralia Police Department","Chehalis Police Department","Chehalis Tribal Public Safety Department","Chelan County Sheriff's Office","Cheney Police Department","Chewelah Police Department","Clallam County Sheriff's Office","Clark County Sheriff's Office","Clarkston Police Department","Cle Elum-Roslyn Police Department","Clyde Hill Police Department","Colfax Police Department","College Place Police Department","Colton Police Department","Columbia County Sheriff's Office","Colville Police Department","Colville Tribal Police","Connell Police Department","Cosmopolis Police Department","Coulee City Police Department","Coulee Dam Police Department","Coupeville Marshal's Office","Covington Police Department","Cowlitz County Sheriff's Office","Cowlitz Indian Tribal Public Safety Department","Darrington Police Department","Des Moines Police Department","Douglas County Sheriff's Office","DuPont Police Department","Duvall Police Department","East Wenatchee Police Department","Eastern Washington University Police Department","Eatonville Police Department","Edgewood Police Department","Edmonds Police Department","Ellensburg Police Department","Elma Police Department","Elwha Tribal Police","Enumclaw Police Department","Ephrata Police Department","Everett Police Department","Evergreen State College Police Department","Everson Police Department","Federal Way Police Department","Ferndale Police Department","Ferry County Sheriff's Office","Fife Police Department","Fircrest Police Department","Forks Police Department","Franklin County Sheriff's Office","Garfield County Sheriff's Office","Garfield Police Department","Gig Harbor Police Department","Gold Bar Police Department","Goldendale Police Department","Grand Coulee Police Department","Grandview Police Department","Granger Police Department","Granite Falls Police Department","Grant County Sheriff's Office","Grays Harbor County Sheriff's Office","Hoh Tribal Law Enforcement","Hoquiam Police Department","Ilwaco Police Department","Index Police Department","Island County Sheriff's Office","Issaquah Police Department","Jefferson County Sheriff's Office","Kalama Police Department","Kalispel Tribal Public Safety Department","Kelso Police Department","Kenmore Police Department","Kennewick Police Department","Kent Police Department","Kettle Falls Police Department","King County Airport Police","King County Metro Transit Police Department","King County Sheriff's Office","Kirkland Police Department","Kitsap County Sheriff's Office","Kittitas County Sheriff's Office","Kittitas Police Department","Klickitat County Sheriff's Office","La Center Police Department","La Push Tribal Police Department","Lacey Police Department","Lake Forest Park Police Department","Lake Stevens Police Department","Lakewood Police Department","Langley Police Department","Lewis County Sheriff's Office","Liberty Lake Police Department","Lincoln County Sheriff's Office","Long Beach Police Department","Longview Police Department","Lower Elwha Tribal Police Department","Lummi Nation Police Department","Lynden Police Department","Lynnwood Police Department","Mabton Police Department","Makah Tribal Police Department","Maple Valley Police Department","Marysville Police Department","Mason County Sheriff's Office","Mattawa Police Department","McCleary Police Department","Medical Lake Police Department","Medina Police Department","Mercer Island Police Department","Mill Creek Police Department","Milton Police Department","Monroe Police Department","Montesano Police Department","Morton Police Department","Moses Lake Police Department","Mount Vernon Police Department","Mountlake Terrace Police Department","Moxee Police Department","Muckleshoot Tribal Police Department","Mukilteo Police Department","Napavine Police Department","Newcastle Police Department","Newport Police Department","Nisqually Tribal Police Department","Nooksack Tribal Police Department","Normandy Park Police Department","Oak Harbor Police Department","Oakesdale Police Department","Oakville Police Department","Ocean Shores Police Department","Olympia Police Department","Omak Police Department","Oroville Police Department","Orting Police Department","Othello Police Department","Pacific County Sheriff's Office","Pacific Police Department","Palouse Police Department","Pasco Police Department","Pe Ell Police Department","Pend Oreille County Sheriff's Office","Pierce County Sheriff's Department","Pierce Transit Police Department","Port Angeles Police Department","Port Gamble S'Klallam Tribal Police Department","Port of Pasco Police Department","Port of Seattle Police Department","Port Orchard Police Department","Port Townsend Police Department","Poulsbo Police Department","Prosser Police Department","Pullman Police Department","Puyallup Police Department","Puyallup Tribal Law Enforcement","Quileute Tribal Police","Quinault Tribal Police Department","Quincy Police Department","Rainier Police Department","Raymond Police Department","Reardan Police Department","Redmond Police Department","Renton Police Department","Republic Police Department","Richland Police Department","Ridgefield Police Department","Ritzville Police Department","Rosalia Police Department","Roy Police Department","Royal City Police Department","Ruston Police Department","Sammamish Police Department","San Juan County Sheriff's Office","Sauk-Suiattle Police Department","SeaTac Police Department","Seattle Police Department","Seattle University Department of Public Safety","Sedro-Woolley Police Department","Selah Police Department","Sequim Police Department","Shelton Police Department","Shoalwater Bay Tribal Police Department","Shoreline Police Department","Skagit County Sheriff's Office","Skamania County Sheriff's Office","Skokomish Police Department","Skykomish Police Department","Snohomish County Sheriff's Office","Snohomish Police Department","Snoqualmie Police Department","Snoqualmie Tribal Police Department","Soap Lake Police Department","South Bend Police Department","Spokane County Sheriff's Office","Spokane International Airport Police Department","Spokane Police Department","Spokane Tribal Police Department","Spokane Valley Police Department","Springdale Police Department","Squaxin Island Tribe Public Safety and Justice Department","Stanwood Police Department","Steilacoom Department of Public Safety","Stevens County Sheriff's Office","Stillaguamish Police Department","Sultan Police Department","Sumas Police Department","Sumner Police Department","Sunnyside Police Department","Suquamish Police Department","Swinomish Police Department","Tacoma Police Department","Tenino Police Department","Thurston County Sheriff's Office","Tieton Police Department","Toledo Police Department","Tonasket Police Department","Toppenish Police Department","Tukwila Police Department","Tulalip Tribal Police Department","Tumwater Police Department","Twisp Police Department","Union Gap Police Department","Uniontown Police Department","University of Washington Police Department","University Place Police Department","Upper Skagit Tribal Police Department","Vader Police Department","Vancouver Police Department","Washington State Department of Corrections","Washington Department of Fish and Wildlife Enforcement","Washington Department of Labor & Industries","Department of Natural Resources Police","Washington State Department of Social and Health Services","Washington State Gambling Commission Regulation and Enforcement Unit","Washington State Medicaid Fraud Control Division","Washington State Office of Independent Investigations","Washington State Utilities and Transportation Commission","Washington State Lottery Commission","Office of the Insurance Commissioner Criminal Investigations Unit","Washington State Liquor and Cannabis Board's Enforcement","Washington State Parks and Recreation Commission","Washington State Patrol","Washington State University Police Department-Pullman campus","WSU Vancouver Public Safety","Wahkiakum County Sheriff's Office","Walla Walla County Sheriff's Office","Walla Walla Police Department","Wapato Police Department","Warden Police Department","Washougal Police Department","Wenatchee Police Department","West Richland Police Department","Western Washington University Police Department","Westport Police Department","Whatcom County Sheriff's Office","Whitman County Sheriff's Office","Wilbur Police Department","Winlock Police Department","Winthrop Marshal's Office","Woodinville Police Department","Woodland Police Department","Woodway Police Department","Yakama Nation Police Department","Yakima County Sheriff's Office","Yakima Police Department","Yarrow Point Police Department","Yelm Police Department","Zillah Police Department"]},"incident_location_county":{"type":"list","values":["Adams County","Asotin County","Benton County","Chelan County","Clallam County","Clark County","Columbia County","Cowlitz County","Douglas County","Ferry County","Franklin County","Garfield County","Grant County","Grays Harbor County","Island County","Jefferson County","King County","Kitsap County","Kittitas County","Klickitat County","Lewis County","Lincoln County","Mason County","Okanogan County","Pacific County","Pend Oreille County","Pierce County","San Juan County","Skagit County","Skamania County","Snohomish County","Spokane County","Stevens County","Thurston County","Wahkiakum County","Walla Walla County","Whatcom County","Whitman County","Yakima County"]},"incident_location_city":{"type":"list","values":["Aberdeen","Airway Heights","Albion","Algona","Almira","Anacortes","Arlington","Asotin","Auburn","Bainbridge Island","Battle Ground","Beaux Arts Village","Bellevue","Bellingham","Benton City","Bingen","Black Diamond","Blaine","Bonney Lake","Bothell","Bremerton","Brewster","Bridgeport","Brier","Buckley","Bucoda","Burien","Burlington","Camas","Carbonado","Carnation","Cashmere","Castle Rock","Cathlamet","Centralia","Chehalis","Chelan","Cheney","Chewelah","Clarkston","Cle Elum","Clyde Hill","Colfax","College Place","Colton","Colville","Conconully","Concrete","Connell","Cosmopolis","Coulee City","Coulee Dam","Coupeville","Covington","Creston","Cusick","Darrington","Davenport","Dayton","Deer Park","Des Moines","DuPont","Duvall","East Wenatchee","Eatonville","Edgewood","Edmonds","Electric City","Ellensburg","Elma","Elmer City","Endicott","Entiat","Enumclaw","Ephrata","Everett","Everson","Fairfield","Farmington","Federal Way","Ferndale","Fife","Fircrest","Forks","Friday Harbor","Garfield","George","Gig Harbor","Gold Bar","Goldendale","Grand Coulee","Grandview","Granger","Granite Falls","Hamilton","Harrah","Harrington","Hartline","Hatton","Hoquiam","Hunts Point","Ilwaco","Index","Ione","Issaquah","Kahlotus","Kalama","Kelso","Kenmore","Kennewick","Kent","Kettle Falls","Kirkland","Kittitas","Krupp","La Center","La Conner","Lacey","LaCrosse","Lake Forest Park","Lake Stevens","Lakewood","Lamont","Langley","Latah","Leavenworth","Liberty Lake","Lind","Long Beach","Longview","Lyman","Lynden","Lynnwood","Mabton","Malden","Mansfield","Maple Valley","Marcus","Marysville","Mattawa","McCleary","Medical Lake","Medina","Mercer Island","Mesa","Metaline","Metaline Falls","Mill Creek","Millwood","Milton","Monroe","Montesano","Morton","Moses Lake","Mossyrock","Mount Vernon","Mountlake Terrace","Moxee","Mukilteo","Naches","Napavine","Nespelem","Newcastle","Newport","Nooksack","Normandy Park","North Bend","North Bonneville","Northport","Oak Harbor","Oakesdale","Oakville","Ocean Shores","Odessa","Okanogan","Olympia","Omak","Oroville","Orting","Othello","Pacific","Palouse","Pasco","Pateros","Pe Ell","Pomeroy","Port Angeles","Port Orchard","Port Townsend","Poulsbo","Prescott","Prosser","Pullman","Puyallup","Quincy","Rainier","Raymond","Reardan","Redmond","Renton","Republic","Richland","Ridgefield","Ritzville","Riverside","Rock Island","Rockford","Rosalia","Roslyn","Roy","Royal City","Ruston","Sammamish","SeaTac","Seattle","Sedro-Woolley","Selah","Sequim","Shelton","Shoreline","Skykomish","Snohomish","Snoqualmie","Soap Lake","South Bend","South Cle Elum","South Prairie","Spangle","Spokane","Spokane Valley","Sprague","Springdale","St. John","Stanwood","Starbuck","Steilacoom","Stevenson","Sultan","Sumas","Sumner","Sunnyside","Tacoma","Tekoa","Tenino","Tieton","Toledo","Tonasket","Toppenish","Tukwila","Tumwater","Twisp","Union Gap","Uniontown","University Place","Vader","Vancouver","Waitsburg","Walla Walla","Wapato","Warden","Washougal","Washtucna","Waterville","Waverly","Wenatchee","West Richland","Westport","White Salmon","Wilbur","Wilkeson","Wilson Creek","Winlock","Winthrop","Woodinville","Woodland","Woodway","Yacolt","Yakima","Yarrow Point","Yelm","Zillah"]},"ori":{"type":"pattern","pattern":"^[A-Z0-9]{9}$","description":"9-character alphanumeric"},"incident_date":{"type":"date","format":["MM/DD/YYYY","YYYY-MM-DD"]},"incident_time":{"type":"time","format":"HH:MM"},"arrest_reason_other_specify":{"type":"list","values":["1","2","Yes","No"]},"arrest_detail_offense_against_person_other_specify":{"type":"list","values":["1","2","Yes","No"]},"arrest_detail_property_offense_other_specify":{"type":"list","values":["1","2","Yes","No"]},"arrest_detail_public_order_offense_other_specify":{"type":"list","values":["1","2","Yes","No"]},"arrest_detail_vehicle_offense_other_specify":{"type":"list","values":["1","2","Yes","No"]},"officers_total":{"type":"number","min":0,"max":99},"officers_force":{"type":"number","min":0,"max":99},"persons_total":{"type":"number","min":0,"max":99},"subjects_force":{"type":"number","min":0,"max":99},"subject_age":{"type":"number","min":0,"max":120},"officer_years_of_service":{"type":"number","min":0,"max":50}}};
+
+        let cur_res = null;
+        let cur_file = '';
+
+//init
+        document.addEventListener('DOMContentLoaded', function() {
+            setup_drop();
+            setup_input();
+            load_ext_template(); //try_load_external_template
+        });
+
+        function setup_drop() {
+            const dz = document.getElementById('dropZone');
+            const fi = document.getElementById('fileInput');
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => {
+                dz.addEventListener(e, prev, false);
+                document.body.addEventListener(e, prev, false);
+            });
+
+            ['dragenter', 'dragover'].forEach(e => {
+                dz.addEventListener(e, () => dz.classList.add('drag-over'), false);
+            });
+
+            ['dragleave', 'drop'].forEach(e => {
+                dz.addEventListener(e, () => dz.classList.remove('drag-over'), false);
+            });
+
+            dz.addEventListener('drop', handle_drop, false);
+            dz.addEventListener('click', () => fi.click());
+        }
+
+        function setup_input() {
+            document.getElementById('fileInput').addEventListener('change', function(e) {
+                if (e.target.files[0]) handle_file(e.target.files[0]);
+            });
+
+            //template_input_handler
+            document.getElementById('templateInput').addEventListener('change', function(e) {
+                if (e.target.files[0]) update_template(e.target.files[0]);
+            });
+        }
+
+        function prev(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+
+        function handle_drop(e) {
+            const dt = e.dataTransfer;
+            if (dt.files.length > 0) handle_file(dt.files[0]);
+        }
+
+        function handle_file(f) {
+            if (!f.name.toLowerCase().endsWith('.csv')) {
+                toast('CSV files only', 'error');
+                return;
+            }
+
+            cur_file = f.name;
+            show_prog();
+
+            const r = new FileReader();
+            r.onload = function(e) { process_csv(e.target.result); };
+            r.onerror = function() { hide_prog(); toast('Read error', 'error'); };
+            r.readAsText(f);
+        }
+
+        //template_loading_functions
+        function update_template(f) {
+            if (!f.name.toLowerCase().endsWith('.json')) {
+                toast('JSON files only', 'error');
+                return;
+            }
+
+            const r = new FileReader();
+            r.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.headers && data.validations) {
+                        TPL.headers = data.headers;
+                        TPL.validations = data.validations;
+                        document.getElementById('templateStatus').textContent = `Template updated (${data.headers.length} headers)`;
+                        toast('Template updated successfully', 'success');
+                    } else {
+                        toast('Invalid template format', 'error');
+                    }
+                } catch (err) {
+                    toast('Failed to parse template', 'error');
+                }
+            };
+            r.onerror = function() { toast('Template read error', 'error'); };
+            r.readAsText(f);
+        }
+
+        async function load_ext_template() {
+            try {
+                const response = await fetch('../templates/wadeps_uof_template.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    TPL.headers = data.headers;
+                    TPL.validations = data.validations;
+                    document.getElementById('templateStatus').textContent = `External template loaded (${data.headers.length} headers)`;
+                }
+            } catch (e) {
+                //use_embedded_template_as_fallback
+                document.getElementById('templateStatus').textContent = 'Using embedded template';
+            }
+        }
+
+        function process_csv(c) {
+            try {
+                const lines = c.split(/\r?\n/);
+                const hdrs = parse_line(lines[0]);
+                const rows = [];
+
+                for (let i = 1; i < lines.length; i++) {
+                    if (lines[i].trim()) {
+                        const vals = parse_line(lines[i]);
+                        const row = {};
+                        hdrs.forEach((h, idx) => { row[h] = vals[idx] || ''; });
+                        rows.push(row);
+                    }
+                }
+
+                cur_res = validate(hdrs, rows);
+                display(cur_res);
+                hide_prog();
+
+                //show_success_message
+                const banner = document.createElement('div');
+                banner.className = 'success-banner show';
+                banner.innerHTML = `File processed successfully!<br><span style="font-size:0.8em;">Scroll down to see results</span><span class="arrow">↓</span>`;
+                document.body.appendChild(banner);
+                setTimeout(() => {
+                    banner.classList.remove('show');
+                    setTimeout(() => document.body.removeChild(banner), 500);
+                }, 2500);
+
+                const ec = cur_res.data_val.errors.length;
+                toast(ec === 0 ? '✓ Validation complete - see results below' : `⚠ ${ec} error(s) found - see details below`, ec === 0 ? 'success' : 'error');
+
+            } catch (e) {
+                hide_prog();
+                toast('Error: ' + e.message, 'error');
+            }
+        }
+
+        function parse_line(l) {
+            const res = [];
+            let cur = '';
+            let inq = false;
+
+            for (let i = 0; i < l.length; i++) {
+                const ch = l[i];
+                const nx = l[i + 1];
+
+                if (ch === '"') {
+                    if (inq && nx === '"') {
+                        cur += '"';
+                        i++;
+                    } else {
+                        inq = !inq;
+                    }
+                } else if (ch === ',' && !inq) {
+                    res.push(cur.trim());
+                    cur = '';
+                } else {
+                    cur += ch;
+                }
+            }
+
+            res.push(cur.trim());
+            return res;
+        }
+
+        function validate(csv_h, rows) {
+            const res = {
+                file: cur_file,
+                timestamp: new Date().toISOString(),
+                hdr_val: { matching: [], missing: [], extra: [], is_valid: false },
+                data_val: { errors: [], warnings: [], total_rows: rows.length },
+                subj_val: { unknown_ct: 0, name_ct: 0, invalid_ct: 0, examples: [] }
+            };
+
+//header_check
+            const tpl_set = new Set(TPL.headers);
+            const csv_set = new Set(csv_h);
+
+            res.hdr_val.matching = csv_h.filter(h => tpl_set.has(h));
+            res.hdr_val.missing = TPL.headers.filter(h => !csv_set.has(h));
+            res.hdr_val.extra = csv_h.filter(h => !tpl_set.has(h));
+            res.hdr_val.is_valid = res.hdr_val.missing.length === 0;
+
+//row_validation
+            rows.forEach((row, idx) => {
+                const rn = idx + 2;
+
+                for (const h of csv_h) {
+                    const v = row[h];
+                    if (v && TPL.validations[h]) {
+                        const err = val_field(h, v, rn);
+                        if (err) res.data_val.errors.push(err);
+                    }
+                }
+
+                if (row['subject_id']) {
+                    const se = val_subj(row['subject_id'], rn);
+                    if (se) {
+                        if (se.type === 'unknown') res.subj_val.unknown_ct++;
+                        else if (se.type === 'name') res.subj_val.name_ct++;
+                        else if (se.type === 'invalid') res.subj_val.invalid_ct++;
+                        if (res.subj_val.examples.length < 5) res.subj_val.examples.push(se);
+                    }
+                }
+            });
+
+            return res;
+        }
+
+        function val_field(h, v, rn) {
+            const r = TPL.validations[h];
+            if (!r || !v.trim()) return null;
+
+            const cv = v.trim();
+
+            if (r.type === 'list') {
+                if (!r.values.includes(cv)) {
+                    if (r.values.length === 2 && r.values.includes('Yes') && r.values.includes('No')) {
+                        const lv = cv.toLowerCase();
+                        if (lv !== 'yes' && lv !== 'no') {
+                            return { row: rn, column: h, value: cv, error: `Must be: ${r.values.join(', ')}`, severity: 'error' };
+                        }
+                    } else {
+                        return { row: rn, column: h, value: cv, error: `Must be: ${r.values.slice(0, 5).join(', ')}${r.values.length > 5 ? '...' : ''}`, severity: 'error' };
+                    }
+                }
+            } else if (r.type === 'date') {
+                const dp1 = /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/;
+                const dp2 = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+                if (!dp1.test(cv) && !dp2.test(cv)) {
+                    return { row: rn, column: h, value: cv, error: 'Invalid date format', severity: 'error' };
+                }
+            } else if (r.type === 'time') {
+                if (!/^\d{2}:\d{2}$/.test(cv)) {
+                    return { row: rn, column: h, value: cv, error: 'Invalid time format', severity: 'error' };
+                }
+            } else if (r.type === 'number') {
+                const n = parseFloat(cv);
+                if (isNaN(n)) return { row: rn, column: h, value: cv, error: 'Must be number', severity: 'error' };
+                if (r.min !== undefined && n < r.min) return { row: rn, column: h, value: cv, error: `Must be >= ${r.min}`, severity: 'error' };
+                if (r.max !== undefined && n > r.max) return { row: rn, column: h, value: cv, error: `Must be <= ${r.max}`, severity: 'error' };
+            } else if (r.type === 'pattern') {
+                if (!new RegExp(r.pattern).test(cv.toUpperCase())) {
+                    return { row: rn, column: h, value: cv, error: r.description || `Pattern: ${r.pattern}`, severity: 'error' };
+                }
+            }
+
+            return null;
+        }
+
+        function val_subj(v, rn) {
+            if (!v || !v.trim()) return null;
+            const val = v.trim();
+
+            if (val.toLowerCase() === 'unknown' || val.toLowerCase() === 'unk') {
+                return { row: rn, value: val, type: 'unknown', error: 'Not "unknown"' };
+            }
+
+            if (val.includes(' ')) {
+                const p = val.split(' ');
+                if (p.length >= 2 && p.some(x => x.length > 3)) {
+                    return { row: rn, value: val, type: 'name', error: 'Use initials' };
+                }
+            }
+
+            if (!/^[A-Za-z]{1,4}$|^[A-Za-z](\.[A-Za-z])*\.?$/.test(val)) {
+                return { row: rn, value: val, type: 'invalid', error: 'Must be initials' };
+            }
+
+            return null;
+        }
+
+        function display(res) {
+            document.getElementById('validationResults').classList.add('active');
+
+            //scroll_to_results
+            setTimeout(() => {
+                document.getElementById('validationResults').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
+
+            const has_err = res.data_val.errors.length > 0 || !res.hdr_val.is_valid;
+            const has_warn = res.data_val.warnings.length > 0;
+            const has_subj = res.subj_val.unknown_ct + res.subj_val.name_ct + res.subj_val.invalid_ct > 0;
+
+            const si = document.getElementById('statusIcon');
+            const se = document.getElementById('statusEmoji');
+            const st = document.getElementById('statusTitle');
+            const sm = document.getElementById('statusMessage');
+
+            if (has_err) {
+                si.className = 'status-icon error';
+                se.textContent = '✕';
+                st.textContent = 'Failed';
+                sm.textContent = `${res.data_val.errors.length} error(s)`;
+            } else if (has_warn || has_subj) {
+                si.className = 'status-icon warning';
+                se.textContent = '⚠';
+                st.textContent = 'Warnings';
+                sm.textContent = 'Review issues';
+            } else {
+                si.className = 'status-icon success';
+                se.textContent = '✓';
+                st.textContent = 'Passed';
+                sm.textContent = 'Ready';
+            }
+
+            document.getElementById('rowsCard').querySelector('.value').textContent = res.data_val.total_rows;
+            const hc = document.getElementById('headersCard');
+            hc.querySelector('.value').textContent = res.hdr_val.matching.length;
+            hc.className = res.hdr_val.is_valid ? 'summary-card success' : 'summary-card error';
+
+            const ec = document.getElementById('errorsCard');
+            ec.querySelector('.value').textContent = res.data_val.errors.length;
+            ec.className = res.data_val.errors.length === 0 ? 'summary-card success' : 'summary-card error';
+
+            const wc = document.getElementById('warningsCard');
+            wc.querySelector('.value').textContent = res.data_val.warnings.length + has_subj;
+            wc.className = (res.data_val.warnings.length + has_subj) === 0 ? 'summary-card success' : 'summary-card warning';
+
+            disp_hdrs(res.hdr_val);
+            disp_errs(res.data_val.errors);
+            disp_warns(res.data_val.warnings);
+            disp_subj(res.subj_val);
+            setup_filter(res.data_val.errors);
+        }
+
+        function disp_hdrs(hv) {
+            const c = document.getElementById('headerResults');
+            let h = '';
+
+            if (hv.missing.length > 0) {
+                h += `<div class="help-text" style="border-color:#ef4444;background:#fee2e2;"><h4 style="color:#dc2626;">Missing (${hv.missing.length})</h4><ul style="margin-top:10px;color:#dc2626;">${hv.missing.slice(0,10).map(x=>`<li>${x}</li>`).join('')}${hv.missing.length>10?`<li>...+${hv.missing.length-10}</li>`:''}</ul></div>`;
+            }
+
+            if (hv.extra.length > 0) {
+                h += `<div class="help-text" style="border-color:#f59e0b;background:#fef3c7;"><h4 style="color:#d97706;">Extra (${hv.extra.length})</h4><ul style="margin-top:10px;color:#d97706;">${hv.extra.slice(0,10).map(x=>`<li>${x}</li>`).join('')}${hv.extra.length>10?`<li>...+${hv.extra.length-10}</li>`:''}</ul></div>`;
+            }
+
+            if (hv.is_valid) {
+                h += `<div class="help-text" style="border-color:#1F5027;background:#deede3;"><h4 style="color:#1F5027;">Valid</h4><p style="color:#1F5027;">${hv.matching.length} headers OK</p></div>`;
+            }
+
+            c.innerHTML = h || '<div class="empty-state"><div class="empty-state-icon">✓</div><p>OK</p></div>';
+        }
+
+        function disp_errs(errs) {
+            const c = document.getElementById('errorResults');
+            if (errs.length === 0) {
+                c.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✓</div><p>No errors</p></div>';
+                return;
+            }
+
+            let h = '<table class="error-table"><thead><tr><th>Row</th><th>Column</th><th>Value</th><th>Error</th></tr></thead><tbody>';
+            errs.slice(0,100).forEach(e => {
+                h += `<tr><td>${e.row}</td><td>${e.column}</td><td>${e.value}</td><td>${e.error}</td></tr>`;
+            });
+            if (errs.length > 100) h += `<tr><td colspan="4" style="text-align:center;font-style:italic;">...+${errs.length-100}</td></tr>`;
+            h += '</tbody></table>';
+            c.innerHTML = h;
+        }
+
+        function disp_warns(warns) {
+            const c = document.getElementById('warningResults');
+            if (warns.length === 0) {
+                c.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✓</div><p>No warnings</p></div>';
+                return;
+            }
+
+            let h = '<table class="error-table"><thead><tr><th>Row</th><th>Column</th><th>Value</th><th>Warning</th></tr></thead><tbody>';
+            warns.forEach(w => {
+                h += `<tr><td>${w.row}</td><td>${w.column}</td><td>${w.value}</td><td>${w.error}</td></tr>`;
+            });
+            h += '</tbody></table>';
+            c.innerHTML = h;
+        }
+
+        function disp_subj(sv) {
+            const c = document.getElementById('subjectIdResults');
+            const tot = sv.unknown_ct + sv.name_ct + sv.invalid_ct;
+
+            if (tot === 0) {
+                c.innerHTML = '<div class="empty-state"><div class="empty-state-icon">✓</div><p>IDs OK</p></div>';
+                return;
+            }
+
+            let h = `<div class="summary-cards" style="margin-bottom:20px;"><div class="summary-card error"><div class="value">${sv.unknown_ct}</div><div class="label">Unknown</div></div><div class="summary-card error"><div class="value">${sv.name_ct}</div><div class="label">Names</div></div><div class="summary-card error"><div class="value">${sv.invalid_ct}</div><div class="label">Invalid</div></div></div>`;
+
+            if (sv.examples.length > 0) {
+                h += '<h4>Examples:</h4><table class="error-table"><thead><tr><th>Row</th><th>Value</th><th>Issue</th></tr></thead><tbody>';
+                sv.examples.forEach(ex => {
+                    h += `<tr><td>${ex.row}</td><td>${ex.value}</td><td>${ex.error}</td></tr>`;
+                });
+                h += '</tbody></table>';
+            }
+
+            c.innerHTML = h;
+        }
+
+        function setup_filter(errs) {
+            const fs = document.getElementById('errorFilter');
+            const si = document.getElementById('errorSearch');
+            const cols = [...new Set(errs.map(e => e.column))].sort();
+
+            fs.innerHTML = '<option value="">All</option>';
+            cols.forEach(col => {
+                const ct = errs.filter(e => e.column === col).length;
+                fs.innerHTML += `<option value="${col}">${col} (${ct})</option>`;
+            });
+
+            fs.addEventListener('change', filter_errs);
+            si.addEventListener('input', filter_errs);
+        }
+
+        function filter_errs() {
+            const fc = document.getElementById('errorFilter').value;
+            const st = document.getElementById('errorSearch').value.toLowerCase();
+            const errs = cur_res.data_val.errors;
+
+            const filt = errs.filter(e => {
+                const cm = !fc || e.column === fc;
+                const sm = !st || e.column.toLowerCase().includes(st) || e.value.toLowerCase().includes(st) || e.error.toLowerCase().includes(st);
+                return cm && sm;
+            });
+
+            disp_errs(filt);
+        }
+
+        function tab(tn) {
+            //tab_switch
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tn + 'Tab').classList.add('active');
+        }
+
+        function show_prog() {
+            const bar = document.getElementById('progressBar');
+            const fill = document.getElementById('progressBarFill');
+            bar.classList.add('active');
+            let p = 0;
+            const i = setInterval(() => {
+                p += 10;
+                fill.style.width = p + '%';
+                if (p >= 90) clearInterval(i);
+            }, 50);
+        }
+
+        function hide_prog() {
+            const bar = document.getElementById('progressBar');
+            const fill = document.getElementById('progressBarFill');
+            fill.style.width = '100%';
+            setTimeout(() => {
+                bar.classList.remove('active');
+                fill.style.width = '0';
+            }, 300);
+        }
+
+        function toast(msg, type) {
+            const t = document.getElementById('toast');
+            const icon = document.getElementById('toastIcon');
+            const txt = document.getElementById('toastMessage');
+            t.className = 'toast show ' + type;
+            icon.textContent = type === 'success' ? '✓' : '✕';
+            txt.textContent = msg;
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function reset() {
+            document.getElementById('validationResults').classList.remove('active');
+            document.getElementById('fileInput').value = '';
+            cur_res = null;
+            cur_file = '';
+            document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === 0));
+            document.querySelectorAll('.tab-content').forEach((c, i) => c.classList.toggle('active', i === 0));
+        }
+
+        function dl_report(fmt) {
+            if (!cur_res) return;
+            let cont, fn, mime;
+            if (fmt === 'json') {
+                cont = JSON.stringify(cur_res, null, 2);
+                fn = cur_file.replace('.csv', '') + '_validation.json';
+                mime = 'application/json';
+            } else {
+                cont = gen_txt(cur_res);
+                fn = cur_file.replace('.csv', '') + '_validation.txt';
+                mime = 'text/plain';
+            }
+            const blob = new Blob([cont], { type: mime });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fn;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            toast('Report downloaded successfully', 'success');
+        }
+
+        function gen_txt(res) {
+            let rpt = [];
+            rpt.push('WADEPS VALIDATION REPORT');
+            rpt.push('='.repeat(60));
+            rpt.push(`File: ${res.file}`);
+            rpt.push(`Date: ${new Date(res.timestamp).toLocaleString()}`);
+            rpt.push('');
+
+            if (res.hdr_val.missing.length > 0) {
+                rpt.push('MISSING HEADERS:');
+                res.hdr_val.missing.slice(0, 20).forEach(h => rpt.push(`  - ${h}`));
+                if (res.hdr_val.missing.length > 20) {
+                    rpt.push(`  ... and ${res.hdr_val.missing.length - 20} more`);
+                }
+                rpt.push('');
+            }
+
+            if (res.hdr_val.extra.length > 0) {
+                rpt.push('EXTRA HEADERS:');
+                res.hdr_val.extra.slice(0, 20).forEach(h => rpt.push(`  - ${h}`));
+                if (res.hdr_val.extra.length > 20) {
+                    rpt.push(`  ... and ${res.hdr_val.extra.length - 20} more`);
+                }
+                rpt.push('');
+            }
+
+            if (res.data_val.errors.length > 0) {
+                rpt.push(`DATA VALIDATION ERRORS (${res.data_val.errors.length}):`);
+                const ec = {};
+                res.data_val.errors.forEach(e => {
+                    if (!ec[e.column]) ec[e.column] = [];
+                    ec[e.column].push(e);
+                });
+                Object.keys(ec).sort().forEach(col => {
+                    const errs = ec[col];
+                    rpt.push(`  ${col}: ${errs.length} error(s)`);
+                    errs.slice(0, 3).forEach(e => rpt.push(`    Row ${e.row}: "${e.value}" - ${e.error}`));
+                    if (errs.length > 3) rpt.push(`    ... and ${errs.length - 3} more`);
+                });
+                rpt.push('');
+            }
+
+            const st = res.subj_val.unknown_ct + res.subj_val.name_ct + res.subj_val.invalid_ct;
+            if (st > 0) {
+                rpt.push(`SUBJECT ID ISSUES (${st}):`);
+                rpt.push(`  Unknown values: ${res.subj_val.unknown_ct}`);
+                rpt.push(`  Full names: ${res.subj_val.name_ct}`);
+                rpt.push(`  Invalid format: ${res.subj_val.invalid_ct}`);
+                if (res.subj_val.examples.length > 0) {
+                    rpt.push('  Examples:');
+                    res.subj_val.examples.forEach(ex => rpt.push(`    Row ${ex.row}: "${ex.value}" - ${ex.error}`));
+                }
+                rpt.push('');
+            }
+
+            rpt.push('SUMMARY:');
+            rpt.push(`  Total rows: ${res.data_val.total_rows}`);
+            rpt.push(`  Headers valid: ${res.hdr_val.is_valid ? 'Yes' : 'No'}`);
+            rpt.push(`  Validation errors: ${res.data_val.errors.length}`);
+            rpt.push(`  Warnings: ${res.data_val.warnings.length}`);
+            rpt.push(`  Subject ID issues: ${st}`);
+            rpt.push('');
+
+            if (res.data_val.errors.length === 0 && res.hdr_val.is_valid) {
+                rpt.push('STATUS: PASSED - File meets all requirements');
+            } else {
+                rpt.push('STATUS: FAILED - Issues must be fixed before submission. Please contact wadeps.techsupport.servicedesk@wsu.edu for technical support');
+            }
+            return rpt.join('\n');
+        }
+    </script>
+</body>
+</html>

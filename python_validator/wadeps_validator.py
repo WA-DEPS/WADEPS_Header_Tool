@@ -5,7 +5,6 @@ Validates CSV files against WADEPS SmartForm Template requirements
 
 import json
 import csv
-import openpyxl
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import re
@@ -19,196 +18,26 @@ class WADEPSValidator:
     """WADEPS data validation class"""
     
     def __init__(self, template_path: str = None):
-        self.template_path = template_path or "WADEPS_Smartform_Template.xlsx"
+        self.template_path = template_path or "../templates/wadeps_uof_template.json"
         self.headers = []
         self.validations = {}
         
-    def extract_template_data(self) -> Dict[str, Any]:
-        """Extract headers and validation rules from Excel template"""
+    def load_template_data(self) -> Dict[str, Any]:
+        """Load headers and validation rules from JSON template"""
         print(f"Reading template: {self.template_path}")
-        
+
         try:
-            wb = openpyxl.load_workbook(self.template_path, data_only=False)
-            
-#extract_reference_lists
-            reference_lists = {}
-            
-#agency_names_sheet
-            if "List of Agency Names" in wb.sheetnames:
-                print("Found agency names sheet")
-                agency_ws = wb["List of Agency Names"]
-                agency_names = []
-                for row in agency_ws.iter_rows(values_only=True):
-                    for cell in row:
-                        if cell and str(cell).strip():
-                            agency_names.append(str(cell).strip())
-                if agency_names:
-                    reference_lists['agency_names'] = agency_names
-                    print(f"  {len(agency_names)} agency names")
-            
-#counties_sheet
-            if "Washington Counties" in wb.sheetnames:
-                print("Found counties sheet")
-                county_ws = wb["Washington Counties"]
-                counties = []
-                for row in county_ws.iter_rows(values_only=True):
-                    for cell in row:
-                        if cell and str(cell).strip():
-                            counties.append(str(cell).strip())
-                if counties:
-                    reference_lists['Washington Counties'] = counties
-                    print(f"  {len(counties)} counties")
-            
-#cities_sheet
-            if "Washington Cities & Towns" in wb.sheetnames:
-                print("Found cities sheet")
-                city_ws = wb["Washington Cities & Towns"]
-                cities = []
-                for row in city_ws.iter_rows(values_only=True):
-                    for cell in row:
-                        if cell and str(cell).strip():
-                            cities.append(str(cell).strip())
-                if cities:
-                    reference_lists['Washington Cities & Towns'] = cities
-                    print(f"  {len(cities)} cities")
-            
-#other_list_sheets
-            for sheet_name in wb.sheetnames:
-                if 'list' in sheet_name.lower() and sheet_name not in ["List of Agency Names"]:
-                    print(f"List sheet: {sheet_name}")
-                    list_ws = wb[sheet_name]
-                    list_values = []
-                    for row in list_ws.iter_rows(values_only=True):
-                        for cell in row:
-                            if cell and str(cell).strip():
-                                list_values.append(str(cell).strip())
-                    if list_values:
-                        reference_lists[sheet_name] = list_values
-                        print(f"  {len(list_values)} values")
-            
-#find_main_template_sheet
-            sheet_name = 'Wadeps Smart Template'
-            if sheet_name not in wb.sheetnames:
-                sheet_name = wb.sheetnames[0]
-                print(f"Using sheet: {sheet_name}")
-            
-            ws = wb[sheet_name]
-            
-#extract_headers_from_row_1
-            headers = []
-            for col in range(1, ws.max_column + 1):
-                cell = ws.cell(row=1, column=col)
-                if cell.value:
-                    headers.append(str(cell.value).strip())
-                else:
-                    break
-            
-            print(f"{len(headers)} headers")
-            
-#extract_data_validations
-            validations = {}
-            dropdown_count = 0
-            
-            for dv in ws.data_validations.dataValidation:
-                if dv.type == 'list' and dv.formula1:
-                    for cell_range in dv.cells.ranges:
-                        col_match = re.match(r'([A-Z]+)', str(cell_range))
-                        if col_match:
-                            col_letter = col_match.group(1)
-                            col_index = openpyxl.utils.column_index_from_string(col_letter)
-                            
-                            if col_index <= len(headers):
-                                header_name = headers[col_index - 1]
-                                
-                                if dv.formula1.startswith('"') and dv.formula1.endswith('"'):
-#direct_list
-                                    dropdown_values = [v.strip() for v in dv.formula1.strip('"').split(',')]
-                                    validations[header_name] = {
-                                        'type': 'list',
-                                        'values': dropdown_values
-                                    }
-                                    dropdown_count += 1
-                                elif dv.formula1.startswith('$'):
-#range_reference
-                                    try:
-                                        ref_range = dv.formula1.replace('$', '')
-                                        range_values = []
-                                        for row in ws[ref_range]:
-                                            for cell in row:
-                                                if cell.value is not None:
-                                                    range_values.append(str(cell.value).strip())
-                                        if range_values:
-                                            validations[header_name] = {
-                                                'type': 'list',
-                                                'values': range_values
-                                            }
-                                            dropdown_count += 1
-                                    except:
-                                        pass
-                                elif dv.formula1.startswith("'"):
-#sheet_reference
-                                    print(f"  {header_name}: References {dv.formula1}")
-                                    match = re.match(r"'([^']+)'!", dv.formula1)
-                                    if match:
-                                        ref_sheet_name = match.group(1)
-                                        if ref_sheet_name in reference_lists:
-                                            validations[header_name] = {
-                                                'type': 'list',
-                                                'values': reference_lists[ref_sheet_name]
-                                            }
-                                            dropdown_count += 1
-                                            print(f"    Resolved to {len(reference_lists[ref_sheet_name])} values")
-            
-            wb.close()
-            
-#add_agency_name_if_missing
-            if 'agency_name' not in validations and 'agency_names' in reference_lists:
-                validations['agency_name'] = {
-                    'type': 'list',
-                    'values': reference_lists['agency_names']
-                }
-                print(f"  agency_name from reference list")
-                dropdown_count += 1
-            
-#add_county_fields
-            if 'Washington Counties' in reference_lists:
-                for header in headers:
-                    if 'county' in header.lower() and header not in validations:
-                        validations[header] = {
-                            'type': 'list',
-                            'values': reference_lists['Washington Counties']
-                        }
-                        print(f"  {header} from Washington Counties")
-                        dropdown_count += 1
-            
-#add_city_fields
-            if 'Washington Cities & Towns' in reference_lists:
-                for header in headers:
-                    if 'city' in header.lower() and 'ethnicity' not in header.lower() and header not in validations:
-                        validations[header] = {
-                            'type': 'list',
-                            'values': reference_lists['Washington Cities & Towns']
-                        }
-                        print(f"  {header} from Washington Cities & Towns")
-                        dropdown_count += 1
-            
-#template_processing_done
-            
-            print(f"{dropdown_count} dropdown validations")
-            print(f"Total validation rules: {len(validations)}")
-            
-            self.headers = headers
-            self.validations = validations
-            
-            return {
-                'headers': headers,
-                'validations': validations,
-                'totalHeaders': len(headers),
-                'totalValidations': len(validations),
-                'source': self.template_path,
-                'convertedDate': datetime.now().isoformat()
-            }
-            
+            with open(self.template_path, 'r') as f:
+                data = json.load(f)
+
+            self.headers = data.get('headers', [])
+            self.validations = data.get('validations', {})
+
+            print(f"{len(self.headers)} headers")
+            print(f"{len(self.validations)} validation rules")
+
+            return data
+
         except Exception as e:
             print(f"Error reading template: {e}")
             raise
@@ -439,7 +268,7 @@ class WADEPSValidator:
         
         return None
     
-    def save_template_data(self, output_path: str = "template_data.json"):
+    def save_template_data(self, output_path: str = "../templates/wadeps_uof_template.json"):
         """Save extracted template data to JSON file"""
         template_data = {
             'headers': self.headers,
@@ -1030,25 +859,23 @@ def process_auto_mode():
     try:
         validator = WADEPSValidator()
         
-#check_template_data_extraction
-        template_json = Path("template_data.json")
+#load_template_data
+        template_json = Path("../templates/wadeps_uof_template.json")
         if not template_json.exists():
-            print("Template data not found. Extracting from Excel template...")
-            validator.extract_template_data()
-            validator.save_template_data()
-            print()
-        else:
-#load_existing_template_data
-            with open(template_json, 'r') as f:
-                data = json.load(f)
-                validator.headers = data['headers']
-                validator.validations = data['validations']
-                print(f"Loaded template with {len(validator.headers)} headers, "
-                      f"{len(validator.validations)} validation rules\n")
+            print("Error: Template data file not found at '../templates/wadeps_uof_template.json'!")
+            print("Please ensure the wadeps_uof_template.json file is in the templates directory")
+            return
+
+        with open(template_json, 'r') as f:
+            data = json.load(f)
+            validator.headers = data['headers']
+            validator.validations = data['validations']
+            print(f"Loaded template with {len(validator.headers)} headers, "
+                  f"{len(validator.validations)} validation rules\n")
     
     except FileNotFoundError:
-        print("Template file 'WADEPS_Smartform_Template.xlsx' not found!")
-        print("Please ensure the template file is in the current directory")
+        print("Template file not found at '../templates/template_data.json'!")
+        print("Please ensure the template_data.json file is in the templates directory")
         return
     except Exception as e:
         print(f"Error initializing validator: {e}")
@@ -1124,8 +951,8 @@ def process_auto_mode():
 def main():
     """Main function with command-line interface"""
     parser = argparse.ArgumentParser(description='WADEPS Data Validator')
-    parser.add_argument('--template', default='WADEPS_Smartform_Template.xlsx',
-                       help='Path to Excel template (default: WADEPS_Smartform_Template.xlsx)')
+    parser.add_argument('--template', default='../templates/wadeps_uof_template.json',
+                       help='Path to JSON template (default: ../templates/wadeps_uof_template.json)')
     parser.add_argument('--extract-only', action='store_true',
                        help='Only extract template data without validation')
     parser.add_argument('--output', help='Output file for results')
@@ -1140,12 +967,12 @@ def main():
     if args.extract_only:
         validator = WADEPSValidator(args.template)
         try:
-            validator.extract_template_data()
+            validator.load_template_data()
             validator.save_template_data()
             print("Template extraction complete")
         except FileNotFoundError:
             print(f"Template file not found: {args.template}")
-            print("   Please ensure WADEPS_Smartform_Template.xlsx is in thedirectory")
+            print("   Please ensure wadeps_uof_template.json is in the templates directory")
             sys.exit(1)
         return
     

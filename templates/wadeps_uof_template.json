@@ -110,7 +110,7 @@
     "strike",
     "vehicle_person",
     "vehicle_vehicle",
-    "pit_maneuver",
+    "pit_manuever",
     "canine",
     "neck",
     "force_other",
@@ -1826,7 +1826,10 @@
     },
     "incident_date": {
       "type": "date",
-      "format": ["MM/DD/YYYY", "YYYY-MM-DD"]
+      "format": [
+        "MM/DD/YYYY",
+        "YYYY-MM-DD"
+      ]
     },
     "incident_time": {
       "type": "time",
@@ -1910,6 +1913,6 @@
   },
   "totalHeaders": 183,
   "totalValidations": 154,
-  "source": "WADEPS_Smartform_Template.xlsx",
-  "convertedDate": "2025-09-15T13:40:54.123091"
+  "source": "../templates/template_data.json",
+  "convertedDate": "2025-09-19T14:37:59.768954"
 }

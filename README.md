@@ -1,54 +1,57 @@
 # WADEPS Header Validation Tool
 
-A Python tool for validating WADEPS (Washington State Data Exchange for Public Safety) data files against official template specifications.
+Validation Tools for WADEPS (Washington State Data Exchange for Public Safety) data files with both Python and HTML validators.
 
-## Setup Instructions
+## Available Validators
 
-### 1. Create Required Folders
+### 1. HTML Validator (Browser-Based)
+- **Location**: `html_validator/`
+- **Features**: Drag-and-drop interface, instant validation, no installation required
+- **Documentation**: See [html_validator/README_HTML.md](html_validator/README_HTML.md)
 
-Before running the tool, you need to create two folders:
+### 2. Python Validator (Command-Line)
+- **Location**: `python_validator/`
+- **Features**: Batch processing, automated validation, detailed reports
+- **Documentation**: See [python_validator/README_Python.md](python_validator/README_Python.md)
 
-```bash
-mkdir input_source
-mkdir output
+## Quick Start
+
+### For HTML Validator (Easiest)
+1. Go to the folder `html_validator and open wadeps_validator.html` in your web browser
+2. Drag and drop your CSV file
+3. Review instant validation results
+
+### For Python Validator (Batch Processing)
 ```
-
-- **`input_source/`** - Place your CSV files to validate here
-- **`output/`** - Validation reports will be generated here
-
-### 2. Running the Validator
-
-```bash
+cd python_validator
 python wadeps_validator.py
 ```
-
-The tool will:
-1. Process all CSV files in the `input_source` folder
-2. Validate them against the WADEPS template specifications
-3. Generate validation reports in the `output` folder
-
-## File Structures
+## File Structure
 
 ```
 WADEPS_Header_Tool/
-├── wadeps_validator.py           # Main validation script
-├── template_data.json            # Validation rules and specifications
-├── WADEPS_Smartform_Template.xlsx # Official WADEPS template
-├── input_source/                 # (Create this) Place CSV files here
-└── output/                       # (Create this) Reports generated here
+├── html_validator/
+│   ├── wadeps_validator.html     #browser_based_validator
+│   ├── WADEPS_green-logo-acronym.png
+│   └── README_HTML.md
+├── python_validator/
+│   ├── wadeps_validator.py       #command_line_validator
+│   ├── input_source/              #place_CSV_files_here
+│   ├── output/                    #reports_generated_here
+│   └── README_Python.md
+└── templates/
+    └── wadeps_uof_template.json  #validation
 ```
-
-## Date Format Support
-
-The tool accepts dates in two formats:
-- `MM/DD/YYYY` (e.g., 12/31/2024)
-- `YYYY-MM-DD` (e.g., 2024-12-31)
 
 ## Requirements
 
+### HTML Validator
+- Any modern web browser (Chrome, Firefox, Safari, Edge)
+- No installation required
+
+### Python Validator
 - Python 3.x
 - pandas
-- openpyxl
 
 ## Notes
 
