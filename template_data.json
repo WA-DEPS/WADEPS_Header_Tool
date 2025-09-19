@@ -1160,7 +1160,7 @@
         "Less than 1 minute",
         "1-5:59 minutes",
         "6-10:59 minutes",
-        "Greater than 11 minutes"
+        "11 minutes or more"
       ]
     },
     "pit_manuever": {
