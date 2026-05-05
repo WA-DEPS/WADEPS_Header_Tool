@@ -1,0 +1,2660 @@
+{
+  "agencies": {
+    "King County Airport Police": {
+      "wadeps_id": "ag1372179",
+      "ori": "WA0173500",
+      "agency_type": "Airport",
+      "city": "Seattle",
+      "county": "King",
+      "aliases": [
+        "King County Airport Police Department"
+      ],
+      "reporting_status": "Contracted"
+    },
+    "Sumner Police Department": {
+      "wadeps_id": "ag101225",
+      "ori": "WA0270200",
+      "agency_type": "Local",
+      "city": "Sumner",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "King County Metro Transit Police Department": {
+      "wadeps_id": "ag1017446",
+      "ori": null,
+      "agency_type": "Transit",
+      "city": "Seattle",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Connell Police Department": {
+      "wadeps_id": "ag1079315",
+      "ori": "WA0110100",
+      "agency_type": "Local",
+      "city": "Connell",
+      "county": "Franklin",
+      "aliases": [
+        "Connell PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Washington State Patrol": {
+      "wadeps_id": "ag1088395",
+      "ori": "WAWSP0000",
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "WA State Patrol (WSP)",
+        "WSP"
+      ],
+      "reporting_status": "Required"
+    },
+    "Coulee City Police Department": {
+      "wadeps_id": "ag10949",
+      "ori": "WA0130500",
+      "agency_type": "Local",
+      "city": "Coulee City",
+      "county": "Grant",
+      "reporting_status": "Contracted"
+    },
+    "Swinomish Police Department": {
+      "wadeps_id": "ag1098391",
+      "ori": "WADI06400",
+      "agency_type": "Tribal",
+      "city": "La Conner",
+      "county": "Skagit",
+      "reporting_status": "Optional"
+    },
+    "Wahkiakum County Sheriff's Office": {
+      "wadeps_id": "ag111137",
+      "ori": "WA0350000",
+      "agency_type": "County",
+      "city": "Cathlamet",
+      "county": "Wahkiakum",
+      "reporting_status": "Required"
+    },
+    "Ellensburg Police Department": {
+      "wadeps_id": "ag1113352",
+      "ori": "WA0190100",
+      "agency_type": "Local",
+      "city": "Ellensburg",
+      "county": "Kittitas",
+      "reporting_status": "Required"
+    },
+    "Mason County Sheriff's Office": {
+      "wadeps_id": "ag11405",
+      "ori": "WA0230000",
+      "agency_type": "County",
+      "city": "Shelton",
+      "county": "Mason",
+      "aliases": [
+        "MCS"
+      ],
+      "reporting_status": "Required"
+    },
+    "Snoqualmie Tribal Police Department": {
+      "wadeps_id": "ag1154203",
+      "ori": "WADI08300",
+      "agency_type": "Tribal",
+      "city": "Snoqualmie",
+      "county": "King",
+      "reporting_status": "Optional"
+    },
+    "Nooksack Indian Tribe Police Department": {
+      "wadeps_id": "ag1171279",
+      "ori": "WADI01400",
+      "agency_type": "Tribal",
+      "city": "Deming",
+      "county": "Whatcom",
+      "reporting_status": "Optional"
+    },
+    "Skokomish Police Department": {
+      "wadeps_id": "ag1208173",
+      "ori": "WADI01100",
+      "agency_type": "Tribal",
+      "city": "Skokomish",
+      "county": "Mason",
+      "aliases": [
+        "Skokomish Tribal Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Puyallup Tribal Law Enforcement": {
+      "wadeps_id": "ag1227310",
+      "ori": "WADI06200",
+      "agency_type": "Tribal",
+      "city": "Tacoma",
+      "county": "Pierce",
+      "aliases": [
+        "Puyallup Tribal Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Wilbur Police Department": {
+      "wadeps_id": "ag1286126",
+      "ori": "WA0220200",
+      "agency_type": "Local",
+      "city": "Wilbur",
+      "county": "Lincoln",
+      "reporting_status": "Contracted"
+    },
+    "WSU Vancouver Public Safety": {
+      "wadeps_id": "ag129773",
+      "ori": "WA0061000",
+      "agency_type": "University",
+      "city": "Vancouver",
+      "county": "Clark",
+      "aliases": [
+        "WA State University Police Department Vancouver"
+      ],
+      "reporting_status": "Required"
+    },
+    "Brier Police Department": {
+      "wadeps_id": "ag130139",
+      "ori": "WA0310800",
+      "agency_type": "Local",
+      "city": "Brier",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Lower Elwha Tribal Police Department": {
+      "wadeps_id": "ag1313376",
+      "ori": "WADI08600",
+      "agency_type": "Tribal",
+      "city": "Port Angeles",
+      "county": "Clallam",
+      "aliases": [
+        "Lower Elwha Klallam Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Garfield County Sheriff's Office": {
+      "wadeps_id": "ag132364",
+      "ori": "WA0120000",
+      "agency_type": "County",
+      "city": "Pomeroy",
+      "county": "Garfield",
+      "reporting_status": "Required"
+    },
+    "Muckleshoot Indian Tribe Wildlife & Fisheries Department": {
+      "wadeps_id": "ag1328129",
+      "ori": "WADI01000",
+      "agency_type": "Tribal",
+      "city": "Auburn",
+      "county": "King",
+      "reporting_status": "Optional"
+    },
+    "Goldendale Police Department": {
+      "wadeps_id": "ag1331439",
+      "ori": "WA0200100",
+      "agency_type": "Local",
+      "city": "Goldendale",
+      "county": "Klickitat",
+      "reporting_status": "Required"
+    },
+    "Eastern Washington University Police Department": {
+      "wadeps_id": "ag1334148",
+      "ori": "WA0320900",
+      "agency_type": "University",
+      "city": "Cheney",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "Klickitat County Sheriff's Office": {
+      "wadeps_id": "ag1344132",
+      "ori": "WA0200000",
+      "agency_type": "County",
+      "city": "Goldendale",
+      "county": "Klickitat",
+      "reporting_status": "Required"
+    },
+    "Washington State Parks and Recreation Commission": {
+      "wadeps_id": "ag1386486",
+      "ori": "WA0342000",
+      "agency_type": "State",
+      "city": "Tumwater",
+      "county": "Thurston",
+      "aliases": [
+        "WA State Parks & Recreation",
+		"WA State Parks & Recreation Commission"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Port of Seattle Police Department": {
+      "wadeps_id": "ag1408487",
+      "ori": "WA0173200",
+      "agency_type": "Port",
+      "city": "Seattle",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Tenino Police Department": {
+      "wadeps_id": "ag142239",
+      "ori": "WA0340800",
+      "agency_type": "Local",
+      "city": "Tenino",
+      "county": "Thurston",
+      "reporting_status": "Required"
+    },
+    "Grand Coulee Police Department": {
+      "wadeps_id": "ag1434239",
+      "ori": "WA0130700",
+      "agency_type": "Local",
+      "city": "Grand Coulee",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Washington State University Police Department (Pullman Campus)": {
+      "wadeps_id": "ag1441286",
+      "ori": "WA0380500",
+      "agency_type": "University",
+      "city": "Pullman",
+      "county": "Whitman",
+      "aliases": [
+        "WA State University Police Department Pullman",
+        "WSU Police Department",
+        "Washington State University Police Department",
+        "Washington State University Police Department(Pullman Campus)",
+        "Washington State University Police Department-Pullman campus",
+        "Washington State University"
+      ],
+      "reporting_status": "Required"
+    },
+    "Sound Transit Police Department": {
+      "wadeps_id": "ag1444492",
+      "ori": null,
+      "agency_type": "Transit",
+      "city": "Seattle",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Odessa Police Department": {
+      "wadeps_id": "ag1459228",
+      "ori": "WA0220600",
+      "agency_type": "Local",
+      "city": "Odessa",
+      "county": "Lincoln",
+      "reporting_status": "Required"
+    },
+    "Brewster Police Department": {
+      "wadeps_id": "ag1463355",
+      "ori": "WA0240100",
+      "agency_type": "Local",
+      "city": "Brewster",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Quinault Tribal Police Department": {
+      "wadeps_id": "ag146840",
+      "ori": "WADI05400",
+      "agency_type": "Tribal",
+      "city": "Taholah",
+      "county": "Grays Harbor",
+      "aliases": [
+        "Quinault Nation Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Skagit County Sheriff's Office": {
+      "wadeps_id": "ag146883",
+      "ori": "WA0290000",
+      "agency_type": "County",
+      "city": "Mount Vernon",
+      "county": "Skagit",
+      "reporting_status": "Required"
+    },
+    "Colville Tribal Natural Resource Enforcement": {
+      "wadeps_id": "ag14746",
+      "ori": "WADI05700",
+      "agency_type": "Tribal",
+      "city": "Nespelem",
+      "county": "Okanogan",
+      "aliases": [
+        "Colville Tribal Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Washington State Office of Independent Investigations": {
+      "wadeps_id": "ag148776",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "reporting_status": "Not Authorized to Use Force"
+    },
+    "Quileute Tribal Police": {
+      "wadeps_id": "ag1498465",
+      "ori": null,
+      "agency_type": "Tribal",
+      "city": "La Push",
+      "county": "Clallam",
+      "reporting_status": "Optional"
+    },
+    "Winthrop Marshal's Office": {
+      "wadeps_id": "ag15291",
+      "ori": "WA0241000",
+      "agency_type": "Local",
+      "city": "Winthrop",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Hoh Tribal Law Enforcement": {
+      "wadeps_id": "ag165498",
+      "ori": "WADI09100",
+      "agency_type": "Tribal",
+      "city": "Forks",
+      "county": "Clallam",
+      "reporting_status": "Optional"
+    },
+    "Medina Police Department": {
+      "wadeps_id": "ag16599",
+      "ori": "WA0172000",
+      "agency_type": "Local",
+      "city": "Medina",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "College Place Police Department": {
+      "wadeps_id": "ag1829",
+      "ori": "WA0360200",
+      "agency_type": "Local",
+      "city": "College Place",
+      "county": "Walla Walla",
+      "reporting_status": "Required"
+    },
+    "Washington State Medicaid Fraud Control Division": {
+      "wadeps_id": "ag193185",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "Washington State Medicaid Fraud Control Division \u2013 Office of the Attorney General"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Pacific Police Department": {
+      "wadeps_id": "ag20263",
+      "ori": "WA0172100",
+      "agency_type": "Local",
+      "city": "Pacific",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Evergreen State College Police Department": {
+      "wadeps_id": "ag211388",
+      "ori": "WA0341900",
+      "agency_type": "University",
+      "city": "Olympia",
+      "county": "Thurston",
+      "reporting_status": "Required"
+    },
+    "Okanogan County Sheriff's Office": {
+      "wadeps_id": "ag227433",
+      "ori": "WA0240000",
+      "agency_type": "County",
+      "city": "Okanogan",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Port Gamble S'Klallam Tribal Police Department": {
+      "wadeps_id": "ag231396",
+      "ori": "WADI06600",
+      "agency_type": "Tribal",
+      "city": "Kingston",
+      "county": "Kitsap",
+      "aliases": [
+        "Port Gamble S'Klallam Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Jamestown S'Klallam Public Safety and Natural Resources Enforcement Department": {
+      "wadeps_id": "ag231460",
+      "ori": null,
+      "agency_type": "Tribal",
+      "city": "Sequim",
+      "county": "Clallam",
+      "aliases": [
+        "Jamestown S'Klallam Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Yakima County Sheriff's Office": {
+      "wadeps_id": "ag25315",
+      "ori": "WA0390000",
+      "agency_type": "County",
+      "city": "Yakima",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Stillaguamish Police Department": {
+      "wadeps_id": "ag257443",
+      "ori": "WADI01300",
+      "agency_type": "Tribal",
+      "city": "Arlington",
+      "county": "Snohomish",
+      "reporting_status": "Optional"
+    },
+    "Chehalis Tribal Law Enforcement": {
+      "wadeps_id": "ag286146",
+      "ori": "WADI06700",
+      "agency_type": "Tribal",
+      "city": "Oakville",
+      "county": "Grays Harbor",
+      "reporting_status": "Optional"
+    },
+    "Washington State Department of Corrections": {
+      "wadeps_id": "ag296216",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Tumwater",
+      "county": "Thurston",
+      "aliases": [
+        "DEPARTMENT OF CORRECTIONS",
+        "Department of Corrections",
+        "WA State Department of Corrections"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Tulalip Tribal Police Services": {
+      "wadeps_id": "ag317312",
+      "ori": "WADI06800",
+      "agency_type": "Tribal",
+      "city": "Tulalip",
+      "county": "Snohomish",
+      "reporting_status": "Optional"
+    },
+    "Darrington Police Department": {
+      "wadeps_id": "ag318200",
+      "ori": "WA0310900",
+      "agency_type": "Local",
+      "city": "Darrington",
+      "county": "Snohomish",
+      "reporting_status": "Not applicable"
+    },
+    "Mattawa Police Department": {
+      "wadeps_id": "ag32581",
+      "ori": "WA0130900",
+      "agency_type": "Local",
+      "city": "Mattawa",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Kalispel Tribal Public Safety Department": {
+      "wadeps_id": "ag347498",
+      "ori": "WADI06100",
+      "agency_type": "Tribal",
+      "city": "Cusick",
+      "county": "Pend Oreille",
+      "reporting_status": "Optional"
+    },
+    "Jefferson County Sheriff's Office": {
+      "wadeps_id": "ag357304",
+      "ori": "WA0160000",
+      "agency_type": "County",
+      "city": "Port Hadlock-Irondale",
+      "county": "Jefferson",
+      "reporting_status": "Required"
+    },
+    "Asotin Police Department": {
+      "wadeps_id": "ag361217",
+      "ori": "WA0020200",
+      "agency_type": "Local",
+      "city": "Asotin",
+      "county": "Asotin",
+      "reporting_status": "Required"
+    },
+    "Stevens County Sheriff's Office": {
+      "wadeps_id": "ag36123",
+      "ori": "WA0330000",
+      "agency_type": "County",
+      "city": "Colville",
+      "county": "Stevens",
+      "reporting_status": "Required"
+    },
+    "Cowlitz County Sheriff's Office": {
+      "wadeps_id": "ag385296",
+      "ori": "WA0080000",
+      "agency_type": "County",
+      "city": "Kelso",
+      "county": "Cowlitz",
+      "aliases": [
+        "COWLITZ COUNTY SHERIFFS OFFICE"
+      ],
+      "reporting_status": "Required"
+    },
+    "Lummi Nation Police Department": {
+      "wadeps_id": "ag424308",
+      "ori": "WADI05900",
+      "agency_type": "Tribal",
+      "city": "Bellingham",
+      "county": "Whatcom",
+      "reporting_status": "Optional"
+    },
+    "Makah Tribal Police Department": {
+      "wadeps_id": "ag431494",
+      "ori": "WADI05600",
+      "agency_type": "Tribal",
+      "city": "Neah Bay",
+      "county": "Clallam",
+      "reporting_status": "Optional"
+    },
+    "Port of Pasco Police Department": {
+      "wadeps_id": "ag433102",
+      "ori": "WA0110600",
+      "agency_type": "Port",
+      "city": "Pasco",
+      "county": "Franklin",
+      "aliases": [
+        "Port of Pasco Airport"
+      ],
+      "reporting_status": "Required"
+    },
+    "Cowlitz Indian Tribal Public Safety Department": {
+      "wadeps_id": "ag437414",
+      "ori": "WADI01500",
+      "agency_type": "Tribal",
+      "city": "Ridgefield",
+      "county": "Clark",
+      "reporting_status": "Optional"
+    },
+    "Springdale Police Department": {
+      "wadeps_id": "ag445450",
+      "ori": "WA0330600",
+      "agency_type": "Local",
+      "city": "Springdale",
+      "county": "Stevens",
+      "reporting_status": "Not Applicable"
+    },
+    "Reardan Police Department": {
+      "wadeps_id": "ag449164",
+      "ori": "WA0220700",
+      "agency_type": "Local",
+      "city": "Reardan",
+      "county": "Lincoln",
+      "reporting_status": "Required"
+    },
+    "Washington State Gambling Commission Regulation and Enforcement Unit": {
+      "wadeps_id": "ag45113",
+      "ori": "WA0341000",
+      "agency_type": "State",
+      "city": "Spokane",
+      "county": "Spokane",
+      "aliases": [
+        "WA State Gambling Commission",
+        "Washington State Gambling Commission"
+      ],
+      "reporting_status": "Required"
+    },
+    "Winlock Police Department": {
+      "wadeps_id": "ag452209",
+      "ori": "WA0211200",
+      "agency_type": "Local",
+      "city": "Winlock",
+      "county": "Lewis",
+      "aliases": [
+        "Winlock PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Morton Police Department": {
+      "wadeps_id": "ag453491",
+      "ori": "WA0210300",
+      "agency_type": "Local",
+      "city": "Morton",
+      "county": "Lewis",
+      "aliases": [
+        "Morton PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Republic Police Department": {
+      "wadeps_id": "ag457142",
+      "ori": "WA0100100",
+      "agency_type": "Local",
+      "city": "Republic",
+      "county": "Ferry",
+      "reporting_status": "Contracted"
+    },
+    "Garfield Marshal's Office": {
+      "wadeps_id": "ag471181",
+      "ori": "WA0380700",
+      "agency_type": "Local",
+      "city": "Garfield",
+      "county": "Whitman",
+      "aliases": [
+        "Garfield Police Department"
+      ],
+      "reporting_status": "Not Applicable"
+    },
+    "Washington State Department of Natural Resources Police": {
+      "wadeps_id": "ag4957",
+      "ori": "WA0341600",
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "WA State Department of Natural Resources Police",
+        "Department of Natural Resources"
+      ],
+      "reporting_status": "Required"
+    },
+    "Colton Police Department": {
+      "wadeps_id": "ag500490",
+      "ori": "WA0380600",
+      "agency_type": "Local",
+      "city": "Colton",
+      "county": "Whitman",
+      "reporting_status": "Not applicable"
+    },
+    "Long Beach Police Department": {
+      "wadeps_id": "ag50926",
+      "ori": "WA0250400",
+      "agency_type": "Local",
+      "city": "Long Beach",
+      "county": "Pacific",
+      "reporting_status": "Required"
+    },
+    "Kittitas Police Department": {
+      "wadeps_id": "ag512293",
+      "ori": "WA0190600",
+      "agency_type": "Local",
+      "city": "Kittitas",
+      "county": "Kittitas",
+      "reporting_status": "Required"
+    },
+    "Columbia County Sheriff's Office": {
+      "wadeps_id": "ag515135",
+      "ori": "WA0070000",
+      "agency_type": "County",
+      "city": "Dayton",
+      "county": "Columbia",
+      "reporting_status": "Required"
+    },
+    "Nisqually Public Safety": {
+      "wadeps_id": "ag523387",
+      "ori": "WADI00800",
+      "agency_type": "Tribal",
+      "city": "Olympia",
+      "county": "Thurston",
+      "reporting_status": "Optional"
+    },
+    "Oakville Police Department": {
+      "wadeps_id": "ag523486",
+      "ori": "WA0140700",
+      "agency_type": "Local",
+      "city": "Oakville",
+      "county": "Grays Harbor",
+      "reporting_status": "Contracted"
+    },
+    "Central Washington University Police and Public Safety": {
+      "wadeps_id": "ag526155",
+      "ori": "WA0190800",
+      "agency_type": "University",
+      "city": "Ellensburg",
+      "county": "Kittitas",
+      "aliases": [
+        "Central Washington University Police Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Sauk-Suiattle Police Department": {
+      "wadeps_id": "ag539367",
+      "ori": "WADI06300",
+      "agency_type": "Tribal",
+      "city": "Darrington",
+      "county": "Snohomish",
+      "reporting_status": "Optional"
+    },
+    "Ruston Police Department": {
+      "wadeps_id": "ag572209",
+      "ori": "WA0271900",
+      "agency_type": "Local",
+      "city": "Ruston",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Squaxin Island Tribe Public Safety and Justice Department": {
+      "wadeps_id": "ag58964",
+      "ori": "WADI05500",
+      "agency_type": "Tribal",
+      "city": "Shelton",
+      "county": "Mason",
+      "aliases": [
+        "Squaxin Island Public Safety"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Royal City Police Department": {
+      "wadeps_id": "ag625300",
+      "ori": "WA0131000",
+      "agency_type": "Local",
+      "city": "Royal City",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Wapato Police Department": {
+      "wadeps_id": "ag62546",
+      "ori": "WA0391300",
+      "agency_type": "Local",
+      "city": "Wapato",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Pend Oreille County Sheriff's Office": {
+      "wadeps_id": "ag629349",
+      "ori": "WA0260000",
+      "agency_type": "County",
+      "city": "Newport",
+      "county": "Pend Oreille",
+      "reporting_status": "Required"
+    },
+    "Moxee Police Department": {
+      "wadeps_id": "ag65219",
+      "ori": "WA0391400",
+      "agency_type": "Local",
+      "city": "Moxee",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Hoquiam Police Department": {
+      "wadeps_id": "ag656225",
+      "ori": "WA0140300",
+      "agency_type": "Local",
+      "city": "Hoquiam",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "La Push Tribal Police Department": {
+      "wadeps_id": "ag668305",
+      "ori": "WADI07000",
+      "agency_type": "Tribal",
+      "city": "La Push",
+      "county": "Clallam",
+      "aliases": [
+        "La Push Police Department"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Gold Bar Police Department": {
+      "wadeps_id": "ag694204",
+      "ori": "WA0311000",
+      "agency_type": "Local",
+      "city": "Gold Bar",
+      "county": "Snohomish",
+      "reporting_status": "Not applicable"
+    },
+    "Lincoln County Sheriff's Office": {
+      "wadeps_id": "ag696169",
+      "ori": "WA0220000",
+      "agency_type": "County",
+      "city": "Davenport",
+      "county": "Lincoln",
+      "aliases": [
+        "LINCOLN COUNTY SHERIFF",
+        "Lincoln County Sheriff Office",
+        "LCSO"
+      ],
+      "reporting_status": "Required"
+    },
+    "Pierce Transit Police Department": {
+      "wadeps_id": "ag696489",
+      "ori": "WA027025Y",
+      "agency_type": "Transit",
+      "city": "Tacoma",
+      "county": "Pierce",
+      "reporting_status": "Contracted"
+    },
+    "Napavine Police Department": {
+      "wadeps_id": "ag708361",
+      "ori": "WA0210700",
+      "agency_type": "Local",
+      "city": "Napavine",
+      "county": "Lewis",
+      "aliases": [
+        "Napavine PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Yakama Nation Police Department": {
+      "wadeps_id": "ag708396",
+      "ori": "WADI05800",
+      "agency_type": "Tribal",
+      "city": "Toppenish",
+      "county": "Yakima",
+      "reporting_status": "Optional"
+    },
+    "Oakesdale Police Department": {
+      "wadeps_id": "ag717467",
+      "ori": "WA0381400",
+      "agency_type": "Local",
+      "city": "Oakesdale",
+      "county": "Whitman",
+      "reporting_status": "Contracted"
+    },
+    "Skykomish Police Department": {
+      "wadeps_id": "ag724",
+      "ori": "WA0172700",
+      "agency_type": "Local",
+      "city": "Skykomish",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Mabton Police Department": {
+      "wadeps_id": "ag731267",
+      "ori": "WA0390900",
+      "agency_type": "Local",
+      "city": "Mabton",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Woodway Police Department": {
+      "wadeps_id": "ag739306",
+      "ori": "WA0311600",
+      "agency_type": "Local",
+      "city": "Woodway",
+      "county": "Snohomish",
+      "reporting_status": "Contracted"
+    },
+    "Washington State Office of the Insurance Commissioner": {
+      "wadeps_id": "ag742131",
+      "ori": "WA0342200",
+      "agency_type": "State",
+      "city": "Tumwater",
+      "county": "Thurston",
+      "aliases": [
+        "WA State Office of the Insurance Commissioner",
+        "Washington State Office of the Insurance Commissioner",
+        "Office of the Insurance Commissioner"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Island County Sheriff's Office": {
+      "wadeps_id": "ag774436",
+      "ori": "WA0150000",
+      "agency_type": "County",
+      "city": "Coupeville",
+      "county": "Island",
+      "reporting_status": "Required"
+    },
+    "Kettle Falls Police Department": {
+      "wadeps_id": "ag817230",
+      "ori": "WA0330300",
+      "agency_type": "Local",
+      "city": "Kettle Falls",
+      "county": "Stevens",
+      "reporting_status": "Required"
+    },
+    "Mossyrock Police Department": {
+      "wadeps_id": "ag81750",
+      "ori": "WA0210400",
+      "agency_type": "Local",
+      "city": "Mossyrock",
+      "county": "Lewis",
+      "aliases": [
+        "Mossyrock PD"
+      ],
+      "reporting_status": "Contracted"
+    },
+    "Rosalia Police Department": {
+      "wadeps_id": "ag821379",
+      "ori": "WA0380400",
+      "agency_type": "Local",
+      "city": "Rosalia",
+      "county": "Whitman",
+      "reporting_status": "Not applicable"
+    },
+    "Upper Skagit Tribal Police Department": {
+      "wadeps_id": "ag827344",
+      "ori": "WADI06500",
+      "agency_type": "Tribal",
+      "city": "Sedro-Woolley",
+      "county": "Skagit",
+      "reporting_status": "Optional"
+    },
+    "Washington State Department of Social and Health Services": {
+      "wadeps_id": "ag83242",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Renton",
+      "county": "King",
+      "reporting_status": "Not Authorized to Use Force"
+    },
+    "Shoalwater Bay Tribal Police Department": {
+      "wadeps_id": "ag833427",
+      "ori": "WADI01200",
+      "agency_type": "Tribal",
+      "city": "Tokeland",
+      "county": "Pacific",
+      "aliases": [
+        "Shoalwater Bay Police Department",
+        "Shoalwater Bay Tribal Police"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Asotin County Sheriff's Office": {
+      "wadeps_id": "ag863402",
+      "ori": "WA0020000",
+      "agency_type": "County",
+      "city": "Asotin",
+      "county": "Asotin",
+      "reporting_status": "Required"
+    },
+    "Washington Department of Fish and Wildlife Enforcement": {
+      "wadeps_id": "ag88027",
+      "ori": "WA0349900",
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "Fish & Wildlife Dept",
+        "WA State Department of Fish and Wildlife Police",
+        "Washington State Department of Fish and Wildlife"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Index Police Department": {
+      "wadeps_id": "ag88410",
+      "ori": "WA0311800",
+      "agency_type": "Local",
+      "city": "Gold Bar",
+      "county": "Snohomish",
+      "reporting_status": "Not applicable"
+    },
+    "Washington State Liquor and Cannabis Board's Enforcement": {
+      "wadeps_id": "ag889284",
+      "ori": "WA0341100",
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "WA State Liquor and Cannabis Board",
+        "Washington State Liquor and Cannabis Board"
+      ],
+      "reporting_status": "Force Data Only"
+    },
+    "Washington State Lottery Commission": {
+      "wadeps_id": "ag913207",
+      "ori": "WA0341200",
+      "agency_type": "State",
+      "city": "Olympia",
+      "county": "Thurston",
+      "reporting_status": "Force Data Only"
+    },
+    "University of Washington Police Department": {
+      "wadeps_id": "ag922271",
+      "ori": "WA0172400",
+      "agency_type": "University",
+      "city": "Seattle",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Adams County Sheriff's Office": {
+      "wadeps_id": "ag925490",
+      "ori": "WA0010000",
+      "agency_type": "County",
+      "city": "Ritzville",
+      "county": "Adams",
+      "reporting_status": "Required"
+    },
+    "Roy Police Department": {
+      "wadeps_id": "ag935189",
+      "ori": "WA0271000",
+      "agency_type": "Local",
+      "city": "Roy",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Washington Department of Labor & Industries": {
+      "wadeps_id": "ag938442",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Tumwater",
+      "county": "Thurston",
+      "aliases": [
+        "Washington State Department of Labor and Industries"
+      ],
+      "reporting_status": "Required"
+    },
+    "Washington State Utilities and Transportation Commission": {
+      "wadeps_id": "ag95289",
+      "ori": null,
+      "agency_type": "State",
+      "city": "Lacey",
+      "county": "Thurston",
+      "reporting_status": "Not Applicable"
+    },
+    "Carnation Police Department": {
+      "wadeps_id": "ag961184",
+      "ori": "WA0171600",
+      "agency_type": "Local",
+      "city": "Carnation",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Spokane Tribal Police Department": {
+      "wadeps_id": "ag969393",
+      "ori": "WADI05100",
+      "agency_type": "Tribal",
+      "city": "Wellpinit",
+      "county": "Stevens",
+      "reporting_status": "Optional"
+    },
+    "Yarrow Point Police Department": {
+      "wadeps_id": "ag972420",
+      "ori": "WA0173100",
+      "agency_type": "Local",
+      "city": "Yarrow Point",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Vader Police Department": {
+      "wadeps_id": "ag985204",
+      "ori": "WA0211100",
+      "agency_type": "Local",
+      "city": "Vader",
+      "county": "Lewis",
+      "reporting_status": "Contracted"
+    },
+    "Steilacoom Department of Public Safety": {
+      "wadeps_id": "ag34352",
+      "ori": "WA0271100",
+      "agency_type": "Local",
+      "city": "Steilacoom",
+      "county": "Pierce",
+      "aliases": [
+        "Steilacoom Police Department",
+        "Steilacoom Public Safety"
+      ],
+      "reporting_status": "Required"
+    },
+    "Marysville Police Department": {
+      "wadeps_id": "ag54113",
+      "ori": "WA0310500",
+      "agency_type": "Local",
+      "city": "Marysville",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Ferndale Police Department": {
+      "wadeps_id": "ag939427",
+      "ori": "WA0370400",
+      "agency_type": "Local",
+      "city": "Ferndale",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Kelso Police Department": {
+      "wadeps_id": "ag834365",
+      "ori": "WA0080100",
+      "agency_type": "Local",
+      "city": "Kelso",
+      "county": "Cowlitz",
+      "reporting_status": "Required"
+    },
+    "Clyde Hill Police Department": {
+      "wadeps_id": "ag1350309",
+      "ori": "WA0172500",
+      "agency_type": "Local",
+      "city": "Clyde Hill",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Lakewood Police Department": {
+      "wadeps_id": "ag1159114",
+      "ori": "WA0272300",
+      "agency_type": "Local",
+      "city": "Lakewood",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Mountlake Terrace Police Department": {
+      "wadeps_id": "ag223323",
+      "ori": "WA0310600",
+      "agency_type": "Local",
+      "city": "Mountlake Terrace",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Normandy Park Police Department": {
+      "wadeps_id": "ag104485",
+      "ori": "WA0171000",
+      "agency_type": "Local",
+      "city": "Normandy Park",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Soap Lake Police Department": {
+      "wadeps_id": "ag334221",
+      "ori": "WA0130400",
+      "agency_type": "Local",
+      "city": "Soap Lake",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Burien Police Department": {
+      "wadeps_id": "ag244147",
+      "ori": "WA0174100",
+      "agency_type": "Local",
+      "city": "Burien",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Benton County Sheriff's Office": {
+      "wadeps_id": "ag1145277",
+      "ori": "WA0030000",
+      "agency_type": "County",
+      "city": "Kennewick",
+      "county": "Benton",
+      "aliases": [
+        "Benton County SO"
+      ],
+      "reporting_status": "Required"
+    },
+    "Spokane Valley Police Department": {
+      "wadeps_id": "ag268432",
+      "ori": "WA0321500",
+      "agency_type": "Local",
+      "city": "Spokane Valley",
+      "county": "Spokane",
+      "reporting_status": "Contracted"
+    },
+    "Lake Stevens Police Department": {
+      "wadeps_id": "ag1445441",
+      "ori": "WA0311900",
+      "agency_type": "Local",
+      "city": "Lake Stevens",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "East Wenatchee Police Department": {
+      "wadeps_id": "ag129363",
+      "ori": "WA0090200",
+      "agency_type": "Local",
+      "city": "East Wenatchee",
+      "county": "Douglas",
+      "reporting_status": "Required"
+    },
+    "Puyallup Police Department": {
+      "wadeps_id": "ag144389",
+      "ori": "WA0270100",
+      "agency_type": "Local",
+      "city": "Puyallup",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Toledo Police Department": {
+      "wadeps_id": "ag1079392",
+      "ori": "WA0211000",
+      "agency_type": "Local",
+      "city": "Toledo",
+      "county": "Lewis",
+      "aliases": [
+        "Toledo Police"
+      ],
+      "reporting_status": "Contracted"
+    },
+    "Edgewood Police Department": {
+      "wadeps_id": "ag831282",
+      "ori": "WA0272500",
+      "agency_type": "Local",
+      "city": "Edgewood",
+      "county": "Pierce",
+      "reporting_status": "Contracted"
+    },
+    "Bingen-White Salmon Police Department": {
+      "wadeps_id": "ag982428",
+      "ori": "WA0200600",
+      "agency_type": "Local",
+      "city": "White Salmon",
+      "county": "Klickitat",
+      "aliases": [
+        "Bingen Police Department",
+        "Bingen White Salmon Police Department",
+        "White Salmon Police Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Covington Police Department": {
+      "wadeps_id": "ag144266",
+      "ori": "WA0174800",
+      "agency_type": "Local",
+      "city": "Covington",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Algona Police Department": {
+      "wadeps_id": "ag95400",
+      "ori": "WA0171400",
+      "agency_type": "Local",
+      "city": "Algona",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "DuPont Police Department": {
+      "wadeps_id": "ag376324",
+      "ori": "WA0271600",
+      "agency_type": "Local",
+      "city": "DuPont",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Stanwood Police Department": {
+      "wadeps_id": "ag43297",
+      "ori": "WA0311400",
+      "agency_type": "Local",
+      "city": "Stanwood",
+      "county": "Snohomish",
+      "reporting_status": "Contracted"
+    },
+    "Federal Way Police Department": {
+      "wadeps_id": "ag1465356",
+      "ori": "WA0173600",
+      "agency_type": "Local",
+      "city": "Federal Way",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Bainbridge Island Police Department": {
+      "wadeps_id": "ag988363",
+      "ori": "WA0180700",
+      "agency_type": "Local",
+      "city": "Bainbridge Island",
+      "county": "Kitsap",
+      "reporting_status": "Required"
+    },
+    "Mill Creek Police Department": {
+      "wadeps_id": "ag885316",
+      "ori": "WA0312100",
+      "agency_type": "Local",
+      "city": "Mill Creek",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Tukwila Police Department": {
+      "wadeps_id": "ag674334",
+      "ori": "WA0172300",
+      "agency_type": "Local",
+      "city": "Tukwila",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Milton Police Department": {
+      "wadeps_id": "ag213345",
+      "ori": "WA0270900",
+      "agency_type": "Local",
+      "city": "Milton",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Clallam County Sheriff's Office": {
+      "wadeps_id": "ag121741",
+      "ori": "WA0050000",
+      "agency_type": "County",
+      "city": "Port Angeles",
+      "county": "Clallam",
+      "reporting_status": "Required"
+    },
+    "Kennewick Police Department": {
+      "wadeps_id": "ag530459",
+      "ori": "WA0030100",
+      "agency_type": "Local",
+      "city": "Kennewick",
+      "county": "Benton",
+      "aliases": [
+        "Kennewick PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Liberty Lake Police Department": {
+      "wadeps_id": "ag1351195",
+      "ori": "WA0321300",
+      "agency_type": "Local",
+      "city": "Liberty Lake",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "SeaTac Police Department": {
+      "wadeps_id": "ag1042173",
+      "ori": "WA0173700",
+      "agency_type": "Local",
+      "city": "SeaTac",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Renton Police Department": {
+      "wadeps_id": "ag996245",
+      "ori": "WA0171300",
+      "agency_type": "Local",
+      "city": "Renton",
+      "county": "King",
+      "aliases": [
+        "Renton Police"
+      ],
+      "reporting_status": "Required"
+    },
+    "Cosmopolis Police Department": {
+      "wadeps_id": "ag1177125",
+      "ori": "WA0140600",
+      "agency_type": "Local",
+      "city": "Cosmopolis",
+      "county": "Grays Harbor",
+      "reporting_status": "Contracted"
+    },
+    "Selah Police Department": {
+      "wadeps_id": "ag521194",
+      "ori": "WA0391100",
+      "agency_type": "Local",
+      "city": "Selah",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Westport Police Department": {
+      "wadeps_id": "ag1199255",
+      "ori": "WA0140900",
+      "agency_type": "Local",
+      "city": "Westport",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Lynnwood Police Department": {
+      "wadeps_id": "ag136710",
+      "ori": "WA0310400",
+      "agency_type": "Local",
+      "city": "Lynnwood",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Sumas Police Department": {
+      "wadeps_id": "ag1267304",
+      "ori": "WA0370700",
+      "agency_type": "Local",
+      "city": "Sumas",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Mukilteo Police Department": {
+      "wadeps_id": "ag10823",
+      "ori": "WA0311300",
+      "agency_type": "Local",
+      "city": "Mukilteo",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Fircrest Police Department": {
+      "wadeps_id": "ag67767",
+      "ori": "WA0271700",
+      "agency_type": "Local",
+      "city": "Fircrest",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Othello Police Department": {
+      "wadeps_id": "ag691128",
+      "ori": "WA0010100",
+      "agency_type": "Local",
+      "city": "Othello",
+      "county": "Adams",
+      "aliases": [
+        "OTHELLO CITY POLICE DEPT"
+      ],
+      "reporting_status": "Required"
+    },
+    "Edmonds Police Department": {
+      "wadeps_id": "ag1217191",
+      "ori": "WA0310200",
+      "agency_type": "Local",
+      "city": "Edmonds",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Granger Police Department": {
+      "wadeps_id": "ag935471",
+      "ori": "WA0390700",
+      "agency_type": "Local",
+      "city": "Granger",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Kent Police Department": {
+      "wadeps_id": "ag640282",
+      "ori": "WA0170700",
+      "agency_type": "Local",
+      "city": "Kent",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Lake Forest Park Police Department": {
+      "wadeps_id": "ag825106",
+      "ori": "WA0172600",
+      "agency_type": "Local",
+      "city": "Lake Forest Park",
+      "county": "King",
+      "aliases": [
+        "Lake Forest Park PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Mount Vernon Police Department": {
+      "wadeps_id": "ag427466",
+      "ori": "WA0290200",
+      "agency_type": "Local",
+      "city": "Mount Vernon",
+      "county": "Skagit",
+      "reporting_status": "Required"
+    },
+    "Sedro-Woolley Police Department": {
+      "wadeps_id": "ag1030258",
+      "ori": "WA0290300",
+      "agency_type": "Local",
+      "city": "Sedro-Woolley",
+      "county": "Skagit",
+      "reporting_status": "Required"
+    },
+    "Toppenish Police Department": {
+      "wadeps_id": "ag84746",
+      "ori": "WA0390300",
+      "agency_type": "Local",
+      "city": "Toppenish",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Kittitas County Sheriff's Office": {
+      "wadeps_id": "ag22492",
+      "ori": "WA0190000",
+      "agency_type": "County",
+      "city": "Ellensburg",
+      "county": "Kittitas",
+      "reporting_status": "Required"
+    },
+    "Whatcom County Sheriff's Office": {
+      "wadeps_id": "ag377189",
+      "ori": "WA0370000",
+      "agency_type": "County",
+      "city": "Bellingham",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Des Moines Police Department": {
+      "wadeps_id": "ag14645",
+      "ori": "WA0171700",
+      "agency_type": "Local",
+      "city": "Des Moines",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Yakima Police Department": {
+      "wadeps_id": "ag416439",
+      "ori": "WA0390500",
+      "agency_type": "Local",
+      "city": "Yakima",
+      "county": "Yakima",
+      "aliases": [
+        "YP"
+      ],
+      "reporting_status": "Required"
+    },
+    "Twisp Police Department": {
+      "wadeps_id": "ag1079101",
+      "ori": "WA0240900",
+      "agency_type": "Local",
+      "city": "Twisp",
+      "county": "Okanogan",
+      "reporting_status": "Contracted"
+    },
+    "Tieton Police Department": {
+      "wadeps_id": "ag1150150",
+      "ori": "WA0391200",
+      "agency_type": "Local",
+      "city": "Tieton",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Coulee Dam Police Department": {
+      "wadeps_id": "ag390369",
+      "ori": "WA0240700",
+      "agency_type": "Local",
+      "city": "Coulee Dam",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Franklin County Sheriff's Office": {
+      "wadeps_id": "ag159182",
+      "ori": "WA0110000",
+      "agency_type": "County",
+      "city": "Pasco",
+      "county": "Franklin",
+      "reporting_status": "Required"
+    },
+    "South Bend Police Department": {
+      "wadeps_id": "ag3733",
+      "ori": "WA0250200",
+      "agency_type": "Local",
+      "city": "South Bend",
+      "county": "Pacific",
+      "reporting_status": "Required"
+    },
+    "Duvall Police Department": {
+      "wadeps_id": "ag560119",
+      "ori": "WA0171800",
+      "agency_type": "Local",
+      "city": "Duvall",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Warden Police Department": {
+      "wadeps_id": "ag535136",
+      "ori": "WA0131100",
+      "agency_type": "Local",
+      "city": "Warden",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Arlington Police Department": {
+      "wadeps_id": "ag1194184",
+      "ori": "WA0310100",
+      "agency_type": "Local",
+      "city": "Arlington",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Enumclaw Police Department": {
+      "wadeps_id": "ag83563",
+      "ori": "WA0170400",
+      "agency_type": "Local",
+      "city": "Enumclaw",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Longview Police Department": {
+      "wadeps_id": "ag383307",
+      "ori": "WA0080200",
+      "agency_type": "Local",
+      "city": "Longview",
+      "county": "Cowlitz",
+      "reporting_status": "Required"
+    },
+    "Raymond Police Department": {
+      "wadeps_id": "ag597259",
+      "ori": "WA0250100",
+      "agency_type": "Local",
+      "city": "Raymond",
+      "county": "Pacific",
+      "reporting_status": "Required"
+    },
+    "Sunnyside Police Department": {
+      "wadeps_id": "ag24375",
+      "ori": "WA0390200",
+      "agency_type": "Local",
+      "city": "Sunnyside",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Bothell Police Department": {
+      "wadeps_id": "ag327332",
+      "ori": "WA0170300",
+      "agency_type": "Local",
+      "city": "Bothell",
+      "county": "King",
+      "aliases": [
+        "Bothell PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Pullman Police Department": {
+      "wadeps_id": "ag100636",
+      "ori": "WA0380300",
+      "agency_type": "Local",
+      "city": "Pullman",
+      "county": "Whitman",
+      "reporting_status": "Required"
+    },
+    "Burlington Police Department": {
+      "wadeps_id": "ag69246",
+      "ori": "WA0290400",
+      "agency_type": "Local",
+      "city": "Burlington",
+      "county": "Skagit",
+      "reporting_status": "Required"
+    },
+    "Bonney Lake Police Department": {
+      "wadeps_id": "ag141048",
+      "ori": "WA0271400",
+      "agency_type": "Local",
+      "city": "Bonney Lake",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Omak Police Department": {
+      "wadeps_id": "ag859458",
+      "ori": "WA0240300",
+      "agency_type": "Local",
+      "city": "Omak",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Black Diamond Police Department": {
+      "wadeps_id": "ag140270",
+      "ori": "WA0171500",
+      "agency_type": "Local",
+      "city": "Black Diamond",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Buckley Police Department": {
+      "wadeps_id": "ag8845",
+      "ori": "WA0270400",
+      "agency_type": "Local",
+      "city": "Buckley",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Moses Lake Police Department": {
+      "wadeps_id": "ag513262",
+      "ori": "WA0130200",
+      "agency_type": "Local",
+      "city": "Moses Lake",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Cle Elum-Roslyn Police Department": {
+      "wadeps_id": "ag1430215",
+      "ori": "WA0190200",
+      "agency_type": "Local",
+      "city": "Cle Elum",
+      "county": "Kittitas",
+      "aliases": [
+        "CLE ELUM POLICE DEPARTMENT",
+        "Cle Elum Police Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Grandview Police Department": {
+      "wadeps_id": "ag1272214",
+      "ori": "WA0390100",
+      "agency_type": "Local",
+      "city": "Grandview",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Cheney Police Department": {
+      "wadeps_id": "ag487166",
+      "ori": "WA0320100",
+      "agency_type": "Local",
+      "city": "Cheney",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "Elma Police Department": {
+      "wadeps_id": "ag646280",
+      "ori": "WA0140200",
+      "agency_type": "Local",
+      "city": "Elma",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Clarkston Police Department": {
+      "wadeps_id": "ag1186431",
+      "ori": "WA0020100",
+      "agency_type": "Local",
+      "city": "Clarkston",
+      "county": "Asotin",
+      "reporting_status": "Required"
+    },
+    "Rainier Police Department": {
+      "wadeps_id": "ag892399",
+      "ori": "WA0340600",
+      "agency_type": "Local",
+      "city": "Rainier",
+      "county": "Thurston",
+      "reporting_status": "Contracted"
+    },
+    "Monroe Police Department": {
+      "wadeps_id": "ag451199",
+      "ori": "WA0311200",
+      "agency_type": "Local",
+      "city": "Monroe",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "Montesano Police Department": {
+      "wadeps_id": "ag1235120",
+      "ori": "WA0140500",
+      "agency_type": "Local",
+      "city": "Montesano",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Woodland Police Department": {
+      "wadeps_id": "ag1437460",
+      "ori": "WA0080500",
+      "agency_type": "Local",
+      "city": "Woodland",
+      "county": "Cowlitz",
+      "reporting_status": "Required"
+    },
+    "Ritzville Police Department": {
+      "wadeps_id": "ag1090207",
+      "ori": "WA0010200",
+      "agency_type": "Local",
+      "city": "Ritzville",
+      "county": "Adams",
+      "aliases": [
+        "RITZVILLE CITY POLICE DEPT"
+      ],
+      "reporting_status": "Required"
+    },
+    "Shelton Police Department": {
+      "wadeps_id": "ag1149443",
+      "ori": "WA0230400",
+      "agency_type": "Local",
+      "city": "Shelton",
+      "county": "Mason",
+      "reporting_status": "Required"
+    },
+    "Shoreline Police Department": {
+      "wadeps_id": "ag546495",
+      "ori": "WA0174300",
+      "agency_type": "Local",
+      "city": "Shoreline",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Issaquah Police Department": {
+      "wadeps_id": "ag211215",
+      "ori": "WA0170600",
+      "agency_type": "Local",
+      "city": "Issaquah",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Vancouver Police Department": {
+      "wadeps_id": "ag130359",
+      "ori": "WA0060300",
+      "agency_type": "Local",
+      "city": "Vancouver",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "Spokane County Sheriff's Office": {
+      "wadeps_id": "ag203371",
+      "ori": "WA0320000",
+      "agency_type": "County",
+      "city": "Spokane",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "West Richland Police Department": {
+      "wadeps_id": "ag1460219",
+      "ori": "WA0030500",
+      "agency_type": "Local",
+      "city": "West Richland",
+      "county": "Benton",
+      "reporting_status": "Required"
+    },
+    "Kenmore Police Department": {
+      "wadeps_id": "ag2089",
+      "ori": "WA0174900",
+      "agency_type": "Local",
+      "city": "Kenmore",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "McCleary Police Department": {
+      "wadeps_id": "ag37349",
+      "ori": "WA0140400",
+      "agency_type": "Local",
+      "city": "McCleary",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Kitsap County Sheriff's Office": {
+      "wadeps_id": "ag1219462",
+      "ori": "WA0180000",
+      "agency_type": "County",
+      "city": "Port Orchard",
+      "county": "Kitsap",
+      "aliases": [
+        "Kitsap County Sheriff's Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Oroville Police Department": {
+      "wadeps_id": "ag649427",
+      "ori": "WA0240400",
+      "agency_type": "Local",
+      "city": "Oroville",
+      "county": "Okanogan",
+      "reporting_status": "Required"
+    },
+    "Poulsbo Police Department": {
+      "wadeps_id": "ag1015495",
+      "ori": "WA0180500",
+      "agency_type": "Local",
+      "city": "Poulsbo",
+      "county": "Kitsap",
+      "reporting_status": "Required"
+    },
+    "Battle Ground Police Department": {
+      "wadeps_id": "ag232418",
+      "ori": "WA0060100",
+      "agency_type": "Local",
+      "city": "Battle Ground",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "Auburn Police Department": {
+      "wadeps_id": "ag1344221",
+      "ori": "WA0170100",
+      "agency_type": "Local",
+      "city": "Auburn",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Newcastle Police Department": {
+      "wadeps_id": "ag4803",
+      "ori": "WA0174200",
+      "agency_type": "Local",
+      "city": "Newcastle",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Walla Walla Police Department": {
+      "wadeps_id": "ag1385360",
+      "ori": "WA0360100",
+      "agency_type": "Local",
+      "city": "Walla Walla",
+      "county": "Walla Walla",
+      "reporting_status": "Required"
+    },
+    "Centralia Police Department": {
+      "wadeps_id": "ag238174",
+      "ori": "WA0210100",
+      "agency_type": "Local",
+      "city": "Centralia",
+      "county": "Lewis",
+      "aliases": [
+        "Centralia PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Sammamish Police Department": {
+      "wadeps_id": "ag550231",
+      "ori": "WA0175000",
+      "agency_type": "Local",
+      "city": "Sammamish",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Snohomish Police Department": {
+      "wadeps_id": "ag491181",
+      "ori": "WA0310700",
+      "agency_type": "Local",
+      "city": "Snohomish",
+      "county": "Snohomish",
+      "reporting_status": "Contracted"
+    },
+    "Olympia Police Department": {
+      "wadeps_id": "ag24261",
+      "ori": "WA0340100",
+      "agency_type": "Local",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "OP"
+      ],
+      "reporting_status": "Required"
+    },
+    "Lewis County Sheriff's Office": {
+      "wadeps_id": "ag691266",
+      "ori": "WA0210000",
+      "agency_type": "County",
+      "city": "Chehalis",
+      "county": "Lewis",
+      "aliases": [
+        "Lewis County Sheriff Office",
+        "Lewis County Sheriffs Office"
+      ],
+      "reporting_status": "Required"
+    },
+    "Douglas County Sheriff's Office": {
+      "wadeps_id": "ag1269366",
+      "ori": "WA0090000",
+      "agency_type": "County",
+      "city": "East Wenatchee",
+      "county": "Douglas",
+      "reporting_status": "Required"
+    },
+    "Mercer Island Police Department": {
+      "wadeps_id": "ag3761",
+      "ori": "WA0170900",
+      "agency_type": "Local",
+      "city": "Mercer Island",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Everson Police Department": {
+      "wadeps_id": "ag516372",
+      "ori": "WA0370300",
+      "agency_type": "Local",
+      "city": "Everson",
+      "county": "Whatcom",
+      "aliases": [
+        "Everson-Nooksack Police Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Pierce County Sheriff's Office": {
+      "wadeps_id": "ag682270",
+      "ori": "WA0270000",
+      "agency_type": "County",
+      "city": "Tacoma",
+      "county": "Pierce",
+      "aliases": [
+        "Pierce County Sheriff's Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Bellevue Police Department": {
+      "wadeps_id": "ag702215",
+      "ori": "WA0170200",
+      "agency_type": "Local",
+      "city": "Bellevue",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Aberdeen Police Department": {
+      "wadeps_id": "ag108325",
+      "ori": "WA0140100",
+      "agency_type": "Local",
+      "city": "Aberdeen",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Western Washington University Police Department": {
+      "wadeps_id": "ag387385",
+      "ori": "WA0370800",
+      "agency_type": "University",
+      "city": "Bellingham",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Forks Police Department": {
+      "wadeps_id": "ag914106",
+      "ori": "WA0050200",
+      "agency_type": "Local",
+      "city": "Forks",
+      "county": "Clallam",
+      "reporting_status": "Required"
+    },
+    "Maple Valley Police Department": {
+      "wadeps_id": "ag6015",
+      "ori": "WA0174700",
+      "agency_type": "Local",
+      "city": "Maple Valley",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Union Gap Police Department": {
+      "wadeps_id": "ag389377",
+      "ori": "WA0390400",
+      "agency_type": "Local",
+      "city": "Union Gap",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Everett Police Department": {
+      "wadeps_id": "ag22455",
+      "ori": "WA0310300",
+      "agency_type": "Local",
+      "city": "Everett",
+      "county": "Snohomish",
+      "reporting_status": "Required"
+    },
+    "University Place Police Department": {
+      "wadeps_id": "ag1014214",
+      "ori": "WA0272400",
+      "agency_type": "Local",
+      "city": "University Place",
+      "county": "Pierce",
+      "reporting_status": "Contracted"
+    },
+    "Chehalis Police Department": {
+      "wadeps_id": "ag881192",
+      "ori": "WA0210200",
+      "agency_type": "Local",
+      "city": "Chehalis",
+      "county": "Lewis",
+      "aliases": [
+        "Chehalis PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Sequim Police Department": {
+      "wadeps_id": "ag1098407",
+      "ori": "WA0050300",
+      "agency_type": "Local",
+      "city": "Sequim",
+      "county": "Clallam",
+      "reporting_status": "Required"
+    },
+    "Anacortes Police Department": {
+      "wadeps_id": "ag112370",
+      "ori": "WA0290100",
+      "agency_type": "Local",
+      "city": "Anacortes",
+      "county": "Skagit",
+      "reporting_status": "Required"
+    },
+    "Kirkland Police Department": {
+      "wadeps_id": "ag851264",
+      "ori": "WA0170800",
+      "agency_type": "Local",
+      "city": "Kirkland",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Colfax Police Department": {
+      "wadeps_id": "ag108727",
+      "ori": "WA0380100",
+      "agency_type": "Local",
+      "city": "Colfax",
+      "county": "Whitman",
+      "reporting_status": "Required"
+    },
+    "Pasco Police Department": {
+      "wadeps_id": "ag1186409",
+      "ori": "WA0110200",
+      "agency_type": "Local",
+      "city": "Pasco",
+      "county": "Franklin",
+      "aliases": [
+        "Pasco PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Pe Ell Police Department": {
+      "wadeps_id": "ag272200",
+      "ori": "WA0210900",
+      "agency_type": "Local",
+      "city": "Pe Ell",
+      "county": "Lewis",
+      "reporting_status": "Contracted"
+    },
+    "Newport Police Department": {
+      "wadeps_id": "ag842351",
+      "ori": "WA0260200",
+      "agency_type": "Local",
+      "city": "Newport",
+      "county": "Pend Oreille",
+      "reporting_status": "Required"
+    },
+    "Medical Lake Police Department": {
+      "wadeps_id": "ag1239470",
+      "ori": "WA0320300",
+      "agency_type": "Local",
+      "city": "Medical Lake",
+      "county": "Spokane",
+      "reporting_status": "Contracted"
+    },
+    "Port Townsend Police Department": {
+      "wadeps_id": "ag362493",
+      "ori": "WA0160100",
+      "agency_type": "Local",
+      "city": "Port Townsend",
+      "county": "Jefferson",
+      "reporting_status": "Required"
+    },
+    "Tumwater Police Department": {
+      "wadeps_id": "ag891264",
+      "ori": "WA0340200",
+      "agency_type": "Local",
+      "city": "Tumwater",
+      "county": "Thurston",
+      "reporting_status": "Required"
+    },
+    "Ephrata Police Department": {
+      "wadeps_id": "ag624468",
+      "ori": "WA0130100",
+      "agency_type": "Local",
+      "city": "Ephrata",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Gig Harbor Police Department": {
+      "wadeps_id": "ag1454133",
+      "ori": "WA0271800",
+      "agency_type": "Local",
+      "city": "Gig Harbor",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Colville Police Department": {
+      "wadeps_id": "ag745307",
+      "ori": "WA0330200",
+      "agency_type": "Local",
+      "city": "Colville",
+      "county": "Stevens",
+      "reporting_status": "Required"
+    },
+    "Coupeville Marshal's Office": {
+      "wadeps_id": "ag764318",
+      "ori": "WA0150200",
+      "agency_type": "Local",
+      "city": "Coupeville",
+      "county": "Island",
+      "aliases": [
+        "Coupeville Police Department"
+      ],
+      "reporting_status": "Contracted"
+    },
+    "Castle Rock Police Department": {
+      "wadeps_id": "ag479208",
+      "ori": "WA0080300",
+      "agency_type": "Local",
+      "city": "Castle Rock",
+      "county": "Cowlitz",
+      "reporting_status": "Required"
+    },
+    "Kalama Police Department": {
+      "wadeps_id": "ag140692",
+      "ori": "WA0080400",
+      "agency_type": "Local",
+      "city": "Kalama",
+      "county": "Cowlitz",
+      "reporting_status": "Required"
+    },
+    "Skamania County Sheriff's Office": {
+      "wadeps_id": "ag23445",
+      "ori": "WA0300000",
+      "agency_type": "County",
+      "city": "Stevenson",
+      "county": "Skamania",
+      "reporting_status": "Required"
+    },
+    "Blaine Police Department": {
+      "wadeps_id": "ag1486199",
+      "ori": "WA0370200",
+      "agency_type": "Local",
+      "city": "Blaine",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Yelm Police Department": {
+      "wadeps_id": "ag1435490",
+      "ori": "WA0340900",
+      "agency_type": "Local",
+      "city": "Yelm",
+      "county": "Thurston",
+      "aliases": [
+        "Yelm Police"
+      ],
+      "reporting_status": "Required"
+    },
+    "Orting Police Department": {
+      "wadeps_id": "ag974421",
+      "ori": "WA0271300",
+      "agency_type": "Local",
+      "city": "Orting",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Eatonville Police Department": {
+      "wadeps_id": "ag219175",
+      "ori": "WA0270500",
+      "agency_type": "Local",
+      "city": "Eatonville",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Thurston County Sheriff's Office": {
+      "wadeps_id": "ag241427",
+      "ori": "WA0340000",
+      "agency_type": "County",
+      "city": "Olympia",
+      "county": "Thurston",
+      "aliases": [
+        "WA034000"
+      ],
+      "reporting_status": "Required"
+    },
+    "Wenatchee Police Department": {
+      "wadeps_id": "ag59108",
+      "ori": "WA0040400",
+      "agency_type": "Local",
+      "city": "Wenatchee",
+      "county": "Chelan",
+      "reporting_status": "Required"
+    },
+    "Bremerton Police Department": {
+      "wadeps_id": "ag648121",
+      "ori": "WA0180100",
+      "agency_type": "Local",
+      "city": "Bremerton",
+      "county": "Kitsap",
+      "reporting_status": "Required"
+    },
+    "Spokane International Airport Police Department": {
+      "wadeps_id": "ag126351",
+      "ori": "WA0321200",
+      "agency_type": "Airport",
+      "city": "Spokane",
+      "county": "Spokane",
+      "aliases": [
+        "Spokane Airport Police Department",
+        "Spokane International Airports Police Department"
+      ],
+      "reporting_status": "Required"
+    },
+    "Ridgefield Police Department": {
+      "wadeps_id": "ag1232411",
+      "ori": "WA0060500",
+      "agency_type": "Local",
+      "city": "Ridgefield",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "Airway Heights Police Department": {
+      "wadeps_id": "ag1331121",
+      "ori": "WA0320600",
+      "agency_type": "Local",
+      "city": "Airway Heights",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "Clark County Sheriff's Office": {
+      "wadeps_id": "ag295397",
+      "ori": "WA0060000",
+      "agency_type": "County",
+      "city": "Vancouver",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "Ocean Shores Police Department": {
+      "wadeps_id": "ag1429248",
+      "ori": "WA0140800",
+      "agency_type": "Local",
+      "city": "Ocean Shores",
+      "county": "Grays Harbor",
+      "reporting_status": "Required"
+    },
+    "Oak Harbor Police Department": {
+      "wadeps_id": "ag130274",
+      "ori": "WA0150100",
+      "agency_type": "Local",
+      "city": "Oak Harbor",
+      "county": "Island",
+      "reporting_status": "Required"
+    },
+    "Whitman County Sheriff's Office": {
+      "wadeps_id": "ag1487345",
+      "ori": "WA0380000",
+      "agency_type": "County",
+      "city": "Colfax",
+      "county": "Whitman",
+      "aliases": [
+        "Whitman County Sheriff"
+      ],
+      "reporting_status": "Required"
+    },
+    "Lacey Police Department": {
+      "wadeps_id": "ag317191",
+      "ori": "WA0340400",
+      "agency_type": "Local",
+      "city": "Lacey",
+      "county": "Thurston",
+      "aliases": [
+        "LP"
+      ],
+      "reporting_status": "Required"
+    },
+    "Pacific County Sheriff's Office": {
+      "wadeps_id": "ag88422",
+      "ori": "WA0250000",
+      "agency_type": "County",
+      "city": "South Bend",
+      "county": "Pacific",
+      "reporting_status": "Required"
+    },
+    "Snoqualmie Police Department": {
+      "wadeps_id": "ag452290",
+      "ori": "WA0172200",
+      "agency_type": "Local",
+      "city": "Snoqualmie",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Washougal Police Department": {
+      "wadeps_id": "ag258333",
+      "ori": "WA0060400",
+      "agency_type": "Local",
+      "city": "Washougal",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "La Center Police Department": {
+      "wadeps_id": "ag1400423",
+      "ori": "WA0060600",
+      "agency_type": "Local",
+      "city": "La Center",
+      "county": "Clark",
+      "reporting_status": "Contracted"
+    },
+    "Grays Harbor County Sheriff's Office": {
+      "wadeps_id": "ag1278413",
+      "ori": "WA0140000",
+      "agency_type": "County",
+      "city": "Montesano",
+      "county": "Grays Harbor",
+      "aliases": [
+        "GHSO"
+      ],
+      "reporting_status": "Required"
+    },
+    "Seattle Police Department": {
+      "wadeps_id": "ag1420212",
+      "ori": "WASPD0000",
+      "agency_type": "Local",
+      "city": "Seattle",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Grant County Sheriff's Office": {
+      "wadeps_id": "ag28351",
+      "ori": "WA0130000",
+      "agency_type": "County",
+      "city": "Ephrata",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Palouse Police Department": {
+      "wadeps_id": "ag73552",
+      "ori": "WA0380900",
+      "agency_type": "Local",
+      "city": "Palouse",
+      "county": "Whitman",
+      "reporting_status": "Required"
+    },
+    "Ferry County Sheriff's Office": {
+      "wadeps_id": "ag115496",
+      "ori": "WA0100000",
+      "agency_type": "County",
+      "city": "Republic",
+      "county": "Ferry",
+      "reporting_status": "Required"
+    },
+    "Richland Police Department": {
+      "wadeps_id": "ag1186264",
+      "ori": "WA0030200",
+      "agency_type": "Local",
+      "city": "Richland",
+      "county": "Benton",
+      "aliases": [
+        "Richland PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Beaux Arts Police Department": {
+      "wadeps_id": "ag751460",
+      "ori": "WA0172900",
+      "agency_type": "Local",
+      "city": "Beaux Arts",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Port Angeles Police Department": {
+      "wadeps_id": "ag3119",
+      "ori": "WA0050100",
+      "agency_type": "Local",
+      "city": "Port Angeles",
+      "county": "Clallam",
+      "reporting_status": "Required"
+    },
+    "Redmond Police Department": {
+      "wadeps_id": "ag119687",
+      "ori": "WA0171200",
+      "agency_type": "Local",
+      "city": "Redmond",
+      "county": "King",
+      "reporting_status": "Required"
+    },
+    "Prosser Police Department": {
+      "wadeps_id": "ag472281",
+      "ori": "WA0030300",
+      "agency_type": "Local",
+      "city": "Prosser",
+      "county": "Benton",
+      "aliases": [
+        "Prosser PD"
+      ],
+      "reporting_status": "Required"
+    },
+    "Quincy Police Department": {
+      "wadeps_id": "ag919475",
+      "ori": "WA0130300",
+      "agency_type": "Local",
+      "city": "Quincy",
+      "county": "Grant",
+      "reporting_status": "Required"
+    },
+    "Woodinville Police Department": {
+      "wadeps_id": "ag44674",
+      "ori": "WA0174000",
+      "agency_type": "Local",
+      "city": "Woodinville",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "Ilwaco Police Department": {
+      "wadeps_id": "ag1312119",
+      "ori": "WA0250300",
+      "agency_type": "Local",
+      "city": "Ilwaco",
+      "county": "Pacific",
+      "reporting_status": "Contracted"
+    },
+    "Camas Police Department": {
+      "wadeps_id": "ag69196",
+      "ori": "WA0060200",
+      "agency_type": "Local",
+      "city": "Camas",
+      "county": "Clark",
+      "reporting_status": "Required"
+    },
+    "Fife Police Department": {
+      "wadeps_id": "ag1004404",
+      "ori": "WA0270700",
+      "agency_type": "Local",
+      "city": "Fife",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Langley Police Department": {
+      "wadeps_id": "ag204238",
+      "ori": "WA0150300",
+      "agency_type": "Local",
+      "city": "Langley",
+      "county": "Island",
+      "reporting_status": "Required"
+    },
+    "Snohomish County Sheriff's Office": {
+      "wadeps_id": "ag72843",
+      "ori": "WA0310000",
+      "agency_type": "County",
+      "city": "Everett",
+      "county": "Snohomish",
+      "aliases": [
+        "WA0310000"
+      ],
+      "reporting_status": "Required"
+    },
+    "Lynden Police Department": {
+      "wadeps_id": "ag1252139",
+      "ori": "WA0370500",
+      "agency_type": "Local",
+      "city": "Lynden",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Tonasket Police Department": {
+      "wadeps_id": "ag91160",
+      "ori": "WA0240600",
+      "agency_type": "Local",
+      "city": "Tonasket",
+      "county": "Okanogan",
+      "reporting_status": "Not Applicable"
+    },
+    "San Juan County Sheriff's Office": {
+      "wadeps_id": "ag1439395",
+      "ori": "WA0280000",
+      "agency_type": "County",
+      "city": "Friday Harbor",
+      "county": "San Juan",
+      "reporting_status": "Required"
+    },
+    "Walla Walla County Sheriff's Office": {
+      "wadeps_id": "ag71433",
+      "ori": "WA0360000",
+      "agency_type": "County",
+      "city": "Walla Walla",
+      "county": "Walla Walla",
+      "reporting_status": "Required"
+    },
+    "Zillah Police Department": {
+      "wadeps_id": "ag322107",
+      "ori": "WA0390600",
+      "agency_type": "Local",
+      "city": "Zillah",
+      "county": "Yakima",
+      "reporting_status": "Required"
+    },
+    "Uniontown Police Department": {
+      "wadeps_id": "ag7323",
+      "ori": "WA0381600",
+      "agency_type": "Local",
+      "city": "Uniontown",
+      "county": "Whitman",
+      "reporting_status": "Not applicable"
+    },
+    "Sultan Police Department": {
+      "wadeps_id": "ag1442409",
+      "ori": "WA0311500",
+      "agency_type": "Local",
+      "city": "Sultan",
+      "county": "Snohomish",
+      "reporting_status": "Not applicable"
+    },
+    "Port Orchard Police Department": {
+      "wadeps_id": "ag629356",
+      "ori": "WA0180400",
+      "agency_type": "Local",
+      "city": "Port Orchard",
+      "county": "Kitsap",
+      "reporting_status": "Required"
+    },
+    "North Bend Police Department": {
+      "wadeps_id": "ag1353257",
+      "ori": "WA0171100",
+      "agency_type": "Local",
+      "city": "North Bend",
+      "county": "King",
+      "reporting_status": "Contracted"
+    },
+    "King County Sheriff's Office": {
+      "wadeps_id": "ag1088275",
+      "ori": "WA0170000",
+      "agency_type": "County",
+      "city": "Seattle",
+      "county": "King",
+      "aliases": [
+        "King County Sheriff"
+      ],
+      "reporting_status": "Required"
+    },
+    "Bellingham Police Department": {
+      "wadeps_id": "ag1228289",
+      "ori": "WA0370100",
+      "agency_type": "Local",
+      "city": "Bellingham",
+      "county": "Whatcom",
+      "reporting_status": "Required"
+    },
+    "Spokane Police Department": {
+      "wadeps_id": "ag1487235",
+      "ori": "WA0320400",
+      "agency_type": "Local",
+      "city": "Spokane",
+      "county": "Spokane",
+      "reporting_status": "Required"
+    },
+    "Chelan County Sheriff's Office": {
+      "wadeps_id": "ag155232",
+      "ori": "WA0040000",
+      "agency_type": "County",
+      "city": "Wenatchee",
+      "county": "Chelan",
+      "reporting_status": "Required"
+    },
+    "Chewelah Police Department": {
+      "wadeps_id": "ag843203",
+      "ori": "WA0330100",
+      "agency_type": "Local",
+      "city": "Chewelah",
+      "county": "Stevens",
+      "reporting_status": "Required"
+    },
+    "Granite Falls Police Department": {
+      "wadeps_id": "ag874401",
+      "ori": "WA0311100",
+      "agency_type": "Local",
+      "city": "Granite Falls",
+      "county": "Snohomish",
+      "reporting_status": "Not applicable"
+    },
+    "Tacoma Police Department": {
+      "wadeps_id": "ag77415",
+      "ori": "WA0270300",
+      "agency_type": "Local",
+      "city": "Tacoma",
+      "county": "Pierce",
+      "reporting_status": "Required"
+    },
+    "Suquamish Police Department": {
+      "wadeps_id": "ag768352",
+      "ori": "WADI00900",
+      "agency_type": "Tribal",
+      "city": "Suquamish",
+      "county": "Kitsap",
+      "aliases": [
+        "Suquamish Tribal Police"
+      ],
+      "reporting_status": "Optional"
+    },
+    "Colville Tribal Corrections": {
+      "wadeps_id": "ag_colville_corrections",
+      "ori": null,
+      "agency_type": null,
+      "city": null,
+      "county": null
+    },
+    "Kitsap Critical Incident Response Team": {
+      "wadeps_id": "ag_kitsap_cirt",
+      "ori": null,
+      "agency_type": null,
+      "city": null,
+      "county": null
+    },
+    "Unknown Agency": {
+      "wadeps_id": "ag_unknown",
+      "ori": null,
+      "agency_type": null,
+      "city": null,
+      "county": null
+    }
+  },
+  "metadata": {
+    "total_agencies": 304,
+    "last_updated": "2026-01-09"
+  }
+}

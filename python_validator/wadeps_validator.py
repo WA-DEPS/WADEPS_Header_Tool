@@ -21,6 +21,7 @@ class WADEPSValidator:
         self.template_path = template_path or "../templates/wadeps_uof_template.json"
         self.headers = []
         self.validations = {}
+        self.register_lookups: Dict[str, set] = {}
         
     def load_template_data(self) -> Dict[str, Any]:
         """Load headers and validation rules from JSON template"""
@@ -32,6 +33,7 @@ class WADEPSValidator:
 
             self.headers = data.get('headers', [])
             self.validations = data.get('validations', {})
+            self._load_registers()
 
             print(f"{len(self.headers)} headers")
             print(f"{len(self.validations)} validation rules")
@@ -43,6 +45,30 @@ class WADEPSValidator:
             raise
     
 #template_based_validation
+
+    def _load_registers(self):
+        """Load external register files referenced by validation rules"""
+        template_dir = Path(self.template_path).parent
+        for field, rule in self.validations.items():
+            if rule.get('type') == 'register':
+                source = rule.get('source')
+                if not source:
+                    continue
+                register_path = template_dir / source
+                try:
+                    with open(register_path, 'r') as f:
+                        register_data = json.load(f)
+                    valid_names = set()
+                    for name, info in register_data.get('agencies', {}).items():
+                        valid_names.add(name)
+                        for alias in info.get('aliases', []):
+                            valid_names.add(alias)
+                    self.register_lookups[field] = valid_names
+                    print(f"  Register loaded for {field}: {len(valid_names)} valid values")
+                except FileNotFoundError:
+                    print(f"  Warning: register file not found {register_path}")
+                except Exception as e:
+                    print(f"  Warning: failed to load register for {field}: {e}")
     
     def validate_csv(self, csv_path: str) -> Dict[str, Any]:
         """Validate a CSV file against the template"""
@@ -168,7 +194,9 @@ class WADEPSValidator:
         
 #date_validation
         elif rule['type'] == 'date':
-            if not re.match(r'^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$', value):
+            date_pattern_mmddyyyy = r'^(0?[1-9]|1[0-2])/(0?[1-9]|[12][0-9]|3[01])/\d{4}$'
+            date_pattern_yyyymmdd = r'^\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$'
+            if not re.match(date_pattern_mmddyyyy, value) and not re.match(date_pattern_yyyymmdd, value):
                 return {
                     'row': row_num,
                     'column': header,
@@ -225,6 +253,30 @@ class WADEPSValidator:
                     'column': header,
                     'value': value,
                     'error': rule.get('description', f"Must match pattern: {rule['pattern']}"),
+                    'severity': 'error'
+                }
+        
+#text_validation
+        elif rule['type'] == 'text':
+            max_len = rule.get('maxLength')
+            if max_len and len(value) > max_len:
+                return {
+                    'row': row_num,
+                    'column': header,
+                    'value': value,
+                    'error': f"Exceeds max length of {max_len} characters ({len(value)} given)",
+                    'severity': 'error'
+                }
+        
+#register_validation
+        elif rule['type'] == 'register':
+            valid_set = self.register_lookups.get(header)
+            if valid_set and value not in valid_set:
+                return {
+                    'row': row_num,
+                    'column': header,
+                    'value': value,
+                    'error': "Not found in agency register",
                     'severity': 'error'
                 }
         
@@ -870,6 +922,8 @@ def process_auto_mode():
             data = json.load(f)
             validator.headers = data['headers']
             validator.validations = data['validations']
+            validator.template_path = str(template_json)
+            validator._load_registers()
             print(f"Loaded template with {len(validator.headers)} headers, "
                   f"{len(validator.validations)} validation rules\n")
     
