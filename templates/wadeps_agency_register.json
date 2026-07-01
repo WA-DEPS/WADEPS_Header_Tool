@@ -235,7 +235,7 @@
       "agency_type": "Local",
       "city": "Tenino",
       "county": "Thurston",
-      "reporting_status": "Required"
+      "reporting_status": "Not Applicable"
     },
     "Grand Coulee Police Department": {
       "wadeps_id": "ag1434239",
@@ -471,7 +471,7 @@
       "agency_type": "Local",
       "city": "Darrington",
       "county": "Snohomish",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Mattawa Police Department": {
       "wadeps_id": "ag32581",
@@ -646,7 +646,7 @@
       "agency_type": "Local",
       "city": "Colton",
       "county": "Whitman",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Long Beach Police Department": {
       "wadeps_id": "ag50926",
@@ -783,7 +783,7 @@
       "agency_type": "Local",
       "city": "Gold Bar",
       "county": "Snohomish",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Lincoln County Sheriff's Office": {
       "wadeps_id": "ag696169",
@@ -903,7 +903,7 @@
       "agency_type": "Local",
       "city": "Rosalia",
       "county": "Whitman",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Upper Skagit Tribal Police Department": {
       "wadeps_id": "ag827344",
@@ -960,7 +960,7 @@
       "agency_type": "Local",
       "city": "Gold Bar",
       "county": "Snohomish",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Washington State Liquor and Cannabis Board's Enforcement": {
       "wadeps_id": "ag889284",
@@ -1501,7 +1501,7 @@
       "agency_type": "Local",
       "city": "Twisp",
       "county": "Okanogan",
-      "reporting_status": "Contracted"
+      "reporting_status": "Required"
     },
     "Tieton Police Department": {
       "wadeps_id": "ag1150150",
@@ -2535,7 +2535,7 @@
       "agency_type": "Local",
       "city": "Uniontown",
       "county": "Whitman",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Sultan Police Department": {
       "wadeps_id": "ag1442409",
@@ -2543,7 +2543,7 @@
       "agency_type": "Local",
       "city": "Sultan",
       "county": "Snohomish",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Port Orchard Police Department": {
       "wadeps_id": "ag629356",
@@ -2610,7 +2610,7 @@
       "agency_type": "Local",
       "city": "Granite Falls",
       "county": "Snohomish",
-      "reporting_status": "Not applicable"
+      "reporting_status": "Not Applicable"
     },
     "Tacoma Police Department": {
       "wadeps_id": "ag77415",

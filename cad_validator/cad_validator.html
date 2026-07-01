@@ -366,7 +366,7 @@
             <div class="info-box">
                 <strong>Agency Lookup:</strong>
                 <button onclick="showAgencyLookup()" class="btn btn-primary" style="margin-left:10px;padding:8px 16px;font-size:0.95em;">
-                    View 301 Agencies & ORI Codes
+                    View 304 Agencies & ORI Codes
                 </button>
                 <div class="info-box-hint">
                     Verify your agency name or ORI code spelling before uploading
@@ -438,7 +438,7 @@
     </div>
 
     <script>
-// Configuration and State Management
+
 const CONFIG = {
     HEADERS: ["incident_id", "agency_name", "record_creation_time", "original_call_type", "city"],
     VALIDATIONS: {
@@ -452,7 +452,7 @@ const CONFIG = {
             "description": "Law enforcement agency name or ORI code (accepts either format)",
             "required": true,
             "accept_ori_format": true,
-            "valid_ori_codes": ["WA0010000", "WA0010100", "WA0010200", "WA0020000", "WA0020100", "WA0020200", "WA0030000", "WA0030100", "WA0030200", "WA0030300", "WA0030500", "WA0040000", "WA0040400", "WA0050000", "WA0050100", "WA0050200", "WA0050300", "WA0060000", "WA0060100", "WA0060200", "WA0060300", "WA0060400", "WA0060500", "WA0060600", "WA0061000", "WA0070000", "WA0080000", "WA0080100", "WA0080200", "WA0080300", "WA0080400", "WA0080500", "WA0090000", "WA0090200", "WA0100000", "WA0100100", "WA0110000", "WA0110100", "WA0110200", "WA0110600", "WA0120000", "WA0130000", "WA0130100", "WA0130200", "WA0130300", "WA0130400", "WA0130500", "WA0130700", "WA0130900", "WA0131000", "WA0131100", "WA0140000", "WA0140100", "WA0140200", "WA0140300", "WA0140400", "WA0140500", "WA0140600", "WA0140700", "WA0140800", "WA0140900", "WA0150000", "WA0150100", "WA0150200", "WA0150300", "WA0160000", "WA0160100", "WA0170000", "WA0170100", "WA0170200", "WA0170300", "WA0170400", "WA0170600", "WA0170700", "WA0170800", "WA0170900", "WA0171000", "WA0171100", "WA0171200", "WA0171300", "WA0171400", "WA0171500", "WA0171600", "WA0171700", "WA0171800", "WA0172000", "WA0172100", "WA0172200", "WA0172300", "WA0172400", "WA0172500", "WA0172600", "WA0172700", "WA0172900", "WA0173100", "WA0173200", "WA0173500", "WA0173600", "WA0173700", "WA0174000", "WA0174100", "WA0174200", "WA0174300", "WA0174700", "WA0174800", "WA0174900", "WA0175000", "WA0180000", "WA0180100", "WA0180400", "WA0180500", "WA0180700", "WA0190000", "WA0190100", "WA0190200", "WA0190600", "WA0190800", "WA0200000", "WA0200100", "WA0200200", "WA0210000", "WA0210100", "WA0210200", "WA0210300", "WA0210400", "WA0210700", "WA0210900", "WA0211000", "WA0211100", "WA0211200", "WA0220000", "WA0220200", "WA0220600", "WA0220700", "WA0230000", "WA0230400", "WA0240000", "WA0240100", "WA0240300", "WA0240400", "WA0240600", "WA0240700", "WA0240900", "WA0241000", "WA0250000", "WA0250100", "WA0250200", "WA0250300", "WA0250400", "WA0260000", "WA0260200", "WA0270000", "WA0270100", "WA0270200", "WA027025Y", "WA0270300", "WA0270400", "WA0270500", "WA0270700", "WA0270900", "WA0271000", "WA0271100", "WA0271300", "WA0271400", "WA0271600", "WA0271700", "WA0271800", "WA0271900", "WA0272300", "WA0272400", "WA0272500", "WA0280000", "WA0290000", "WA0290100", "WA0290200", "WA0290300", "WA0290400", "WA0300000", "WA0310000", "WA0310100", "WA0310200", "WA0310300", "WA0310400", "WA0310500", "WA0310600", "WA0310700", "WA0310800", "WA0310900", "WA0311000", "WA0311100", "WA0311200", "WA0311300", "WA0311400", "WA0311500", "WA0311600", "WA0311800", "WA0311900", "WA0312100", "WA0320000", "WA0320100", "WA0320300", "WA0320400", "WA0320600", "WA0320900", "WA0321200", "WA0321300", "WA0321500", "WA0330000", "WA0330100", "WA0330200", "WA0330300", "WA0330600", "WA0340000", "WA0340100", "WA0340200", "WA0340400", "WA0340600", "WA0340800", "WA0340900", "WA0341000", "WA0341100", "WA0341200", "WA0341600", "WA0341900", "WA0342000", "WA0342200", "WA0349900", "WA0350000", "WA0360000", "WA0360100", "WA0360200", "WA0370000", "WA0370100", "WA0370200", "WA0370300", "WA0370400", "WA0370500", "WA0370700", "WA0370800", "WA0380000", "WA0380100", "WA0380300", "WA0380400", "WA0380500", "WA0380600", "WA0380700", "WA0380900", "WA0381400", "WA0381600", "WA0390000", "WA0390100", "WA0390200", "WA0390300", "WA0390400", "WA0390500", "WA0390600", "WA0390700", "WA0390900", "WA0391100", "WA0391200", "WA0391300", "WA0391400", "WADI00800", "WADI00900", "WADI01000", "WADI01100", "WADI01200", "WADI01300", "WADI01400", "WADI01500", "WADI05100", "WADI05400", "WADI05500", "WADI05600", "WADI05700", "WADI05800", "WADI05900", "WADI06100", "WADI06200", "WADI06300", "WADI06400", "WADI06500", "WADI06600", "WADI06700", "WADI06800", "WADI07000", "WADI08300", "WADI08600", "WADI09100", "WASPD0000", "WAWSP0000"]
+            "valid_ori_codes": ["WA0010000", "WA0010100", "WA0010200", "WA0020000", "WA0020100", "WA0020200", "WA0030000", "WA0030100", "WA0030200", "WA0030300", "WA0030500", "WA0040000", "WA0040400", "WA0050000", "WA0050100", "WA0050200", "WA0050300", "WA0060000", "WA0060100", "WA0060200", "WA0060300", "WA0060400", "WA0060500", "WA0060600", "WA0061000", "WA0070000", "WA0080000", "WA0080100", "WA0080200", "WA0080300", "WA0080400", "WA0080500", "WA0090000", "WA0090200", "WA0100000", "WA0100100", "WA0110000", "WA0110100", "WA0110200", "WA0110600", "WA0120000", "WA0130000", "WA0130100", "WA0130200", "WA0130300", "WA0130400", "WA0130500", "WA0130700", "WA0130900", "WA0131000", "WA0131100", "WA0140000", "WA0140100", "WA0140200", "WA0140300", "WA0140400", "WA0140500", "WA0140600", "WA0140700", "WA0140800", "WA0140900", "WA0150000", "WA0150100", "WA0150200", "WA0150300", "WA0160000", "WA0160100", "WA0170000", "WA0170100", "WA0170200", "WA0170300", "WA0170400", "WA0170600", "WA0170700", "WA0170800", "WA0170900", "WA0171000", "WA0171100", "WA0171200", "WA0171300", "WA0171400", "WA0171500", "WA0171600", "WA0171700", "WA0171800", "WA0172000", "WA0172100", "WA0172200", "WA0172300", "WA0172400", "WA0172500", "WA0172600", "WA0172700", "WA0172900", "WA0173100", "WA0173200", "WA0173500", "WA0173600", "WA0173700", "WA0174000", "WA0174100", "WA0174200", "WA0174300", "WA0174700", "WA0174800", "WA0174900", "WA0175000", "WA0180000", "WA0180100", "WA0180400", "WA0180500", "WA0180700", "WA0190000", "WA0190100", "WA0190200", "WA0190600", "WA0190800", "WA0200000", "WA0200100", "WA0200600", "WA0210000", "WA0210100", "WA0210200", "WA0210300", "WA0210400", "WA0210700", "WA0210900", "WA0211000", "WA0211100", "WA0211200", "WA0220000", "WA0220200", "WA0220600", "WA0220700", "WA0230000", "WA0230400", "WA0240000", "WA0240100", "WA0240300", "WA0240400", "WA0240600", "WA0240700", "WA0240900", "WA0241000", "WA0250000", "WA0250100", "WA0250200", "WA0250300", "WA0250400", "WA0260000", "WA0260200", "WA0270000", "WA0270100", "WA0270200", "WA027025Y", "WA0270300", "WA0270400", "WA0270500", "WA0270700", "WA0270900", "WA0271000", "WA0271100", "WA0271300", "WA0271400", "WA0271600", "WA0271700", "WA0271800", "WA0271900", "WA0272300", "WA0272400", "WA0272500", "WA0280000", "WA0290000", "WA0290100", "WA0290200", "WA0290300", "WA0290400", "WA0300000", "WA0310000", "WA0310100", "WA0310200", "WA0310300", "WA0310400", "WA0310500", "WA0310600", "WA0310700", "WA0310800", "WA0310900", "WA0311000", "WA0311100", "WA0311200", "WA0311300", "WA0311400", "WA0311500", "WA0311600", "WA0311800", "WA0311900", "WA0312100", "WA0320000", "WA0320100", "WA0320300", "WA0320400", "WA0320600", "WA0320900", "WA0321200", "WA0321300", "WA0321500", "WA0330000", "WA0330100", "WA0330200", "WA0330300", "WA0330600", "WA0340000", "WA0340100", "WA0340200", "WA0340400", "WA0340600", "WA0340800", "WA0340900", "WA0341000", "WA0341100", "WA0341200", "WA0341600", "WA0341900", "WA0342000", "WA0342200", "WA0349900", "WA0350000", "WA0360000", "WA0360100", "WA0360200", "WA0370000", "WA0370100", "WA0370200", "WA0370300", "WA0370400", "WA0370500", "WA0370700", "WA0370800", "WA0380000", "WA0380100", "WA0380300", "WA0380400", "WA0380500", "WA0380600", "WA0380700", "WA0380900", "WA0381400", "WA0381600", "WA0390000", "WA0390100", "WA0390200", "WA0390300", "WA0390400", "WA0390500", "WA0390600", "WA0390700", "WA0390900", "WA0391100", "WA0391200", "WA0391300", "WA0391400", "WADI00800", "WADI00900", "WADI01000", "WADI01100", "WADI01200", "WADI01300", "WADI01400", "WADI01500", "WADI05100", "WADI05400", "WADI05500", "WADI05600", "WADI05700", "WADI05800", "WADI05900", "WADI06100", "WADI06200", "WADI06300", "WADI06400", "WADI06500", "WADI06600", "WADI06700", "WADI06800", "WADI07000", "WADI08300", "WADI08600", "WADI09100", "WASPD0000", "WAWSP0000"]
         },
         "record_creation_time": {
             "required": true
@@ -474,12 +474,24 @@ const CONFIG = {
         'incident#': 'incident_id',
         'case': 'incident_id',
         'case_number': 'incident_id',
+        'call_number': 'incident_id',
+        'callnumber': 'incident_id',
+        'call number': 'incident_id',
+        'call_id': 'incident_id',
+        'cad_number': 'incident_id',
+        'cad_id': 'incident_id',
+        'event_number': 'incident_id',
+        'event_id': 'incident_id',
+        'report_number': 'incident_id',
         'agency': 'agency_name',
         'agencyname': 'agency_name',
         'department': 'agency_name',
         'dept': 'agency_name',
         'pd': 'agency_name',
         'agency_id': 'agency_name',
+        'call_jurisdiction': 'agency_name',
+        'calljurisdiction': 'agency_name',
+        'jurisdiction': 'agency_name',
         'reported': 'record_creation_time',
         'datetime': 'record_creation_time',
         'date_time': 'record_creation_time',
@@ -487,31 +499,46 @@ const CONFIG = {
         'created': 'record_creation_time',
         'date': 'record_creation_time',
         'time': 'record_creation_time',
+        'date_call_received': 'record_creation_time',
+        'datecallreceived': 'record_creation_time',
+        'call_received': 'record_creation_time',
+        'received_date': 'record_creation_time',
+        'received_time': 'record_creation_time',
+        'creation_date': 'record_creation_time',
+        'dispatch_time': 'record_creation_time',
+        'dispatch_date': 'record_creation_time',
         'nature': 'original_call_type',
         'calltype': 'original_call_type',
         'call_type': 'original_call_type',
         'type': 'original_call_type',
         'call': 'original_call_type',
-        'incident_type': 'original_call_type'
+        'incident_type': 'original_call_type',
+        'call_nature': 'original_call_type',
+        'nature_of_call': 'original_call_type',
+        'event_type': 'original_call_type',
+        'community_code': 'city',
+        'communitycode': 'city',
+        'community': 'city',
+        'location_city': 'city',
+        'city_name': 'city',
+        'municipality': 'city'
     }
 };
 
-const AGENCY_REGISTRY = [{"name": "Aberdeen Police Department", "ori": "WA0140100", "type": "Local", "city": "Aberdeen", "county": "Grays Harbor"}, {"name": "Adams County Sheriff's Office", "ori": "WA0010000", "type": "County", "city": "Ritzville", "county": "Adams"}, {"name": "Airway Heights Police Department", "ori": "WA0320600", "type": "Local", "city": "Airway Heights", "county": "Spokane"}, {"name": "Algona Police Department", "ori": "WA0171400", "type": "Local", "city": "Algona", "county": "King"}, {"name": "Anacortes Police Department", "ori": "WA0290100", "type": "Local", "city": "Anacortes", "county": "Skagit"}, {"name": "Arlington Police Department", "ori": "WA0310100", "type": "Local", "city": "Arlington", "county": "Snohomish"}, {"name": "Asotin County Sheriff's Office", "ori": "WA0020000", "type": "County", "city": "Asotin", "county": "Asotin"}, {"name": "Asotin Police Department", "ori": "WA0020200", "type": "Local", "city": "Asotin", "county": "Asotin"}, {"name": "Auburn Police Department", "ori": "WA0170100", "type": "Local", "city": "Auburn", "county": "King"}, {"name": "Bainbridge Island Police Department", "ori": "WA0180700", "type": "Local", "city": "Bainbridge Island", "county": "Kitsap"}, {"name": "Battle Ground Police Department", "ori": "WA0060100", "type": "Local", "city": "Ground", "county": "Clark"}, {"name": "Beaux Arts Police Department", "ori": "WA0172900", "type": "Local", "city": "Valley", "county": "King"}, {"name": "Bellevue Police Department", "ori": "WA0170200", "type": "Local", "city": "Bellevue", "county": "King"}, {"name": "Bellingham Police Department", "ori": "WA0370100", "type": "Local", "city": "Bellingham", "county": "Whatcom"}, {"name": "Benton County Sheriff's Office", "ori": "WA0030000", "type": "County", "city": "Kennewick", "county": "Benton"}, {"name": "Bingen-White Salmon Police Department", "ori": "WA0200600", "type": "Local", "city": "White Salmon", "county": "Klickitat"}, {"name": "Black Diamond Police Department", "ori": "WA0171500", "type": "Local", "city": "Black Diamond", "county": "King"}, {"name": "Blaine Police Department", "ori": "WA0370200", "type": "Local", "city": "Blaine", "county": "Whatcom"}, {"name": "Bonney Lake Police Department", "ori": "WA0271400", "type": "Local", "city": "Bonney Lake", "county": "Pierce"}, {"name": "Bothell Police Department", "ori": "WA0170300", "type": "Local", "city": "Bothell", "county": "King"}, {"name": "Bremerton Police Department", "ori": "WA0180100", "type": "Local", "city": "Bremerton", "county": "Kitsap"}, {"name": "Brewster Police Department", "ori": "WA0240100", "type": "Local", "city": "Brewster", "county": "Okanogan"}, {"name": "Brier Police Department", "ori": "WA0310800", "type": "Local", "city": "Brier", "county": "Snohomish"}, {"name": "Buckley Police Department", "ori": "WA0270400", "type": "Local", "city": "Buckley", "county": "Pierce"}, {"name": "Burien Police Department", "ori": "WA0174100", "type": "Local", "city": "Burien", "county": "King"}, {"name": "Burlington Police Department", "ori": "WA0290400", "type": "Local", "city": "Burlington", "county": "Skagit"}, {"name": "Camas Police Department", "ori": "WA0060200", "type": "Local", "city": "Camas", "county": "Clark"}, {"name": "Carnation Police Department", "ori": "WA0171600", "type": "Local", "city": "Sammamish", "county": "King"}, {"name": "Castle Rock Police Department", "ori": "WA0080300", "type": "Local", "city": "Castle Rock", "county": "Cowlitz"}, {"name": "Central Washington University Police and Public Safety", "ori": "WA0190800", "type": "University", "city": "Ellensburg", "county": "Kittitas"}, {"name": "Centralia Police Department", "ori": "WA0210100", "type": "Local", "city": "Centralia", "county": "Lewis"}, {"name": "Chehalis Police Department", "ori": "WA0210200", "type": "Local", "city": "Chehalis", "county": "Lewis"}, {"name": "Chehalis Tribal Law Enforcement", "ori": "WADI06700", "type": "Tribal", "city": "Oakville", "county": "Grays Harbor"}, {"name": "Chelan County Sheriff's Office", "ori": "WA0040000", "type": "County", "city": "Wenatchee", "county": "Chelan"}, {"name": "Cheney Police Department", "ori": "WA0320100", "type": "Local", "city": "Cheney", "county": "Spokane"}, {"name": "Chewelah Police Department", "ori": "WA0330100", "type": "Local", "city": "Chewelah", "county": "Stevens"}, {"name": "Clallam County Sheriff's Office", "ori": "WA0050000", "type": "County", "city": "Port Angeles", "county": "Clallam"}, {"name": "Clark County Sheriff's Office", "ori": "WA0060000", "type": "County", "city": "Ridgefield", "county": "Clark"}, {"name": "Clarkston Police Department", "ori": "WA0020100", "type": "Local", "city": "Clarkston", "county": "Asotin"}, {"name": "Cle Elum-Roslyn Police Department", "ori": "WA0190200", "type": "Local", "city": "Cle Elum", "county": "Kittitas"}, {"name": "Clyde Hill Police Department", "ori": "WA0172500", "type": "Local", "city": "Clyde Hill", "county": "King"}, {"name": "Colfax Police Department", "ori": "WA0380100", "type": "Local", "city": "Colfax", "county": "Whitman"}, {"name": "College Place Police Department", "ori": "WA0360200", "type": "Local", "city": "College Place", "county": "Walla Walla"}, {"name": "Colton Police Department", "ori": "WA0380600", "type": "Local", "city": "Colton", "county": "Whitman"}, {"name": "Columbia County Sheriff's Office", "ori": "WA0070000", "type": "County", "city": "Dayton", "county": "Columbia"}, {"name": "Colville Police Department", "ori": "WA0330200", "type": "Local", "city": "Colville", "county": "Stevens"}, {"name": "Colville Tribal Natural Resource Enforcement", "ori": "WADI05700", "type": "Tribal", "city": "Nespelem", "county": "Okanogan"}, {"name": "Connell Police Department", "ori": "WA0110100", "type": "Local", "city": "Colville", "county": "Franklin"}, {"name": "Cosmopolis Police Department", "ori": "WA0140600", "type": "Local", "city": "Cosmopolis", "county": "Grays Harbor"}, {"name": "Coulee City Police Department", "ori": "WA0130500", "type": "Local", "city": "Coulee City", "county": "Grant"}, {"name": "Coulee Dam Police Department", "ori": "WA0240700", "type": "Local", "city": "Coulee Dam", "county": "Okanogan"}, {"name": "Coupeville Marshal's Office", "ori": "WA0150200", "type": "Local", "city": "Coupeville", "county": "Island"}, {"name": "Covington Police Department", "ori": "WA0174800", "type": "Local", "city": "Covington", "county": "King"}, {"name": "Cowlitz County Sheriff's Office", "ori": "WA0080000", "type": "County", "city": "Kelso", "county": "Cowlitz"}, {"name": "Cowlitz Indian Tribal Public Safety Department", "ori": "WADI01500", "type": "Tribal", "city": "Ridgefield", "county": "Clark"}, {"name": "Darrington Police Department", "ori": "WA0310900", "type": "Local", "city": "Darrington", "county": "Snohomish"}, {"name": "Department of Natural Resources Police", "ori": "WA0341600", "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Des Moines Police Department", "ori": "WA0171700", "type": "Local", "city": "Des Moines", "county": "King"}, {"name": "Douglas County Sheriff's Office", "ori": "WA0090000", "type": "County", "city": "Wenatchee", "county": "Douglas"}, {"name": "DuPont Police Department", "ori": "WA0271600", "type": "Local", "city": "DuPont", "county": "Pierce"}, {"name": "Duvall Police Department", "ori": "WA0171800", "type": "Local", "city": "Duvall", "county": "King"}, {"name": "East Wenatchee Police Department", "ori": "WA0090200", "type": "Local", "city": "Wenatchee", "county": "Douglas"}, {"name": "Eastern Washington University Police Department", "ori": "WA0320900", "type": "University", "city": "Cheney", "county": "Spokane"}, {"name": "Eatonville Police Department", "ori": "WA0270500", "type": "Local", "city": "Eatonville", "county": "Pierce"}, {"name": "Edgewood Police Department", "ori": "WA0272500", "type": "Local", "city": "Edgewood", "county": "Pierce"}, {"name": "Edmonds Police Department", "ori": "WA0310200", "type": "Local", "city": "Edmonds", "county": "Snohomish"}, {"name": "Ellensburg Police Department", "ori": "WA0190100", "type": "Local", "city": "Ellensburg", "county": "Kittitas"}, {"name": "Elma Police Department", "ori": "WA0140200", "type": "Local", "city": "Elma", "county": "Grays Harbor"}, {"name": "Enumclaw Police Department", "ori": "WA0170400", "type": "Local", "city": "Enumclaw", "county": "King"}, {"name": "Ephrata Police Department", "ori": "WA0130100", "type": "Local", "city": "Ephrata", "county": "Grant"}, {"name": "Everett Police Department", "ori": "WA0310300", "type": "Local", "city": "Everett", "county": "Snohomish"}, {"name": "Evergreen State College Police Department", "ori": "WA0341900", "type": "University", "city": "Olympia", "county": "Thurston"}, {"name": "Everson Police Department", "ori": "WA0370300", "type": "Local", "city": "Everson", "county": "Whatcom"}, {"name": "Federal Way Police Department", "ori": "WA0173600", "type": "Local", "city": "Federal Way", "county": "King"}, {"name": "Ferndale Police Department", "ori": "WA0370400", "type": "Local", "city": "Ferndale", "county": "Whatcom"}, {"name": "Ferry County Sheriff's Office", "ori": "WA0100000", "type": "County", "city": "Republic", "county": "Ferry"}, {"name": "Fife Police Department", "ori": "WA0270700", "type": "Local", "city": "Fife", "county": "Pierce"}, {"name": "Fircrest Police Department", "ori": "WA0271700", "type": "Local", "city": "Fircrest", "county": "Pierce"}, {"name": "Forks Police Department", "ori": "WA0050200", "type": "Local", "city": "Forks", "county": "Clallam"}, {"name": "Franklin County Sheriff's Office", "ori": "WA0110000", "type": "County", "city": "Pasco", "county": "Franklin"}, {"name": "Garfield County Sheriff's Office", "ori": "WA0120000", "type": "County", "city": "Pomeroy", "county": "Garfield"}, {"name": "Garfield Marshal's Office", "ori": "WA0380700", "type": "Local", "city": "Garfield", "county": "Whitman"}, {"name": "Gig Harbor Police Department", "ori": "WA0271800", "type": "Local", "city": "Gig Harbor", "county": "Pierce"}, {"name": "Gold Bar Police Department", "ori": "WA0311000", "type": "Local", "city": "Gold Bar", "county": "Snohomish"}, {"name": "Goldendale Police Department", "ori": "WA0200100", "type": "Local", "city": "Goldendale", "county": "Klickitat"}, {"name": "Grand Coulee Police Department", "ori": "WA0130700", "type": "Local", "city": "Grand Coulee", "county": "Grant"}, {"name": "Grandview Police Department", "ori": "WA0390100", "type": "Local", "city": "Grandview", "county": "Yakima"}, {"name": "Granger Police Department", "ori": "WA0390700", "type": "Local", "city": "Granger", "county": "Yakima"}, {"name": "Granite Falls Police Department", "ori": "WA0311100", "type": "Local", "city": "Granite Falls", "county": "Snohomish"}, {"name": "Grant County Sheriff's Office", "ori": "WA0130000", "type": "County", "city": "Ephrata", "county": "Grant"}, {"name": "Grays Harbor County Sheriff's Office", "ori": "WA0140000", "type": "County", "city": "Montesano", "county": "Grays Harbor"}, {"name": "Hoh Tribal Law Enforcement", "ori": "WADI09100", "type": "Tribal", "city": "Forks", "county": "Clallam"}, {"name": "Hoquiam Police Department", "ori": "WA0140300", "type": "Local", "city": "Hoquiam", "county": "Grays Harbor"}, {"name": "Ilwaco Police Department", "ori": "WA0250300", "type": "Local", "city": "Ilwaco", "county": "Pacific"}, {"name": "Index Police Department", "ori": "WA0311800", "type": "Local", "city": "Gold Bar", "county": "Snohomish"}, {"name": "Island County Sheriff's Office", "ori": "WA0150000", "type": "County", "city": "Coupeville", "county": "Island"}, {"name": "Issaquah Police Department", "ori": "WA0170600", "type": "Local", "city": "Issaquah", "county": "King"}, {"name": "Jamestown S'Klallam Public Safety and Natural Resources Enforcement Department", "ori": null, "type": "Tribal", "city": "Sequim", "county": "Clallam"}, {"name": "Jefferson County Sheriff's Office", "ori": "WA0160000", "type": "County", "city": "Hadlock", "county": "Jefferson"}, {"name": "Kalama Police Department", "ori": "WA0080400", "type": "Local", "city": "Kalama", "county": "Cowlitz"}, {"name": "Kalispel Tribal Public Safety Department", "ori": "WADI06100", "type": "Tribal", "city": "Cusick", "county": "Pend Oreille"}, {"name": "Kelso Police Department", "ori": "WA0080100", "type": "Local", "city": "Kelso", "county": "Cowlitz"}, {"name": "Kenmore Police Department", "ori": "WA0174900", "type": "Local", "city": "Kenmore", "county": "King"}, {"name": "Kennewick Police Department", "ori": "WA0030100", "type": "Local", "city": "Kennewick", "county": "Benton"}, {"name": "Kent Police Department", "ori": "WA0170700", "type": "Local", "city": "Kent", "county": "King"}, {"name": "Kettle Falls Police Department", "ori": "WA0330300", "type": "Local", "city": "Kettle Falls", "county": "Stevens"}, {"name": "King County Airport Police", "ori": "WA0173500", "type": "Airport", "city": "Seattle", "county": "King"}, {"name": "King County Metro Transit Police Department", "ori": null, "type": "Transit", "city": "Seattle", "county": "King"}, {"name": "King County Sheriff's Office", "ori": "WA0170000", "type": "County", "city": "Seattle", "county": "King"}, {"name": "Kirkland Police Department", "ori": "WA0170800", "type": "Local", "city": "Kirkland", "county": "King"}, {"name": "Kitsap County Sheriff's Office", "ori": "WA0180000", "type": "County", "city": "Port Orchard", "county": "Kitsap"}, {"name": "Kittitas County Sheriff's Office", "ori": "WA0190000", "type": "County", "city": "Ellensburg", "county": "Kittitas"}, {"name": "Kittitas Police Department", "ori": "WA0190600", "type": "Local", "city": "Kittitas", "county": "Kittitas"}, {"name": "Klickitat County Sheriff's Office", "ori": "WA0200000", "type": "County", "city": "Goldendale", "county": "Klickitat"}, {"name": "La Center Police Department", "ori": "WA0060600", "type": "Local", "city": "La Center", "county": "Clark"}, {"name": "La Push Tribal Police Department", "ori": "WADI07000", "type": "Tribal", "city": "La Push", "county": "Clallam"}, {"name": "Lacey Police Department", "ori": "WA0340400", "type": "Local", "city": "Lacey", "county": "Thurston"}, {"name": "Lake Forest Park Police Department", "ori": "WA0172600", "type": "Local", "city": "Lake Forest Park", "county": "King"}, {"name": "Lake Stevens Police Department", "ori": "WA0311900", "type": "Local", "city": "Lake Stevens", "county": "Snohomish"}, {"name": "Lakewood Police Department", "ori": "WA0272300", "type": "Local", "city": "Lakewood", "county": "Pierce"}, {"name": "Langley Police Department", "ori": "WA0150300", "type": "Local", "city": "Langley", "county": "Island"}, {"name": "Lewis County Sheriff's Office", "ori": "WA0210000", "type": "County", "city": "Chehalis", "county": "Lewis"}, {"name": "Liberty Lake Police Department", "ori": "WA0321300", "type": "Local", "city": "Liberty Lake", "county": "Spokane"}, {"name": "Lincoln County Sheriff's Office", "ori": "WA0220000", "type": "County", "city": "Davenport", "county": "Lincoln"}, {"name": "Long Beach Police Department", "ori": "WA0250400", "type": "Local", "city": "Long Beach", "county": "Pacific"}, {"name": "Longview Police Department", "ori": "WA0080200", "type": "Local", "city": "Longview", "county": "Cowlitz"}, {"name": "Lower Elwha Tribal Police Department", "ori": "WADI08600", "type": "Tribal", "city": "Port Angeles", "county": "Clallam"}, {"name": "Lummi Nation Police Department", "ori": "WADI05900", "type": "Tribal", "city": "Bellingham", "county": "Whatcom"}, {"name": "Lynden Police Department", "ori": "WA0370500", "type": "Local", "city": "Lynden", "county": "Whatcom"}, {"name": "Lynnwood Police Department", "ori": "WA0310400", "type": "Local", "city": "Lynnwood", "county": "Snohomish"}, {"name": "Mabton Police Department", "ori": "WA0390900", "type": "Local", "city": "Mabton", "county": "Yakima"}, {"name": "Makah Tribal Police Department", "ori": "WADI05600", "type": "Tribal", "city": "Neah Bay", "county": "Clallam"}, {"name": "Maple Valley Police Department", "ori": "WA0174700", "type": "Local", "city": "Maple Valley", "county": "King"}, {"name": "Marysville Police Department", "ori": "WA0310500", "type": "Local", "city": "Marysville", "county": "Snohomish"}, {"name": "Mason County Sheriff's Office", "ori": "WA0230000", "type": "County", "city": "Shelton", "county": "Mason"}, {"name": "Mattawa Police Department", "ori": "WA0130900", "type": "Local", "city": "Mattawa", "county": "Grant"}, {"name": "McCleary Police Department", "ori": "WA0140400", "type": "Local", "city": "McCleary", "county": "Grays Harbor"}, {"name": "Medical Lake Police Department", "ori": "WA0320300", "type": "Local", "city": "Medical Lake", "county": "Spokane"}, {"name": "Medina Police Department", "ori": "WA0172000", "type": "Local", "city": "Medina", "county": "King"}, {"name": "Mercer Island Police Department", "ori": "WA0170900", "type": "Local", "city": "Mercer Island", "county": "King"}, {"name": "Mill Creek Police Department", "ori": "WA0312100", "type": "Local", "city": "Mill Creek", "county": "Snohomish"}, {"name": "Milton Police Department", "ori": "WA0270900", "type": "Local", "city": "Milton", "county": "Pierce"}, {"name": "Monroe Police Department", "ori": "WA0311200", "type": "Local", "city": "Monroe", "county": "Snohomish"}, {"name": "Montesano Police Department", "ori": "WA0140500", "type": "Local", "city": "Montesano", "county": "Grays Harbor"}, {"name": "Morton Police Department", "ori": "WA0210300", "type": "Local", "city": "Morton", "county": "Lewis"}, {"name": "Moses Lake Police Department", "ori": "WA0130200", "type": "Local", "city": "Moses Lake", "county": "Grant"}, {"name": "Mossyrock Police Department", "ori": "WA0210400", "type": "Local", "city": "Mossyrock", "county": "Lewis"}, {"name": "Mount Vernon Police Department", "ori": "WA0290200", "type": "Local", "city": "Mount Vernon", "county": "Skagit"}, {"name": "Mountlake Terrace Police Department", "ori": "WA0310600", "type": "Local", "city": "Mountlake Terrace", "county": "Snohomish"}, {"name": "Moxee Police Department", "ori": "WA0391400", "type": "Local", "city": "Moxee", "county": "Yakima"}, {"name": "Muckleshoot Indian Tribe Wildlife & Fisheries Department", "ori": "WADI01000", "type": "Tribal", "city": "Auburn", "county": "King"}, {"name": "Mukilteo Police Department", "ori": "WA0311300", "type": "Local", "city": "Mukilteo", "county": "Snohomish"}, {"name": "Napavine Police Department", "ori": "WA0210700", "type": "Local", "city": "Napavine", "county": "Lewis"}, {"name": "Newcastle Police Department", "ori": "WA0174200", "type": "Local", "city": "Newcastle", "county": "King"}, {"name": "Newport Police Department", "ori": "WA0260200", "type": "Local", "city": "Newport", "county": "Pend Oreille"}, {"name": "Nisqually Public Safety", "ori": "WADI00800", "type": "Tribal", "city": "Olympia", "county": "Thurston"}, {"name": "Nooksack Indian Tribe Police Department", "ori": "WADI01400", "type": "Tribal", "city": "Deming", "county": "Whatcom"}, {"name": "Normandy Park Police Department", "ori": "WA0171000", "type": "Local", "city": "Normandy Park", "county": "King"}, {"name": "North Bend Police Department", "ori": "WA0171100", "type": "Local", "city": "North Bend", "county": "King"}, {"name": "Oak Harbor Police Department", "ori": "WA0150100", "type": "Local", "city": "Oak Harbor", "county": "Island"}, {"name": "Oakesdale Police Department", "ori": "WA0381400", "type": "Local", "city": "Oakesdale", "county": "Whitman"}, {"name": "Oakville Police Department", "ori": "WA0140700", "type": "Local", "city": "Oakville", "county": "Grays Harbor"}, {"name": "Ocean Shores Police Department", "ori": "WA0140800", "type": "Local", "city": "Ocean Shores", "county": "Grays Harbor"}, {"name": "Odessa Police Department", "ori": "WA0220600", "type": "Local", "city": "Odessa", "county": "Lincoln"}, {"name": "Office of the Insurance Commissioner Criminal Investigations Unit", "ori": "WA0342200", "type": "State", "city": "Tumwater", "county": "Thurston"}, {"name": "Okanogan County Sheriff's Office", "ori": "WA0240000", "type": "County", "city": "Okanogan", "county": "Okanogan"}, {"name": "Olympia Police Department", "ori": "WA0340100", "type": "Local", "city": "Olympia", "county": "Thurston"}, {"name": "Omak Police Department", "ori": "WA0240300", "type": "Local", "city": "Omak", "county": "Okanogan"}, {"name": "Oroville Police Department", "ori": "WA0240400", "type": "Local", "city": "Oroville", "county": "Okanogan"}, {"name": "Orting Police Department", "ori": "WA0271300", "type": "Local", "city": "Orting", "county": "Pierce"}, {"name": "Othello Police Department", "ori": "WA0010100", "type": "Local", "city": "Othello", "county": "Adams"}, {"name": "Pacific County Sheriff's Office", "ori": "WA0250000", "type": "County", "city": "South Bend", "county": "Pacific"}, {"name": "Pacific Police Department", "ori": "WA0172100", "type": "Local", "city": "Pacific", "county": "King"}, {"name": "Palouse Police Department", "ori": "WA0380900", "type": "Local", "city": "Palouse", "county": "Whitman"}, {"name": "Pasco Police Department", "ori": "WA0110200", "type": "Local", "city": "Pasco", "county": "Franklin"}, {"name": "Pe Ell Police Department", "ori": "WA0210900", "type": "Local", "city": "Pe Ell", "county": "Lewis"}, {"name": "Pend Oreille County Sheriff's Office", "ori": "WA0260000", "type": "County", "city": "Newport", "county": "Pend Oreille"}, {"name": "Pierce County Sheriff's Office", "ori": "WA0270000", "type": "County", "city": "Tacoma", "county": "Pierce"}, {"name": "Pierce Transit Police Department", "ori": "WA027025Y", "type": "Transit", "city": "Tacoma", "county": "Pierce"}, {"name": "Port Angeles Police Department", "ori": "WA0050100", "type": "Local", "city": "Port Angeles", "county": "Clallam"}, {"name": "Port Gamble S'Klallam Tribal Police Department", "ori": "WADI06600", "type": "Tribal", "city": "Kingston", "county": "Kitsap"}, {"name": "Port Orchard Police Department", "ori": "WA0180400", "type": "Local", "city": "Port Orchard", "county": "Kitsap"}, {"name": "Port Townsend Police Department", "ori": "WA0160100", "type": "Local", "city": "Port Townsend", "county": "Jefferson"}, {"name": "Port of Pasco Police Department", "ori": "WA0110600", "type": "Local", "city": "Pasco", "county": "Franklin"}, {"name": "Port of Seattle Police Department", "ori": "WA0173200", "type": "Local", "city": "Seattle", "county": "King"}, {"name": "Poulsbo Police Department", "ori": "WA0180500", "type": "Local", "city": "Poulsbo", "county": "Kitsap"}, {"name": "Prosser Police Department", "ori": "WA0030300", "type": "Local", "city": "Prosser", "county": "Benton"}, {"name": "Pullman Police Department", "ori": "WA0380300", "type": "Local", "city": "Pullman", "county": "Whitman"}, {"name": "Puyallup Police Department", "ori": "WA0270100", "type": "Local", "city": "Puyallup", "county": "Pierce"}, {"name": "Puyallup Tribal Law Enforcement", "ori": "WADI06200", "type": "Tribal", "city": "Tacoma", "county": "Pierce"}, {"name": "Quileute Tribal Police", "ori": null, "type": "Tribal", "city": "La Push", "county": "Clallam"}, {"name": "Quinault Tribal Police Department", "ori": "WADI05400", "type": "Tribal", "city": "Taholah", "county": "Grays Harbor"}, {"name": "Quincy Police Department", "ori": "WA0130300", "type": "Local", "city": "Quincy", "county": "Grant"}, {"name": "Rainier Police Department", "ori": "WA0340600", "type": "Local", "city": "Rainier", "county": "Thurston"}, {"name": "Raymond Police Department", "ori": "WA0250100", "type": "Local", "city": "Raymond", "county": "Pacific"}, {"name": "Reardan Police Department", "ori": "WA0220700", "type": "Local", "city": "Reardan", "county": "Lincoln"}, {"name": "Redmond Police Department", "ori": "WA0171200", "type": "Local", "city": "Redmond", "county": "King"}, {"name": "Renton Police Department", "ori": "WA0171300", "type": "Local", "city": "Renton", "county": "King"}, {"name": "Republic Police Department", "ori": "WA0100100", "type": "Local", "city": "Republic", "county": "Ferry"}, {"name": "Richland Police Department", "ori": "WA0030200", "type": "Local", "city": "Richland", "county": "Benton"}, {"name": "Ridgefield Police Department", "ori": "WA0060500", "type": "Local", "city": "Ridgefield", "county": "Clark"}, {"name": "Ritzville Police Department", "ori": "WA0010200", "type": "Local", "city": "Ritzville", "county": "Adams"}, {"name": "Rosalia Police Department", "ori": "WA0380400", "type": "Local", "city": "Rosalia", "county": "Whitman"}, {"name": "Roy Police Department", "ori": "WA0271000", "type": "Local", "city": "Roy", "county": "Pierce"}, {"name": "Royal City Police Department", "ori": "WA0131000", "type": "Local", "city": "Royal City", "county": "Grant"}, {"name": "Ruston Police Department", "ori": "WA0271900", "type": "Local", "city": "Ruston", "county": "Pierce"}, {"name": "Sammamish Police Department", "ori": "WA0175000", "type": "Local", "city": "Sammamish", "county": "King"}, {"name": "San Juan County Sheriff's Office", "ori": "WA0280000", "type": "County", "city": "Friday Harbor", "county": "San Juan"}, {"name": "Sauk-Suiattle Police Department", "ori": "WADI06300", "type": "Tribal", "city": "Darrington", "county": "Snohomish"}, {"name": "SeaTac Police Department", "ori": "WA0173700", "type": "Local", "city": "SeaTac", "county": "King"}, {"name": "Seattle Police Department", "ori": "WASPD0000", "type": "Local", "city": "Seattle", "county": "King"}, {"name": "Sedro-Woolley Police Department", "ori": "WA0290300", "type": "Local", "city": "Sedro-Woolley", "county": "Skagit"}, {"name": "Selah Police Department", "ori": "WA0391100", "type": "Local", "city": "Selah", "county": "Yakima"}, {"name": "Sequim Police Department", "ori": "WA0050300", "type": "Local", "city": "Sequim", "county": "Clallam"}, {"name": "Shelton Police Department", "ori": "WA0230400", "type": "Local", "city": "Shelton", "county": "Mason"}, {"name": "Shoalwater Bay Tribal Police Department", "ori": "WADI01200", "type": "Tribal", "city": "Tokeland", "county": "Pacific"}, {"name": "Shoreline Police Department", "ori": "WA0174300", "type": "Local", "city": "Shoreline", "county": "King"}, {"name": "Skagit County Sheriff's Office", "ori": "WA0290000", "type": "County", "city": "Mount Vernon", "county": "Skagit"}, {"name": "Skamania County Sheriff's Office", "ori": "WA0300000", "type": "County", "city": "Stevenson", "county": "Skamania"}, {"name": "Skokomish Police Department", "ori": "WADI01100", "type": "Tribal", "city": "Skokomish Nation", "county": "Mason"}, {"name": "Skykomish Police Department", "ori": "WA0172700", "type": "Local", "city": "Skykomish", "county": "King"}, {"name": "Snohomish County Sheriff's Office", "ori": "WA0310000", "type": "County", "city": "Everett", "county": "Snohomish"}, {"name": "Snohomish Police Department", "ori": "WA0310700", "type": "Local", "city": "Snohomish", "county": "Snohomish"}, {"name": "Snoqualmie Police Department", "ori": "WA0172200", "type": "Local", "city": "Snoqualmie", "county": "King"}, {"name": "Snoqualmie Tribal Police Department", "ori": "WADI08300", "type": "Tribal", "city": "Snoqualmie", "county": "King"}, {"name": "Soap Lake Police Department", "ori": "WA0130400", "type": "Local", "city": "Soap Lake", "county": "Grant"}, {"name": "Sound Transit Police Department", "ori": null, "type": "Transit", "city": "Seattle", "county": "King"}, {"name": "South Bend Police Department", "ori": "WA0250200", "type": "Local", "city": "South Bend", "county": "Pacific"}, {"name": "Spokane County Sheriff's Office", "ori": "WA0320000", "type": "County", "city": "Spokane", "county": "Spokane"}, {"name": "Spokane International Airport Police Department", "ori": "WA0321200", "type": "Airport", "city": "Spokane", "county": "Spokane"}, {"name": "Spokane Police Department", "ori": "WA0320400", "type": "Local", "city": "Spokane", "county": "Spokane"}, {"name": "Spokane Tribal Police Department", "ori": "WADI05100", "type": "Tribal", "city": "Wellpinit", "county": "Stevens"}, {"name": "Spokane Valley Police Department", "ori": "WA0321500", "type": "Local", "city": "Spokane Valley", "county": "Spokane"}, {"name": "Springdale Police Department", "ori": "WA0330600", "type": "Local", "city": "Colville", "county": "Stevens"}, {"name": "Squaxin Island Tribe Public Safety and Justice Department", "ori": "WADI05500", "type": "Tribal", "city": "Shelton", "county": "Mason"}, {"name": "Stanwood Police Department", "ori": "WA0311400", "type": "Local", "city": "Stanwood", "county": "Snohomish"}, {"name": "Steilacoom Department of Public Safety", "ori": "WA0271100", "type": "Local", "city": "Steilacoom", "county": "Pierce"}, {"name": "Stevens County Sheriff's Office", "ori": "WA0330000", "type": "County", "city": "Colville", "county": "Stevens"}, {"name": "Stillaguamish Police Department", "ori": "WADI01300", "type": "Tribal", "city": "Arlington", "county": "Snohomish"}, {"name": "Sultan Police Department", "ori": "WA0311500", "type": "Local", "city": "Sultan", "county": "Snohomish"}, {"name": "Sumas Police Department", "ori": "WA0370700", "type": "Local", "city": "Sumas", "county": "Whatcom"}, {"name": "Sumner Police Department", "ori": "WA0270200", "type": "Local", "city": "Sumner", "county": "Pierce"}, {"name": "Sunnyside Police Department", "ori": "WA0390200", "type": "Local", "city": "Sunnyside", "county": "Yakima"}, {"name": "Suquamish Police Department\u00a0", "ori": "WADI00900", "type": "Tribal", "city": "Suquamish", "county": "Kitsap"}, {"name": "Swinomish Police Department", "ori": "WADI06400", "type": "Tribal", "city": "La Conner", "county": "Skagit"}, {"name": "Tacoma Police Department", "ori": "WA0270300", "type": "Local", "city": "Tacoma", "county": "Pierce"}, {"name": "Tenino Police Department", "ori": "WA0340800", "type": "Local", "city": "Tenino", "county": "Thurston"}, {"name": "Thurston County Sheriff's Office", "ori": "WA0340000", "type": "County", "city": "Olympia", "county": "Thurston"}, {"name": "Tieton Police Department", "ori": "WA0391200", "type": "Local", "city": "Tieton", "county": "Yakima"}, {"name": "Toledo Police Department", "ori": "WA0211000", "type": "Local", "city": "Toledo", "county": "Lewis"}, {"name": "Tonasket Police Department", "ori": "WA0240600", "type": "Local", "city": "Tonasket", "county": "Okanogan"}, {"name": "Toppenish Police Department", "ori": "WA0390300", "type": "Local", "city": "Toppenish", "county": "Yakima"}, {"name": "Tukwila Police Department", "ori": "WA0172300", "type": "Local", "city": "Tukwila", "county": "King"}, {"name": "Tulalip Tribal Police Services", "ori": "WADI06800", "type": "Tribal", "city": "Tulalip", "county": "Snohomish"}, {"name": "Tumwater Police Department", "ori": "WA0340200", "type": "Local", "city": "Tumwater", "county": "Thurston"}, {"name": "Twisp Police Department", "ori": "WA0240900", "type": "Local", "city": "Twisp", "county": "Okanogan"}, {"name": "Union Gap Police Department", "ori": "WA0390400", "type": "Local", "city": "Union Gap", "county": "Yakima"}, {"name": "Uniontown Police Department", "ori": "WA0381600", "type": "Local", "city": "Uniontown", "county": "Whitman"}, {"name": "University Place Police Department", "ori": "WA0272400", "type": "Local", "city": "University Place", "county": "Pierce"}, {"name": "University of Washington Police Department", "ori": "WA0172400", "type": "University", "city": "Seattle", "county": "King"}, {"name": "Upper Skagit Tribal Police Department", "ori": "WADI06500", "type": "Tribal", "city": "Sedro-Woolley", "county": "Skagit"}, {"name": "Vader Police Department", "ori": "WA0211100", "type": "Local", "city": "Vader", "county": "Lewis"}, {"name": "Vancouver Police Department", "ori": "WA0060300", "type": "Local", "city": "Vancouveer", "county": "Clark"}, {"name": "WSU Vancouver Public Safety", "ori": "WA0061000", "type": "University", "city": "Vancouver", "county": "Clark"}, {"name": "Wahkiakum County Sheriff's Office", "ori": "WA0350000", "type": "County", "city": "Cathlamet", "county": "Wahkiakum"}, {"name": "Walla Walla County Sheriff's Office", "ori": "WA0360000", "type": "County", "city": "Walla Walla", "county": "Walla Walla"}, {"name": "Walla Walla Police Department", "ori": "WA0360100", "type": "Local", "city": "Walla Walla", "county": "Walla Walla"}, {"name": "Wapato Police Department", "ori": "WA0391300", "type": "Local", "city": "Wapato", "county": "Yakima"}, {"name": "Warden Police Department", "ori": "WA0131100", "type": "Local", "city": "Warden", "county": "Grant"}, {"name": "Washington Department of Fish and Wildlife Enforcement", "ori": "WA0349900", "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington Department of Labor & Industries\u00a0", "ori": null, "type": "State", "city": "Tumwater", "county": "Thurston"}, {"name": "Washington State Department of Corrections", "ori": null, "type": "State", "city": "Tumwater", "county": "Thurston"}, {"name": "Washington State Department of Social and Health Services", "ori": null, "type": "State", "city": "Renton", "county": "King"}, {"name": "Washington State Gambling Commission Regulation and Enforcement Unit", "ori": "WA0341000", "type": "State", "city": "Spokane", "county": "Spokane"}, {"name": "Washington State Liquor and Cannabis Board's Enforcement", "ori": "WA0341100", "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington State Lottery Commission", "ori": "WA0341200", "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington State Medicaid Fraud Control Division", "ori": null, "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington State Office of Independent Investigations", "ori": null, "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington State Parks and Recreation Commission", "ori": "WA0342000", "type": "State", "city": "Tumwater", "county": "Thurston"}, {"name": "Washington State Patrol", "ori": "WAWSP0000", "type": "State", "city": "Olympia", "county": "Thurston"}, {"name": "Washington State University Police Department-Pullman campus", "ori": "WA0380500", "type": "University", "city": "Pullman", "county": "Whitman"}, {"name": "Washington State Utilities and Transportation Commission", "ori": null, "type": "State", "city": "Lacey", "county": "Thurston"}, {"name": "Washougal Police Department", "ori": "WA0060400", "type": "Local", "city": "Washougal", "county": "Clark"}, {"name": "Wenatchee Police Department", "ori": "WA0040400", "type": "Local", "city": "Wenatchee", "county": "Chelan"}, {"name": "West Richland Police Department", "ori": "WA0030500", "type": "Local", "city": "West Richland", "county": "Benton"}, {"name": "Western Washington University Police Department", "ori": "WA0370800", "type": "University", "city": "Bellingham", "county": "Whatcom"}, {"name": "Westport Police Department", "ori": "WA0140900", "type": "Local", "city": "Westport", "county": "Grays Harbor"}, {"name": "Whatcom County Sheriff's Office", "ori": "WA0370000", "type": "County", "city": "Bellingham", "county": "Whatcom"}, {"name": "Whitman County Sheriff's Office", "ori": "WA0380000", "type": "County", "city": "Colfax", "county": "Whitman"}, {"name": "Wilbur Police Department", "ori": "WA0220200", "type": "Local", "city": "Wilbur", "county": "Lincoln"}, {"name": "Winlock Police Department", "ori": "WA0211200", "type": "Local", "city": "Winlock", "county": "Lewis"}, {"name": "Winthrop Marshal's Office", "ori": "WA0241000", "type": "Local", "city": "Winthrop", "county": "Okanogan"}, {"name": "Woodinville Police Department", "ori": "WA0174000", "type": "Local", "city": "Woodinville", "county": "King"}, {"name": "Woodland Police Department", "ori": "WA0080500", "type": "Local", "city": "Woodland", "county": "Cowlitz"}, {"name": "Woodway Police Department", "ori": "WA0311600", "type": "Local", "city": "Woodway", "county": "Snohomish"}, {"name": "Yakama Nation Police Department", "ori": "WADI05800", "type": "Tribal", "city": "Toppenish", "county": "Yakima"}, {"name": "Yakima County Sheriff's Office", "ori": "WA0390000", "type": "County", "city": "Yakima", "county": "Yakima"}, {"name": "Yakima Police Department", "ori": "WA0390500", "type": "Local", "city": "Yakima", "county": "Yakima"}, {"name": "Yarrow Point Police Department", "ori": "WA0173100", "type": "Local", "city": "Yarrow Point", "county": "King"}, {"name": "Yelm Police Department", "ori": "WA0340900", "type": "Local", "city": "Yelm", "county": "Thurston"}, {"name": "Zillah Police Department", "ori": "WA0390600", "type": "Local", "city": "Zillah", "county": "Yakima"}];
+const AGENCY_REGISTRY = [{"name": "Aberdeen Police Department","ori": "WA0140100","type": "Local","city": "Aberdeen","county": "Grays Harbor"},{"name": "Adams County Sheriff's Office","ori": "WA0010000","type": "County","city": "Ritzville","county": "Adams"},{"name": "Airway Heights Police Department","ori": "WA0320600","type": "Local","city": "Airway Heights","county": "Spokane"},{"name": "Algona Police Department","ori": "WA0171400","type": "Local","city": "Algona","county": "King"},{"name": "Anacortes Police Department","ori": "WA0290100","type": "Local","city": "Anacortes","county": "Skagit"},{"name": "Arlington Police Department","ori": "WA0310100","type": "Local","city": "Arlington","county": "Snohomish"},{"name": "Asotin County Sheriff's Office","ori": "WA0020000","type": "County","city": "Asotin","county": "Asotin"},{"name": "Asotin Police Department","ori": "WA0020200","type": "Local","city": "Asotin","county": "Asotin"},{"name": "Auburn Police Department","ori": "WA0170100","type": "Local","city": "Auburn","county": "King"},{"name": "Bainbridge Island Police Department","ori": "WA0180700","type": "Local","city": "Bainbridge Island","county": "Kitsap"},{"name": "Battle Ground Police Department","ori": "WA0060100","type": "Local","city": "Battle Ground","county": "Clark"},{"name": "Beaux Arts Police Department","ori": "WA0172900","type": "Local","city": "Beaux Arts","county": "King"},{"name": "Bellevue Police Department","ori": "WA0170200","type": "Local","city": "Bellevue","county": "King"},{"name": "Bellingham Police Department","ori": "WA0370100","type": "Local","city": "Bellingham","county": "Whatcom"},{"name": "Benton County Sheriff's Office","ori": "WA0030000","type": "County","city": "Kennewick","county": "Benton"},{"name": "Bingen-White Salmon Police Department","ori": "WA0200600","type": "Local","city": "White Salmon","county": "Klickitat"},{"name": "Black Diamond Police Department","ori": "WA0171500","type": "Local","city": "Black Diamond","county": "King"},{"name": "Blaine Police Department","ori": "WA0370200","type": "Local","city": "Blaine","county": "Whatcom"},{"name": "Bonney Lake Police Department","ori": "WA0271400","type": "Local","city": "Bonney Lake","county": "Pierce"},{"name": "Bothell Police Department","ori": "WA0170300","type": "Local","city": "Bothell","county": "King"},{"name": "Bremerton Police Department","ori": "WA0180100","type": "Local","city": "Bremerton","county": "Kitsap"},{"name": "Brewster Police Department","ori": "WA0240100","type": "Local","city": "Brewster","county": "Okanogan"},{"name": "Brier Police Department","ori": "WA0310800","type": "Local","city": "Brier","county": "Snohomish"},{"name": "Buckley Police Department","ori": "WA0270400","type": "Local","city": "Buckley","county": "Pierce"},{"name": "Burien Police Department","ori": "WA0174100","type": "Local","city": "Burien","county": "King"},{"name": "Burlington Police Department","ori": "WA0290400","type": "Local","city": "Burlington","county": "Skagit"},{"name": "Camas Police Department","ori": "WA0060200","type": "Local","city": "Camas","county": "Clark"},{"name": "Carnation Police Department","ori": "WA0171600","type": "Local","city": "Carnation","county": "King"},{"name": "Castle Rock Police Department","ori": "WA0080300","type": "Local","city": "Castle Rock","county": "Cowlitz"},{"name": "Central Washington University Police and Public Safety","ori": "WA0190800","type": "University","city": "Ellensburg","county": "Kittitas"},{"name": "Centralia Police Department","ori": "WA0210100","type": "Local","city": "Centralia","county": "Lewis"},{"name": "Chehalis Police Department","ori": "WA0210200","type": "Local","city": "Chehalis","county": "Lewis"},{"name": "Chehalis Tribal Law Enforcement","ori": "WADI06700","type": "Tribal","city": "Oakville","county": "Grays Harbor"},{"name": "Chelan County Sheriff's Office","ori": "WA0040000","type": "County","city": "Wenatchee","county": "Chelan"},{"name": "Cheney Police Department","ori": "WA0320100","type": "Local","city": "Cheney","county": "Spokane"},{"name": "Chewelah Police Department","ori": "WA0330100","type": "Local","city": "Chewelah","county": "Stevens"},{"name": "Clallam County Sheriff's Office","ori": "WA0050000","type": "County","city": "Port Angeles","county": "Clallam"},{"name": "Clark County Sheriff's Office","ori": "WA0060000","type": "County","city": "Vancouver","county": "Clark"},{"name": "Clarkston Police Department","ori": "WA0020100","type": "Local","city": "Clarkston","county": "Asotin"},{"name": "Cle Elum-Roslyn Police Department","ori": "WA0190200","type": "Local","city": "Cle Elum","county": "Kittitas"},{"name": "Clyde Hill Police Department","ori": "WA0172500","type": "Local","city": "Clyde Hill","county": "King"},{"name": "Colfax Police Department","ori": "WA0380100","type": "Local","city": "Colfax","county": "Whitman"},{"name": "College Place Police Department","ori": "WA0360200","type": "Local","city": "College Place","county": "Walla Walla"},{"name": "Colton Police Department","ori": "WA0380600","type": "Local","city": "Colton","county": "Whitman"},{"name": "Columbia County Sheriff's Office","ori": "WA0070000","type": "County","city": "Dayton","county": "Columbia"},{"name": "Colville Police Department","ori": "WA0330200","type": "Local","city": "Colville","county": "Stevens"},{"name": "Colville Tribal Corrections","ori": "N/A","type": null,"city": null,"county": null},{"name": "Colville Tribal Natural Resource Enforcement","ori": "WADI05700","type": "Tribal","city": "Nespelem","county": "Okanogan"},{"name": "Connell Police Department","ori": "WA0110100","type": "Local","city": "Connell","county": "Franklin"},{"name": "Cosmopolis Police Department","ori": "WA0140600","type": "Local","city": "Cosmopolis","county": "Grays Harbor"},{"name": "Coulee City Police Department","ori": "WA0130500","type": "Local","city": "Coulee City","county": "Grant"},{"name": "Coulee Dam Police Department","ori": "WA0240700","type": "Local","city": "Coulee Dam","county": "Okanogan"},{"name": "Coupeville Marshal's Office","ori": "WA0150200","type": "Local","city": "Coupeville","county": "Island"},{"name": "Covington Police Department","ori": "WA0174800","type": "Local","city": "Covington","county": "King"},{"name": "Cowlitz County Sheriff's Office","ori": "WA0080000","type": "County","city": "Kelso","county": "Cowlitz"},{"name": "Cowlitz Indian Tribal Public Safety Department","ori": "WADI01500","type": "Tribal","city": "Ridgefield","county": "Clark"},{"name": "Darrington Police Department","ori": "WA0310900","type": "Local","city": "Darrington","county": "Snohomish"},{"name": "Des Moines Police Department","ori": "WA0171700","type": "Local","city": "Des Moines","county": "King"},{"name": "Douglas County Sheriff's Office","ori": "WA0090000","type": "County","city": "East Wenatchee","county": "Douglas"},{"name": "DuPont Police Department","ori": "WA0271600","type": "Local","city": "DuPont","county": "Pierce"},{"name": "Duvall Police Department","ori": "WA0171800","type": "Local","city": "Duvall","county": "King"},{"name": "East Wenatchee Police Department","ori": "WA0090200","type": "Local","city": "East Wenatchee","county": "Douglas"},{"name": "Eastern Washington University Police Department","ori": "WA0320900","type": "University","city": "Cheney","county": "Spokane"},{"name": "Eatonville Police Department","ori": "WA0270500","type": "Local","city": "Eatonville","county": "Pierce"},{"name": "Edgewood Police Department","ori": "WA0272500","type": "Local","city": "Edgewood","county": "Pierce"},{"name": "Edmonds Police Department","ori": "WA0310200","type": "Local","city": "Edmonds","county": "Snohomish"},{"name": "Ellensburg Police Department","ori": "WA0190100","type": "Local","city": "Ellensburg","county": "Kittitas"},{"name": "Elma Police Department","ori": "WA0140200","type": "Local","city": "Elma","county": "Grays Harbor"},{"name": "Enumclaw Police Department","ori": "WA0170400","type": "Local","city": "Enumclaw","county": "King"},{"name": "Ephrata Police Department","ori": "WA0130100","type": "Local","city": "Ephrata","county": "Grant"},{"name": "Everett Police Department","ori": "WA0310300","type": "Local","city": "Everett","county": "Snohomish"},{"name": "Evergreen State College Police Department","ori": "WA0341900","type": "University","city": "Olympia","county": "Thurston"},{"name": "Everson Police Department","ori": "WA0370300","type": "Local","city": "Everson","county": "Whatcom"},{"name": "Federal Way Police Department","ori": "WA0173600","type": "Local","city": "Federal Way","county": "King"},{"name": "Ferndale Police Department","ori": "WA0370400","type": "Local","city": "Ferndale","county": "Whatcom"},{"name": "Ferry County Sheriff's Office","ori": "WA0100000","type": "County","city": "Republic","county": "Ferry"},{"name": "Fife Police Department","ori": "WA0270700","type": "Local","city": "Fife","county": "Pierce"},{"name": "Fircrest Police Department","ori": "WA0271700","type": "Local","city": "Fircrest","county": "Pierce"},{"name": "Forks Police Department","ori": "WA0050200","type": "Local","city": "Forks","county": "Clallam"},{"name": "Franklin County Sheriff's Office","ori": "WA0110000","type": "County","city": "Pasco","county": "Franklin"},{"name": "Garfield County Sheriff's Office","ori": "WA0120000","type": "County","city": "Pomeroy","county": "Garfield"},{"name": "Garfield Marshal's Office","ori": "WA0380700","type": "Local","city": "Garfield","county": "Whitman"},{"name": "Gig Harbor Police Department","ori": "WA0271800","type": "Local","city": "Gig Harbor","county": "Pierce"},{"name": "Gold Bar Police Department","ori": "WA0311000","type": "Local","city": "Gold Bar","county": "Snohomish"},{"name": "Goldendale Police Department","ori": "WA0200100","type": "Local","city": "Goldendale","county": "Klickitat"},{"name": "Grand Coulee Police Department","ori": "WA0130700","type": "Local","city": "Grand Coulee","county": "Grant"},{"name": "Grandview Police Department","ori": "WA0390100","type": "Local","city": "Grandview","county": "Yakima"},{"name": "Granger Police Department","ori": "WA0390700","type": "Local","city": "Granger","county": "Yakima"},{"name": "Granite Falls Police Department","ori": "WA0311100","type": "Local","city": "Granite Falls","county": "Snohomish"},{"name": "Grant County Sheriff's Office","ori": "WA0130000","type": "County","city": "Ephrata","county": "Grant"},{"name": "Grays Harbor County Sheriff's Office","ori": "WA0140000","type": "County","city": "Montesano","county": "Grays Harbor"},{"name": "Hoh Tribal Law Enforcement","ori": "WADI09100","type": "Tribal","city": "Forks","county": "Clallam"},{"name": "Hoquiam Police Department","ori": "WA0140300","type": "Local","city": "Hoquiam","county": "Grays Harbor"},{"name": "Ilwaco Police Department","ori": "WA0250300","type": "Local","city": "Ilwaco","county": "Pacific"},{"name": "Index Police Department","ori": "WA0311800","type": "Local","city": "Gold Bar","county": "Snohomish"},{"name": "Island County Sheriff's Office","ori": "WA0150000","type": "County","city": "Coupeville","county": "Island"},{"name": "Issaquah Police Department","ori": "WA0170600","type": "Local","city": "Issaquah","county": "King"},{"name": "Jamestown S'Klallam Public Safety and Natural Resources Enforcement Department","ori": "N/A","type": "Tribal","city": "Sequim","county": "Clallam"},{"name": "Jefferson County Sheriff's Office","ori": "WA0160000","type": "County","city": "Port Hadlock-Irondale","county": "Jefferson"},{"name": "Kalama Police Department","ori": "WA0080400","type": "Local","city": "Kalama","county": "Cowlitz"},{"name": "Kalispel Tribal Public Safety Department","ori": "WADI06100","type": "Tribal","city": "Cusick","county": "Pend Oreille"},{"name": "Kelso Police Department","ori": "WA0080100","type": "Local","city": "Kelso","county": "Cowlitz"},{"name": "Kenmore Police Department","ori": "WA0174900","type": "Local","city": "Kenmore","county": "King"},{"name": "Kennewick Police Department","ori": "WA0030100","type": "Local","city": "Kennewick","county": "Benton"},{"name": "Kent Police Department","ori": "WA0170700","type": "Local","city": "Kent","county": "King"},{"name": "Kettle Falls Police Department","ori": "WA0330300","type": "Local","city": "Kettle Falls","county": "Stevens"},{"name": "King County Airport Police","ori": "WA0173500","type": "Airport","city": "Seattle","county": "King"},{"name": "King County Metro Transit Police Department","ori": "N/A","type": "Transit","city": "Seattle","county": "King"},{"name": "King County Sheriff's Office","ori": "WA0170000","type": "County","city": "Seattle","county": "King"},{"name": "Kirkland Police Department","ori": "WA0170800","type": "Local","city": "Kirkland","county": "King"},{"name": "Kitsap County Sheriff's Office","ori": "WA0180000","type": "County","city": "Port Orchard","county": "Kitsap"},{"name": "Kitsap Critical Incident Response Team","ori": "N/A","type": null,"city": null,"county": null},{"name": "Kittitas County Sheriff's Office","ori": "WA0190000","type": "County","city": "Ellensburg","county": "Kittitas"},{"name": "Kittitas Police Department","ori": "WA0190600","type": "Local","city": "Kittitas","county": "Kittitas"},{"name": "Klickitat County Sheriff's Office","ori": "WA0200000","type": "County","city": "Goldendale","county": "Klickitat"},{"name": "La Center Police Department","ori": "WA0060600","type": "Local","city": "La Center","county": "Clark"},{"name": "La Push Tribal Police Department","ori": "WADI07000","type": "Tribal","city": "La Push","county": "Clallam"},{"name": "Lacey Police Department","ori": "WA0340400","type": "Local","city": "Lacey","county": "Thurston"},{"name": "Lake Forest Park Police Department","ori": "WA0172600","type": "Local","city": "Lake Forest Park","county": "King"},{"name": "Lake Stevens Police Department","ori": "WA0311900","type": "Local","city": "Lake Stevens","county": "Snohomish"},{"name": "Lakewood Police Department","ori": "WA0272300","type": "Local","city": "Lakewood","county": "Pierce"},{"name": "Langley Police Department","ori": "WA0150300","type": "Local","city": "Langley","county": "Island"},{"name": "Lewis County Sheriff's Office","ori": "WA0210000","type": "County","city": "Chehalis","county": "Lewis"},{"name": "Liberty Lake Police Department","ori": "WA0321300","type": "Local","city": "Liberty Lake","county": "Spokane"},{"name": "Lincoln County Sheriff's Office","ori": "WA0220000","type": "County","city": "Davenport","county": "Lincoln"},{"name": "Long Beach Police Department","ori": "WA0250400","type": "Local","city": "Long Beach","county": "Pacific"},{"name": "Longview Police Department","ori": "WA0080200","type": "Local","city": "Longview","county": "Cowlitz"},{"name": "Lower Elwha Tribal Police Department","ori": "WADI08600","type": "Tribal","city": "Port Angeles","county": "Clallam"},{"name": "Lummi Nation Police Department","ori": "WADI05900","type": "Tribal","city": "Bellingham","county": "Whatcom"},{"name": "Lynden Police Department","ori": "WA0370500","type": "Local","city": "Lynden","county": "Whatcom"},{"name": "Lynnwood Police Department","ori": "WA0310400","type": "Local","city": "Lynnwood","county": "Snohomish"},{"name": "Mabton Police Department","ori": "WA0390900","type": "Local","city": "Mabton","county": "Yakima"},{"name": "Makah Tribal Police Department","ori": "WADI05600","type": "Tribal","city": "Neah Bay","county": "Clallam"},{"name": "Maple Valley Police Department","ori": "WA0174700","type": "Local","city": "Maple Valley","county": "King"},{"name": "Marysville Police Department","ori": "WA0310500","type": "Local","city": "Marysville","county": "Snohomish"},{"name": "Mason County Sheriff's Office","ori": "WA0230000","type": "County","city": "Shelton","county": "Mason"},{"name": "Mattawa Police Department","ori": "WA0130900","type": "Local","city": "Mattawa","county": "Grant"},{"name": "McCleary Police Department","ori": "WA0140400","type": "Local","city": "McCleary","county": "Grays Harbor"},{"name": "Medical Lake Police Department","ori": "WA0320300","type": "Local","city": "Medical Lake","county": "Spokane"},{"name": "Medina Police Department","ori": "WA0172000","type": "Local","city": "Medina","county": "King"},{"name": "Mercer Island Police Department","ori": "WA0170900","type": "Local","city": "Mercer Island","county": "King"},{"name": "Mill Creek Police Department","ori": "WA0312100","type": "Local","city": "Mill Creek","county": "Snohomish"},{"name": "Milton Police Department","ori": "WA0270900","type": "Local","city": "Milton","county": "Pierce"},{"name": "Monroe Police Department","ori": "WA0311200","type": "Local","city": "Monroe","county": "Snohomish"},{"name": "Montesano Police Department","ori": "WA0140500","type": "Local","city": "Montesano","county": "Grays Harbor"},{"name": "Morton Police Department","ori": "WA0210300","type": "Local","city": "Morton","county": "Lewis"},{"name": "Moses Lake Police Department","ori": "WA0130200","type": "Local","city": "Moses Lake","county": "Grant"},{"name": "Mossyrock Police Department","ori": "WA0210400","type": "Local","city": "Mossyrock","county": "Lewis"},{"name": "Mount Vernon Police Department","ori": "WA0290200","type": "Local","city": "Mount Vernon","county": "Skagit"},{"name": "Mountlake Terrace Police Department","ori": "WA0310600","type": "Local","city": "Mountlake Terrace","county": "Snohomish"},{"name": "Moxee Police Department","ori": "WA0391400","type": "Local","city": "Moxee","county": "Yakima"},{"name": "Muckleshoot Indian Tribe Wildlife & Fisheries Department","ori": "WADI01000","type": "Tribal","city": "Auburn","county": "King"},{"name": "Mukilteo Police Department","ori": "WA0311300","type": "Local","city": "Mukilteo","county": "Snohomish"},{"name": "Napavine Police Department","ori": "WA0210700","type": "Local","city": "Napavine","county": "Lewis"},{"name": "Newcastle Police Department","ori": "WA0174200","type": "Local","city": "Newcastle","county": "King"},{"name": "Newport Police Department","ori": "WA0260200","type": "Local","city": "Newport","county": "Pend Oreille"},{"name": "Nisqually Public Safety","ori": "WADI00800","type": "Tribal","city": "Olympia","county": "Thurston"},{"name": "Nooksack Indian Tribe Police Department","ori": "WADI01400","type": "Tribal","city": "Deming","county": "Whatcom"},{"name": "Normandy Park Police Department","ori": "WA0171000","type": "Local","city": "Normandy Park","county": "King"},{"name": "North Bend Police Department","ori": "WA0171100","type": "Local","city": "North Bend","county": "King"},{"name": "Oak Harbor Police Department","ori": "WA0150100","type": "Local","city": "Oak Harbor","county": "Island"},{"name": "Oakesdale Police Department","ori": "WA0381400","type": "Local","city": "Oakesdale","county": "Whitman"},{"name": "Oakville Police Department","ori": "WA0140700","type": "Local","city": "Oakville","county": "Grays Harbor"},{"name": "Ocean Shores Police Department","ori": "WA0140800","type": "Local","city": "Ocean Shores","county": "Grays Harbor"},{"name": "Odessa Police Department","ori": "WA0220600","type": "Local","city": "Odessa","county": "Lincoln"},{"name": "Okanogan County Sheriff's Office","ori": "WA0240000","type": "County","city": "Okanogan","county": "Okanogan"},{"name": "Olympia Police Department","ori": "WA0340100","type": "Local","city": "Olympia","county": "Thurston"},{"name": "Omak Police Department","ori": "WA0240300","type": "Local","city": "Omak","county": "Okanogan"},{"name": "Oroville Police Department","ori": "WA0240400","type": "Local","city": "Oroville","county": "Okanogan"},{"name": "Orting Police Department","ori": "WA0271300","type": "Local","city": "Orting","county": "Pierce"},{"name": "Othello Police Department","ori": "WA0010100","type": "Local","city": "Othello","county": "Adams"},{"name": "Pacific County Sheriff's Office","ori": "WA0250000","type": "County","city": "South Bend","county": "Pacific"},{"name": "Pacific Police Department","ori": "WA0172100","type": "Local","city": "Pacific","county": "King"},{"name": "Palouse Police Department","ori": "WA0380900","type": "Local","city": "Palouse","county": "Whitman"},{"name": "Pasco Police Department","ori": "WA0110200","type": "Local","city": "Pasco","county": "Franklin"},{"name": "Pe Ell Police Department","ori": "WA0210900","type": "Local","city": "Pe Ell","county": "Lewis"},{"name": "Pend Oreille County Sheriff's Office","ori": "WA0260000","type": "County","city": "Newport","county": "Pend Oreille"},{"name": "Pierce County Sheriff's Office","ori": "WA0270000","type": "County","city": "Tacoma","county": "Pierce"},{"name": "Pierce Transit Police Department","ori": "WA027025Y","type": "Transit","city": "Tacoma","county": "Pierce"},{"name": "Port Angeles Police Department","ori": "WA0050100","type": "Local","city": "Port Angeles","county": "Clallam"},{"name": "Port Gamble S'Klallam Tribal Police Department","ori": "WADI06600","type": "Tribal","city": "Kingston","county": "Kitsap"},{"name": "Port Orchard Police Department","ori": "WA0180400","type": "Local","city": "Port Orchard","county": "Kitsap"},{"name": "Port Townsend Police Department","ori": "WA0160100","type": "Local","city": "Port Townsend","county": "Jefferson"},{"name": "Port of Pasco Police Department","ori": "WA0110600","type": "Port","city": "Pasco","county": "Franklin"},{"name": "Port of Seattle Police Department","ori": "WA0173200","type": "Port","city": "Seattle","county": "King"},{"name": "Poulsbo Police Department","ori": "WA0180500","type": "Local","city": "Poulsbo","county": "Kitsap"},{"name": "Prosser Police Department","ori": "WA0030300","type": "Local","city": "Prosser","county": "Benton"},{"name": "Pullman Police Department","ori": "WA0380300","type": "Local","city": "Pullman","county": "Whitman"},{"name": "Puyallup Police Department","ori": "WA0270100","type": "Local","city": "Puyallup","county": "Pierce"},{"name": "Puyallup Tribal Law Enforcement","ori": "WADI06200","type": "Tribal","city": "Tacoma","county": "Pierce"},{"name": "Quileute Tribal Police","ori": "N/A","type": "Tribal","city": "La Push","county": "Clallam"},{"name": "Quinault Tribal Police Department","ori": "WADI05400","type": "Tribal","city": "Taholah","county": "Grays Harbor"},{"name": "Quincy Police Department","ori": "WA0130300","type": "Local","city": "Quincy","county": "Grant"},{"name": "Rainier Police Department","ori": "WA0340600","type": "Local","city": "Rainier","county": "Thurston"},{"name": "Raymond Police Department","ori": "WA0250100","type": "Local","city": "Raymond","county": "Pacific"},{"name": "Reardan Police Department","ori": "WA0220700","type": "Local","city": "Reardan","county": "Lincoln"},{"name": "Redmond Police Department","ori": "WA0171200","type": "Local","city": "Redmond","county": "King"},{"name": "Renton Police Department","ori": "WA0171300","type": "Local","city": "Renton","county": "King"},{"name": "Republic Police Department","ori": "WA0100100","type": "Local","city": "Republic","county": "Ferry"},{"name": "Richland Police Department","ori": "WA0030200","type": "Local","city": "Richland","county": "Benton"},{"name": "Ridgefield Police Department","ori": "WA0060500","type": "Local","city": "Ridgefield","county": "Clark"},{"name": "Ritzville Police Department","ori": "WA0010200","type": "Local","city": "Ritzville","county": "Adams"},{"name": "Rosalia Police Department","ori": "WA0380400","type": "Local","city": "Rosalia","county": "Whitman"},{"name": "Roy Police Department","ori": "WA0271000","type": "Local","city": "Roy","county": "Pierce"},{"name": "Royal City Police Department","ori": "WA0131000","type": "Local","city": "Royal City","county": "Grant"},{"name": "Ruston Police Department","ori": "WA0271900","type": "Local","city": "Ruston","county": "Pierce"},{"name": "Sammamish Police Department","ori": "WA0175000","type": "Local","city": "Sammamish","county": "King"},{"name": "San Juan County Sheriff's Office","ori": "WA0280000","type": "County","city": "Friday Harbor","county": "San Juan"},{"name": "Sauk-Suiattle Police Department","ori": "WADI06300","type": "Tribal","city": "Darrington","county": "Snohomish"},{"name": "SeaTac Police Department","ori": "WA0173700","type": "Local","city": "SeaTac","county": "King"},{"name": "Seattle Police Department","ori": "WASPD0000","type": "Local","city": "Seattle","county": "King"},{"name": "Sedro-Woolley Police Department","ori": "WA0290300","type": "Local","city": "Sedro-Woolley","county": "Skagit"},{"name": "Selah Police Department","ori": "WA0391100","type": "Local","city": "Selah","county": "Yakima"},{"name": "Sequim Police Department","ori": "WA0050300","type": "Local","city": "Sequim","county": "Clallam"},{"name": "Shelton Police Department","ori": "WA0230400","type": "Local","city": "Shelton","county": "Mason"},{"name": "Shoalwater Bay Tribal Police Department","ori": "WADI01200","type": "Tribal","city": "Tokeland","county": "Pacific"},{"name": "Shoreline Police Department","ori": "WA0174300","type": "Local","city": "Shoreline","county": "King"},{"name": "Skagit County Sheriff's Office","ori": "WA0290000","type": "County","city": "Mount Vernon","county": "Skagit"},{"name": "Skamania County Sheriff's Office","ori": "WA0300000","type": "County","city": "Stevenson","county": "Skamania"},{"name": "Skokomish Police Department","ori": "WADI01100","type": "Tribal","city": "Skokomish","county": "Mason"},{"name": "Skykomish Police Department","ori": "WA0172700","type": "Local","city": "Skykomish","county": "King"},{"name": "Snohomish County Sheriff's Office","ori": "WA0310000","type": "County","city": "Everett","county": "Snohomish"},{"name": "Snohomish Police Department","ori": "WA0310700","type": "Local","city": "Snohomish","county": "Snohomish"},{"name": "Snoqualmie Police Department","ori": "WA0172200","type": "Local","city": "Snoqualmie","county": "King"},{"name": "Snoqualmie Tribal Police Department","ori": "WADI08300","type": "Tribal","city": "Snoqualmie","county": "King"},{"name": "Soap Lake Police Department","ori": "WA0130400","type": "Local","city": "Soap Lake","county": "Grant"},{"name": "Sound Transit Police Department","ori": "N/A","type": "Transit","city": "Seattle","county": "King"},{"name": "South Bend Police Department","ori": "WA0250200","type": "Local","city": "South Bend","county": "Pacific"},{"name": "Spokane County Sheriff's Office","ori": "WA0320000","type": "County","city": "Spokane","county": "Spokane"},{"name": "Spokane International Airport Police Department","ori": "WA0321200","type": "Airport","city": "Spokane","county": "Spokane"},{"name": "Spokane Police Department","ori": "WA0320400","type": "Local","city": "Spokane","county": "Spokane"},{"name": "Spokane Tribal Police Department","ori": "WADI05100","type": "Tribal","city": "Wellpinit","county": "Stevens"},{"name": "Spokane Valley Police Department","ori": "WA0321500","type": "Local","city": "Spokane Valley","county": "Spokane"},{"name": "Springdale Police Department","ori": "WA0330600","type": "Local","city": "Springdale","county": "Stevens"},{"name": "Squaxin Island Tribe Public Safety and Justice Department","ori": "WADI05500","type": "Tribal","city": "Shelton","county": "Mason"},{"name": "Stanwood Police Department","ori": "WA0311400","type": "Local","city": "Stanwood","county": "Snohomish"},{"name": "Steilacoom Department of Public Safety","ori": "WA0271100","type": "Local","city": "Steilacoom","county": "Pierce"},{"name": "Stevens County Sheriff's Office","ori": "WA0330000","type": "County","city": "Colville","county": "Stevens"},{"name": "Stillaguamish Police Department","ori": "WADI01300","type": "Tribal","city": "Arlington","county": "Snohomish"},{"name": "Sultan Police Department","ori": "WA0311500","type": "Local","city": "Sultan","county": "Snohomish"},{"name": "Sumas Police Department","ori": "WA0370700","type": "Local","city": "Sumas","county": "Whatcom"},{"name": "Sumner Police Department","ori": "WA0270200","type": "Local","city": "Sumner","county": "Pierce"},{"name": "Sunnyside Police Department","ori": "WA0390200","type": "Local","city": "Sunnyside","county": "Yakima"},{"name": "Suquamish Police Department","ori": "WADI00900","type": "Tribal","city": "Suquamish","county": "Kitsap"},{"name": "Swinomish Police Department","ori": "WADI06400","type": "Tribal","city": "La Conner","county": "Skagit"},{"name": "Tacoma Police Department","ori": "WA0270300","type": "Local","city": "Tacoma","county": "Pierce"},{"name": "Tenino Police Department","ori": "WA0340800","type": "Local","city": "Tenino","county": "Thurston"},{"name": "Thurston County Sheriff's Office","ori": "WA0340000","type": "County","city": "Olympia","county": "Thurston"},{"name": "Tieton Police Department","ori": "WA0391200","type": "Local","city": "Tieton","county": "Yakima"},{"name": "Toledo Police Department","ori": "WA0211000","type": "Local","city": "Toledo","county": "Lewis"},{"name": "Tonasket Police Department","ori": "WA0240600","type": "Local","city": "Tonasket","county": "Okanogan"},{"name": "Toppenish Police Department","ori": "WA0390300","type": "Local","city": "Toppenish","county": "Yakima"},{"name": "Tukwila Police Department","ori": "WA0172300","type": "Local","city": "Tukwila","county": "King"},{"name": "Tulalip Tribal Police Services","ori": "WADI06800","type": "Tribal","city": "Tulalip","county": "Snohomish"},{"name": "Tumwater Police Department","ori": "WA0340200","type": "Local","city": "Tumwater","county": "Thurston"},{"name": "Twisp Police Department","ori": "WA0240900","type": "Local","city": "Twisp","county": "Okanogan"},{"name": "Union Gap Police Department","ori": "WA0390400","type": "Local","city": "Union Gap","county": "Yakima"},{"name": "Uniontown Police Department","ori": "WA0381600","type": "Local","city": "Uniontown","county": "Whitman"},{"name": "University Place Police Department","ori": "WA0272400","type": "Local","city": "University Place","county": "Pierce"},{"name": "University of Washington Police Department","ori": "WA0172400","type": "University","city": "Seattle","county": "King"},{"name": "Unknown Agency","ori": "N/A","type": null,"city": null,"county": null},{"name": "Upper Skagit Tribal Police Department","ori": "WADI06500","type": "Tribal","city": "Sedro-Woolley","county": "Skagit"},{"name": "Vader Police Department","ori": "WA0211100","type": "Local","city": "Vader","county": "Lewis"},{"name": "Vancouver Police Department","ori": "WA0060300","type": "Local","city": "Vancouver","county": "Clark"},{"name": "WSU Vancouver Public Safety","ori": "WA0061000","type": "University","city": "Vancouver","county": "Clark"},{"name": "Wahkiakum County Sheriff's Office","ori": "WA0350000","type": "County","city": "Cathlamet","county": "Wahkiakum"},{"name": "Walla Walla County Sheriff's Office","ori": "WA0360000","type": "County","city": "Walla Walla","county": "Walla Walla"},{"name": "Walla Walla Police Department","ori": "WA0360100","type": "Local","city": "Walla Walla","county": "Walla Walla"},{"name": "Wapato Police Department","ori": "WA0391300","type": "Local","city": "Wapato","county": "Yakima"},{"name": "Warden Police Department","ori": "WA0131100","type": "Local","city": "Warden","county": "Grant"},{"name": "Washington Department of Fish and Wildlife Enforcement","ori": "WA0349900","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington Department of Labor & Industries","ori": "N/A","type": "State","city": "Tumwater","county": "Thurston"},{"name": "Washington State Department of Corrections","ori": "N/A","type": "State","city": "Tumwater","county": "Thurston"},{"name": "Washington State Department of Natural Resources Police","ori": "WA0341600","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State Department of Social and Health Services","ori": "N/A","type": "State","city": "Renton","county": "King"},{"name": "Washington State Gambling Commission Regulation and Enforcement Unit","ori": "WA0341000","type": "State","city": "Spokane","county": "Spokane"},{"name": "Washington State Liquor and Cannabis Board's Enforcement","ori": "WA0341100","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State Lottery Commission","ori": "WA0341200","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State Medicaid Fraud Control Division","ori": "N/A","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State Office of Independent Investigations","ori": "N/A","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State Office of the Insurance Commissioner","ori": "WA0342200","type": "State","city": "Tumwater","county": "Thurston"},{"name": "Washington State Parks and Recreation Commission","ori": "WA0342000","type": "State","city": "Tumwater","county": "Thurston"},{"name": "Washington State Patrol","ori": "WAWSP0000","type": "State","city": "Olympia","county": "Thurston"},{"name": "Washington State University Police Department (Pullman Campus)","ori": "WA0380500","type": "University","city": "Pullman","county": "Whitman"},{"name": "Washington State Utilities and Transportation Commission","ori": "N/A","type": "State","city": "Lacey","county": "Thurston"},{"name": "Washougal Police Department","ori": "WA0060400","type": "Local","city": "Washougal","county": "Clark"},{"name": "Wenatchee Police Department","ori": "WA0040400","type": "Local","city": "Wenatchee","county": "Chelan"},{"name": "West Richland Police Department","ori": "WA0030500","type": "Local","city": "West Richland","county": "Benton"},{"name": "Western Washington University Police Department","ori": "WA0370800","type": "University","city": "Bellingham","county": "Whatcom"},{"name": "Westport Police Department","ori": "WA0140900","type": "Local","city": "Westport","county": "Grays Harbor"},{"name": "Whatcom County Sheriff's Office","ori": "WA0370000","type": "County","city": "Bellingham","county": "Whatcom"},{"name": "Whitman County Sheriff's Office","ori": "WA0380000","type": "County","city": "Colfax","county": "Whitman"},{"name": "Wilbur Police Department","ori": "WA0220200","type": "Local","city": "Wilbur","county": "Lincoln"},{"name": "Winlock Police Department","ori": "WA0211200","type": "Local","city": "Winlock","county": "Lewis"},{"name": "Winthrop Marshal's Office","ori": "WA0241000","type": "Local","city": "Winthrop","county": "Okanogan"},{"name": "Woodinville Police Department","ori": "WA0174000","type": "Local","city": "Woodinville","county": "King"},{"name": "Woodland Police Department","ori": "WA0080500","type": "Local","city": "Woodland","county": "Cowlitz"},{"name": "Woodway Police Department","ori": "WA0311600","type": "Local","city": "Woodway","county": "Snohomish"},{"name": "Yakama Nation Police Department","ori": "WADI05800","type": "Tribal","city": "Toppenish","county": "Yakima"},{"name": "Yakima County Sheriff's Office","ori": "WA0390000","type": "County","city": "Yakima","county": "Yakima"},{"name": "Yakima Police Department","ori": "WA0390500","type": "Local","city": "Yakima","county": "Yakima"},{"name": "Yarrow Point Police Department","ori": "WA0173100","type": "Local","city": "Yarrow Point","county": "King"},{"name": "Yelm Police Department","ori": "WA0340900","type": "Local","city": "Yelm","county": "Thurston"},{"name": "Zillah Police Department","ori": "WA0390600","type": "Local","city": "Zillah","county": "Yakima"}];
 
-// Derive agency names and ORI codes from single source
 CONFIG.VALIDATIONS.agency_name.values = AGENCY_REGISTRY.map(a => a.name);
 
-// Unified state management
 const State = {
     currentResult: null,
     currentFileName: '',
     currentFileData: null,
     currentFileType: '',
     currentCorrections: null,
-    agencySelections: {}
+    agencySelections: {},
+    headerSelections: {}
 };
 
-// Utility Functions
 function formatNumber(num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
@@ -567,7 +594,6 @@ function levenshteinDistance(str1, str2) {
     return matrix[len2][len1];
 }
 
-// File Processing
 document.addEventListener('DOMContentLoaded', function() {
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
@@ -601,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function handleFile(file) {
     const fileName = file.name.toLowerCase();
     if (!fileName.endsWith('.csv') && !fileName.endsWith('.xlsx')) {
-        showError('Only CSV or XLSX files accepted');
+        showError('Only CSV or XLSX files are supported');
         return;
     }
 
@@ -614,14 +640,23 @@ function handleFile(file) {
     State.currentFileName = file.name;
     const reader = new FileReader();
 
-    reader.onerror = () => showError('Failed to read file');
-    reader.onload = (e) => processFile(e.target.result, fileName.endsWith('.xlsx'));
+    reader.onerror = () => showError('Something went wrong reading the file');
 
-    if (fileName.endsWith('.xlsx')) {
-        reader.readAsArrayBuffer(file);
-    } else {
-        reader.readAsText(file);
-    }
+    reader.onload = (e) => {
+        const buffer = e.target.result;
+        const bytes = new Uint8Array(buffer.slice(0, 4));
+        const isZip = bytes[0] === 0x50 && bytes[1] === 0x4B && bytes[2] === 0x03 && bytes[3] === 0x04;
+
+        if (isZip) {
+            processFile(buffer, true);
+        } else {
+            const decoder = new TextDecoder('utf-8');
+            const text = decoder.decode(buffer);
+            processFile(text, false);
+        }
+    };
+
+    reader.readAsArrayBuffer(file);
 }
 
 function processFile(data, isXLSX) {
@@ -634,7 +669,7 @@ function processFile(data, isXLSX) {
             parsedData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '', raw: false });
 
             if (parsedData.length === 0) {
-                showError('File is empty');
+                showError('This file appears to be empty');
                 return;
             }
         } else {
@@ -682,11 +717,10 @@ function processFile(data, isXLSX) {
         displayResults(State.currentResult);
 
     } catch (error) {
-        showError('Processing error: ' + error.message);
+        showError('Something went wrong processing the file: ' + error.message);
     }
 }
 
-// Validation Logic
 function validate(csvHeaders, rows) {
     const result = {
         file: State.currentFileName,
@@ -695,18 +729,9 @@ function validate(csvHeaders, rows) {
     };
 
     const requiredSet = new Set(CONFIG.HEADERS);
-    const csvSet = new Set(csvHeaders);
 
     result.headerValidation.matching = csvHeaders.filter(h => requiredSet.has(h));
-
-    const allMissing = CONFIG.HEADERS.filter(h => !csvSet.has(h));
-    result.headerValidation.missing = allMissing.filter(h => {
-        if (CONFIG.VALIDATIONS[h]) {
-            return CONFIG.VALIDATIONS[h].required !== false;
-        }
-        return true;
-    });
-
+    result.headerValidation.missing = CONFIG.HEADERS.filter(h => !csvHeaders.includes(h));
     result.headerValidation.extra = csvHeaders.filter(h => !requiredSet.has(h));
     result.headerValidation.isValid = result.headerValidation.missing.length === 0 && result.headerValidation.extra.length === 0;
 
@@ -715,7 +740,7 @@ function validate(csvHeaders, rows) {
 
         const requiredFields = ['incident_id', 'agency_name', 'record_creation_time', 'original_call_type'];
         for (const field of requiredFields) {
-            if (!row[field] || !row[field].trim()) {
+            if (csvHeaders.includes(field) && (!row[field] || !row[field].trim())) {
                 result.dataValidation.errors.push({
                     row: rowNumber,
                     column: field,
@@ -798,7 +823,6 @@ function validateField(header, value, rowNumber) {
     return null;
 }
 
-// Display Functions
 function displayResults(result) {
     document.getElementById('validationResults').classList.add('active');
 
@@ -815,10 +839,13 @@ function displayResults(result) {
 
     document.getElementById('headersCard').querySelector('.value').textContent = totalHeaders;
     const headersErrorEl = document.getElementById('headersWithErrors');
-    headersErrorEl.textContent = headerIssues > 0
-        ? `${headerIssues} missing/extra`
-        : 'All required present';
-    headersErrorEl.style.color = headerIssues > 0 ? 'var(--error-color)' : 'var(--success-color)';
+    if (headerIssues > 0) {
+        headersErrorEl.textContent = `${headerIssues} missing/extra`;
+        headersErrorEl.style.color = 'var(--error-color)';
+    } else {
+        headersErrorEl.textContent = 'All required present';
+        headersErrorEl.style.color = 'var(--success-color)';
+    }
 
     const statusCard = document.getElementById('statusCard');
     const statusValue = document.getElementById('statusValue');
@@ -892,17 +919,15 @@ function displayHeaders(headerValidation) {
     let html = '';
 
     if (headerValidation.missing.length > 0) {
-        html += `<div class="panel panel-error"><h3 class="text-error">Missing Headers (${headerValidation.missing.length})</h3><ul>`;
-        headerValidation.missing.slice(0,10).forEach(x => html += `<li>${x}</li>`);
-        if (headerValidation.missing.length > 10) html += `<li>...+${headerValidation.missing.length-10}</li>`;
+        html += `<div class="panel panel-error"><h3 class="text-error">Missing Required Headers (${headerValidation.missing.length})</h3><ul>`;
+        headerValidation.missing.forEach(x => html += `<li>${x}</li>`);
         html += '</ul></div>';
     }
 
     if (headerValidation.extra.length > 0) {
         html += `<div class="panel panel-warning"><h3 class="text-warning">Extra Headers (${headerValidation.extra.length})</h3><ul>`;
-        headerValidation.extra.slice(0,10).forEach(x => html += `<li>${x}</li>`);
-        if (headerValidation.extra.length > 10) html += `<li>...+${headerValidation.extra.length-10} more</li>`;
-        html += '</ul><p style="margin-top:10px;" class="text-muted">Remove these columns - only 5 required columns allowed</p></div>';
+        headerValidation.extra.forEach(x => html += `<li>${x}</li>`);
+        html += '</ul><p style="margin-top:10px;" class="text-muted">Use "Standardize and Conform to Requirements" to map these to the correct column names</p></div>';
     }
 
     if (headerValidation.isValid) {
@@ -987,7 +1012,6 @@ function resetValidator() {
     document.getElementById('headersTab').classList.add('active');
 }
 
-// Agency Lookup
 function showAgencyLookup() {
     const agencies = AGENCY_REGISTRY.map(a => ({
         name: a.name,
@@ -1053,12 +1077,13 @@ function sortAgencyTable(columnIndex) {
     rows.forEach(row => tbody.appendChild(row));
 }
 
-// Auto-Correction Feature
 function findClosestHeader(wrongHeader) {
     const normalized = wrongHeader.toLowerCase().trim().replace(/[_\s-]/g, '');
 
-    if (CONFIG.HEADER_MAPPINGS[normalized]) {
-        return { suggested: CONFIG.HEADER_MAPPINGS[normalized], confidence: 100 };
+    for (const [key, value] of Object.entries(CONFIG.HEADER_MAPPINGS)) {
+        if (key.replace(/[_\s-]/g, '') === normalized) {
+            return { suggested: value, confidence: 100 };
+        }
     }
 
     let bestMatch = null;
@@ -1117,12 +1142,9 @@ function groupAgencies(corrections) {
     const groups = {};
     corrections.data.forEach(corr => {
         if (!groups[corr.original]) {
-            // Determine if this looks like an ORI code
             const oriPattern = /^(WA|WADI)[A-Z0-9]{5,7}$/i;
             const isORI = oriPattern.test(corr.original);
 
-            // For ORI codes, don't try to guess - just provide search option
-            // For agency names, try to find close matches
             const matches = isORI ? [] : findClosestAgency(corr.original, true);
 
             groups[corr.original] = {
@@ -1145,46 +1167,54 @@ function analyzeForCorrections(headers, rows) {
     headers.forEach((header, idx) => {
         if (!CONFIG.HEADERS.includes(header)) {
             const match = findClosestHeader(header);
-            if (match) {
-                corrections.headers.push({
-                    index: idx,
-                    original: header,
-                    suggested: match.suggested,
-                    confidence: match.confidence
+            corrections.headers.push({
+                index: idx,
+                original: header,
+                suggested: match ? match.suggested : null,
+                confidence: match ? match.confidence : 0
+            });
+        }
+    });
+
+    return corrections;
+}
+
+function analyzeAgencyCorrections(headers, rows) {
+    const corrections = [];
+    let agencyIdx = headers.indexOf('agency_name');
+
+    if (agencyIdx === -1) {
+        for (const [idx, target] of Object.entries(State.headerSelections)) {
+            if (target === 'agency_name') {
+                agencyIdx = parseInt(idx);
+                break;
+            }
+        }
+    }
+
+    if (agencyIdx === -1 || agencyIdx === undefined) return corrections;
+
+    rows.forEach((row, rowNum) => {
+        const agencyValue = row[agencyIdx];
+        if (agencyValue && agencyValue.trim()) {
+            const lowerValue = agencyValue.toLowerCase();
+            const upperValue = agencyValue.toUpperCase();
+            const isValid = CONFIG.VALIDATIONS.agency_name.values.some(v => v.toLowerCase() === lowerValue) ||
+                           CONFIG.VALIDATIONS.agency_name.valid_ori_codes.includes(upperValue);
+
+            if (!isValid) {
+                const match = findClosestAgency(agencyValue);
+                corrections.push({
+                    row: rowNum + 2,
+                    column: agencyIdx,
+                    columnName: 'agency_name',
+                    original: agencyValue,
+                    suggested: match?.suggested || agencyValue,
+                    confidence: match?.confidence || 0
                 });
             }
         }
     });
-
-    const agencyIdx = headers.indexOf('agency_name') >= 0 ? headers.indexOf('agency_name') :
-                      corrections.headers.find(c => c.suggested === 'agency_name')?.index;
-
-    if (agencyIdx !== undefined) {
-        rows.forEach((row, rowNum) => {
-            const agencyValue = row[agencyIdx];
-            if (agencyValue && agencyValue.trim()) {
-                const lowerValue = agencyValue.toLowerCase();
-                const upperValue = agencyValue.toUpperCase();
-                const isValid = CONFIG.VALIDATIONS.agency_name.values.some(v => v.toLowerCase() === lowerValue) ||
-                               CONFIG.VALIDATIONS.agency_name.valid_ori_codes.includes(upperValue);
-
-                if (!isValid) {
-                    // For invalid values, always add to corrections
-                    // The UI will handle whether to show suggestions or search
-                    const match = findClosestAgency(agencyValue);
-
-                    corrections.data.push({
-                        row: rowNum + 2,
-                        column: agencyIdx,
-                        columnName: 'agency_name',
-                        original: agencyValue,
-                        suggested: match?.suggested || agencyValue,
-                        confidence: match?.confidence || 0
-                    });
-                }
-            }
-        });
-    }
 
     return corrections;
 }
@@ -1214,7 +1244,10 @@ function convertExcelDate(value) {
 function applyCorrections(headers, rows, corrections) {
     const newHeaders = [...headers];
     corrections.headers.forEach(corr => {
-        newHeaders[corr.index] = corr.suggested;
+        const selected = State.headerSelections?.[corr.index];
+        if (selected && selected !== '__SKIP__') {
+            newHeaders[corr.index] = selected;
+        }
     });
 
     const newRows = rows.map(row => [...row]);
@@ -1235,7 +1268,7 @@ function applyCorrections(headers, rows, corrections) {
 
 function showAutoCorrectModal() {
     if (!State.currentFileData) {
-        alert('No file data available');
+        alert('No file loaded yet');
         return;
     }
 
@@ -1243,89 +1276,149 @@ function showAutoCorrectModal() {
     const corrections = analyzeForCorrections(headers, rows);
     State.currentCorrections = corrections;
 
-    if (corrections.headers.length === 0 && corrections.data.length === 0) {
-        alert('No corrections needed - file appears to be properly formatted');
-        return;
+    if (corrections.headers.length > 0) {
+        showHeaderMappingStep(corrections, headers, rows);
+    } else {
+        proceedToAgencyStep(headers, rows);
     }
+}
 
+function showHeaderMappingStep(corrections, headers, rows) {
     let html = `
-        <h2 style="color:var(--text-dark);margin-bottom:15px;">Standardize and Conform to Requirements</h2>
+        <h2 style="color:var(--text-dark);margin-bottom:15px;">Step 1: Map Your Columns</h2>
 
         <div class="panel panel-warning" style="margin-bottom:25px;">
-            <h3 class="text-warning" style="margin:0 0 15px 0;">Review these changes</h3>
-            <ul style="margin:10px 0;padding-left:20px;" class="text-warning">
-                <li>Check each correction - some may be wrong</li>
-                <li>Review the downloaded file before submitting</li>
-            </ul>
+            <h3 class="text-warning" style="margin:0 0 10px 0;">Map each column to the required header</h3>
+            <p class="text-muted">Select what each of your columns represents, then click Continue.</p>
         </div>
     `;
 
-    if (corrections.headers.length > 0) {
-        html += '<h3 style="color:var(--primary-color);margin-top:20px;">Header Corrections (' + corrections.headers.length + ')</h3>';
-        html += '<table class="error-table" style="margin-top:15px;"><thead><tr><th>Original</th><th>→</th><th>Corrected</th><th>Confidence</th></tr></thead><tbody>';
-        corrections.headers.forEach(corr => {
-            html += `<tr>
-                <td class="text-error text-bold">${corr.original}</td>
-                <td>→</td>
-                <td class="text-success text-bold">${corr.suggested}</td>
-                <td>${corr.confidence}%</td>
-            </tr>`;
+    html += '<table class="error-table" style="margin-top:15px;"><thead><tr><th>Your Column</th><th>→</th><th>Map To</th></tr></thead><tbody>';
+    corrections.headers.forEach(corr => {
+        const selectId = 'hdr_' + corr.index;
+        html += `<tr>
+            <td class="text-bold">${corr.original}</td>
+            <td>→</td>
+            <td><select id="${selectId}" onchange="State.headerSelections[${corr.index}]=this.value" class="select-full">`;
+
+        html += `<option value="__SKIP__">— Skip (don't map) —</option>`;
+        CONFIG.HEADERS.forEach(h => {
+            const selected = h === corr.suggested ? 'selected' : '';
+            html += `<option value="${h}" ${selected}>${h}</option>`;
         });
-        html += '</tbody></table>';
-    }
+        html += `</select></td></tr>`;
 
-    if (corrections.data.length > 0) {
-        const uniqueAgencies = groupAgencies(corrections);
-
-        html += '<h3 style="color:var(--primary-color);margin-top:25px;">Agency Name Corrections (' + corrections.data.length + ' rows)</h3>';
-        html += '<p class="text-muted" style="margin:10px 0;">Select the correct agency for each value:</p>';
-        html += '<table class="error-table" style="margin-top:15px;"><thead><tr><th>Original Value</th><th>Rows Affected</th><th>Select Correct Agency</th></tr></thead><tbody>';
-
-        Object.values(uniqueAgencies).forEach(item => {
-            const selectId = 'agency_' + item.original.replace(/[^a-zA-Z0-9]/g, '_');
-
-            html += `<tr>
-                <td class="text-error text-bold">${item.original}</td>
-                <td>${item.count}</td>
-                <td>`;
-
-            if (item.isORI) {
-                // For invalid ORI codes, show a helpful message and search button
-                State.agencySelections[item.original] = item.original;
-                html += `
-                    <div style="display:flex;flex-direction:column;gap:8px;">
-                        <span style="color:var(--error-color);font-size:0.9em;">Invalid ORI code - not found in registry</span>
-                        <button onclick="showAgencyLookupForCorrection('${item.original}', '${selectId}')" class="btn btn-primary" style="padding:8px 16px;font-size:0.9em;">
-                            Search by ORI Code
-                        </button>
-                        <input type="hidden" id="${selectId}" value="${item.original}">
-                    </div>`;
-            } else {
-                // For agency names, show dropdown with suggestions
-                State.agencySelections[item.original] = item.matches[0]?.suggested || item.original;
-                html += `<select id="${selectId}" onchange="handleAgencyChange('${item.original}', '${selectId}')" class="select-full">`;
-
-                if (item.matches.length === 0) {
-                    html += `<option value="${item.original}" selected>No close matches found</option>`;
-                } else {
-                    item.matches.forEach((match, idx) => {
-                        const selected = idx === 0 ? 'selected' : '';
-                        html += `<option value="${match.suggested}" ${selected}>${match.suggested} (${match.confidence}%)</option>`;
-                    });
-                }
-
-                html += `<option value="__MANUAL__">Other - Search All Agencies</option>`;
-                html += `</select>`;
-            }
-
-            html += `</td>
-            </tr>`;
-        });
-        html += '</tbody></table>';
-    }
+        State.headerSelections[corr.index] = corr.suggested || '__SKIP__';
+    });
+    html += '</tbody></table>';
 
     html += `
         <div style="margin-top:30px;text-align:center;">
+            <button onclick="onHeaderMappingConfirmed()" class="btn btn-primary" style="margin-right:15px;">
+                Continue
+            </button>
+            <button onclick="closeModal()" class="btn btn-cancel">
+                Cancel
+            </button>
+        </div>
+    `;
+
+    createModal(html, closeModal);
+}
+
+function onHeaderMappingConfirmed() {
+    closeModal();
+    const { headers, rows } = State.currentFileData;
+    proceedToAgencyStep(headers, rows);
+}
+
+function proceedToAgencyStep(headers, rows) {
+    const agencyCorrections = analyzeAgencyCorrections(headers, rows);
+    State.currentCorrections.data = agencyCorrections;
+
+    if (agencyCorrections.length > 0) {
+        showAgencyCorrectionStep(agencyCorrections, headers, rows);
+    } else {
+        showDownloadStep();
+    }
+}
+
+function showAgencyCorrectionStep(agencyCorrections, headers, rows) {
+    const uniqueAgencies = groupAgencies({ data: agencyCorrections });
+
+    let html = `
+        <h2 style="color:var(--text-dark);margin-bottom:15px;">Step 2: Agency Name Corrections</h2>
+
+        <div class="panel panel-warning" style="margin-bottom:25px;">
+            <h3 class="text-warning" style="margin:0 0 10px 0;">Review agency values</h3>
+            <p class="text-muted">These values in the agency_name column weren't found in the registry. Select the correct agency or skip.</p>
+        </div>
+    `;
+
+    html += '<table class="error-table" style="margin-top:15px;"><thead><tr><th>Original Value</th><th>Rows Affected</th><th>Select Correct Agency</th></tr></thead><tbody>';
+
+    Object.values(uniqueAgencies).forEach(item => {
+        const selectId = 'agency_' + item.original.replace(/[^a-zA-Z0-9]/g, '_');
+
+        html += `<tr>
+            <td class="text-error text-bold">${item.original}</td>
+            <td>${item.count}</td>
+            <td>`;
+
+        if (item.isORI) {
+            State.agencySelections[item.original] = item.original;
+            html += `
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <span style="color:var(--error-color);font-size:0.9em;">Invalid ORI code - not found in registry</span>
+                    <button onclick="showAgencyLookupForCorrection('${item.original}', '${selectId}')" class="btn btn-primary" style="padding:8px 16px;font-size:0.9em;">
+                        Search by ORI Code
+                    </button>
+                    <input type="hidden" id="${selectId}" value="${item.original}">
+                </div>`;
+        } else {
+            State.agencySelections[item.original] = item.matches[0]?.suggested || item.original;
+            html += `<select id="${selectId}" onchange="handleAgencyChange('${item.original}', '${selectId}')" class="select-full">`;
+
+            if (item.matches.length === 0) {
+                html += `<option value="${item.original}" selected>No close matches found</option>`;
+            } else {
+                item.matches.forEach((match, idx) => {
+                    const selected = idx === 0 ? 'selected' : '';
+                    html += `<option value="${match.suggested}" ${selected}>${match.suggested} (${match.confidence}%)</option>`;
+                });
+            }
+
+            html += `<option value="__MANUAL__">Other - Search All Agencies</option>`;
+            html += `</select>`;
+        }
+
+        html += `</td></tr>`;
+    });
+    html += '</tbody></table>';
+
+    html += `
+        <div style="margin-top:30px;text-align:center;">
+            <button onclick="showDownloadStep()" class="btn btn-primary" style="margin-right:15px;">
+                Continue to Download
+            </button>
+            <button onclick="closeModal()" class="btn btn-cancel">
+                Cancel
+            </button>
+        </div>
+    `;
+
+    createModal(html, closeModal);
+}
+
+function showDownloadStep() {
+    closeModal();
+
+    let html = `
+        <h2 style="color:var(--text-dark);margin-bottom:15px;">Download Corrected File</h2>
+        <div class="panel panel-success" style="margin-bottom:25px;">
+            <p>Your corrections are ready. Download the corrected file and review before submitting.</p>
+        </div>
+        <div style="text-align:center;">
             <button onclick="downloadCorrectedFile()" class="btn btn-primary" style="margin-right:15px;">
                 Download Corrected File
             </button>
@@ -1333,7 +1426,7 @@ function showAutoCorrectModal() {
                 Download Log of Changes
             </button>
             <button onclick="closeModal()" class="btn btn-cancel">
-                Cancel
+                Close
             </button>
         </div>
     `;
@@ -1411,9 +1504,7 @@ function selectAgencyForCorrection(original, selectedAgency, selectId) {
 
     const element = document.getElementById(selectId);
 
-    // Check if it's a hidden input (for ORI codes) or a select element (for agency names)
     if (element.tagName === 'INPUT') {
-        // For ORI codes with hidden input, update the value and show confirmation
         element.value = selectedAgency;
         const button = element.previousElementSibling;
         if (button && button.tagName === 'BUTTON') {
@@ -1421,7 +1512,6 @@ function selectAgencyForCorrection(original, selectedAgency, selectId) {
             button.style.background = 'var(--success-color)';
         }
     } else {
-        // For agency names with select dropdown
         const existingOption = Array.from(element.options).find(opt => opt.value === selectedAgency);
 
         if (existingOption) {
@@ -1473,7 +1563,10 @@ function generateLogFile(corrections, filename) {
     if (corrections.headers.length > 0) {
         log += 'Headers:\n';
         corrections.headers.forEach(corr => {
-            log += `  "${corr.original}" → "${corr.suggested}"\n`;
+            const selected = State.headerSelections?.[corr.index] || corr.suggested;
+            if (selected !== '__SKIP__') {
+                log += `  "${corr.original}" → "${selected}"\n`;
+            }
         });
         log += '\n';
     }
@@ -1516,7 +1609,7 @@ function downloadAsCSV(headers, rows) {
     link.download = State.currentFileName.replace(/\.(csv|xlsx)$/i, '_CORRECTED.csv');
     link.click();
 
-    alert('Corrected file downloaded. Click "Download Log of Changes" to get the log, or "Cancel" to close.');
+    alert('File downloaded. You can also grab the change log before closing.');
 }
     </script>
 </body>
