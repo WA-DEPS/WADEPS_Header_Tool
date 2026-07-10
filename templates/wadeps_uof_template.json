@@ -142,7 +142,6 @@
     "verified_subject_race_ethnicity_white",
     "verified_subject_race_ethnicity_unknown",
     "subject_tribal",
-    "subject_injury_none",
     "subject_injury_apparent_minor_injury_cuts_bruises",
     "subject_injury_severe_laceration",
     "subject_injury_loss_of_teeth",
@@ -523,15 +522,6 @@
       "values": [
         "No",
         "Yes"
-      ]
-    },
-    "subject_injury_none": {
-      "type": "list",
-      "values": [
-        "No",
-        "Yes",
-        "Refused",
-        "Unknown"
       ]
     },
     "subject_injury_apparent_minor_injury_cuts_bruises": {
