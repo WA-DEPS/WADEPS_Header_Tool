@@ -44,7 +44,6 @@ class WADEPSValidator:
             print(f"Error reading template: {e}")
             raise
     
-#template_based_validation
 
     def _load_registers(self):
         """Load external register files referenced by validation rules"""
@@ -101,7 +100,6 @@ class WADEPSValidator:
                 reader = csv.DictReader(f)
                 csv_headers = reader.fieldnames
                 
-#header_check
                 template_set = set(self.headers)
                 csv_set = set(csv_headers)
                 
@@ -114,11 +112,9 @@ class WADEPSValidator:
                       f"{len(results['header_validation']['missing'])} missing, "
                       f"{len(results['header_validation']['extra'])} extra")
                 
-#row_processing
                 for row_num, row in enumerate(reader, start=2):
                     results['data_validation']['total_rows'] += 1
                     
-#field_validation
                     for header in csv_headers:
                         if header in self.validations:
                             value = row.get(header, '')
@@ -129,18 +125,25 @@ class WADEPSValidator:
                                 else:
                                     results['data_validation']['warnings'].append(validation_result)
                     
-#special_validation_subject_id
                     if 'subject_id' in row:
                         subject_result = self._validate_subject_id(row['subject_id'], row_num)
                         if subject_result:
-                            if subject_result['type'] == 'unknown':
+                            if subject_result['type'] == 'blank':
+                                results['data_validation']['errors'].append({
+                                    'row': row_num,
+                                    'column': 'subject_id',
+                                    'value': '',
+                                    'error': 'Subject ID is required',
+                                    'severity': 'error'
+                                })
+                            elif subject_result['type'] == 'unknown':
                                 results['subject_id_validation']['unknown_count'] += 1
                             elif subject_result['type'] == 'name':
                                 results['subject_id_validation']['name_count'] += 1
                             elif subject_result['type'] == 'invalid':
                                 results['subject_id_validation']['invalid_count'] += 1
                             
-                            if len(results['subject_id_validation']['examples']) < 5:
+                            if subject_result['type'] != 'blank' and len(results['subject_id_validation']['examples']) < 5:
                                 results['subject_id_validation']['examples'].append(subject_result)
                 
                 print(f"  Validated {results['data_validation']['total_rows']} rows")
@@ -170,10 +173,8 @@ class WADEPSValidator:
         
         value = value.strip()
         
-#list_validation
         if rule['type'] == 'list':
             if value not in rule['values']:
-#yes_no_case_check
                 if len(rule['values']) == 2 and 'Yes' in rule['values'] and 'No' in rule['values']:
                     if value.lower() not in [v.lower() for v in rule['values']]:
                         return {
@@ -192,7 +193,6 @@ class WADEPSValidator:
                         'severity': 'error'
                     }
         
-#date_validation
         elif rule['type'] == 'date':
             date_pattern_mmddyyyy = r'^(0?[1-9]|1[0-2])/(0?[1-9]|[12][0-9]|3[01])/\d{4}$'
             date_pattern_yyyymmdd = r'^\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$'
@@ -205,7 +205,6 @@ class WADEPSValidator:
                     'severity': 'error'
                 }
         
-#time_validation
         elif rule['type'] == 'time':
             if not re.match(r'^\d{2}:\d{2}$', value):
                 return {
@@ -216,7 +215,6 @@ class WADEPSValidator:
                     'severity': 'error'
                 }
         
-#number_validation
         elif rule['type'] == 'number':
             try:
                 num = float(value)
@@ -245,7 +243,6 @@ class WADEPSValidator:
                     'severity': 'error'
                 }
         
-#pattern_validation
         elif rule['type'] == 'pattern':
             if not re.match(rule['pattern'], value.upper()):
                 return {
@@ -256,7 +253,6 @@ class WADEPSValidator:
                     'severity': 'error'
                 }
         
-#text_validation
         elif rule['type'] == 'text':
             max_len = rule.get('maxLength')
             if max_len and len(value) > max_len:
@@ -268,7 +264,6 @@ class WADEPSValidator:
                     'severity': 'error'
                 }
         
-#register_validation
         elif rule['type'] == 'register':
             valid_set = self.register_lookups.get(header)
             if valid_set and value not in valid_set:
@@ -285,11 +280,15 @@ class WADEPSValidator:
     def _validate_subject_id(self, value: str, row_num: int) -> Optional[Dict]:
         """Validate subject_id format"""
         if not value or value.strip() == '':
-            return None
+            return {
+                'row': row_num,
+                'value': '',
+                'type': 'blank',
+                'error': 'Subject ID is required'
+            }
         
         val = value.strip()
         
-#unknown_check
         if val.lower() in ['unknown', 'unk']:
             return {
                 'row': row_num,
@@ -298,7 +297,6 @@ class WADEPSValidator:
                 'error': 'Subject ID should not be "unknown"'
             }
         
-#name_check
         if ' ' in val:
             parts = val.split()
             if len(parts) >= 2 and any(len(p) > 3 for p in parts):
@@ -309,7 +307,6 @@ class WADEPSValidator:
                     'error': 'Subject ID appears to be a full name. Use initials instead'
                 }
         
-#initials_check
         if not re.match(r'^[A-Za-z]{1,4}$|^[A-Za-z](\.[A-Za-z])*\.?$', val):
             return {
                 'row': row_num,
@@ -340,12 +337,10 @@ class WADEPSValidator:
     def save_validation_results(self, results: Dict, output_path: str = None):
         """Save validation results to JSON file"""
         if not output_path:
-#use_input_filename_as_base
             base_name = Path(results['file']).stem
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_path = f"output/{base_name}_validation_{timestamp}.json"
         
-#create_output_directory
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         
         with open(output_path, 'w') as f:
@@ -359,7 +354,6 @@ class WADEPSValidator:
         base_name = Path(results['file']).stem
         dashboard_path = f"output/{base_name}_dashboard.html"
         
-#calculate_metrics
         total_rows = results.get('data_validation', {}).get('total_rows', 0)
         total_errors = len(results.get('data_validation', {}).get('errors', []))
         total_warnings = len(results.get('data_validation', {}).get('warnings', []))
@@ -370,7 +364,6 @@ class WADEPSValidator:
         
         quality_score = max(0, 100 - (total_errors / max(total_rows, 1) * 100))
         
-#determine_status
         hv = results.get('header_validation', {})
         if not hv.get('is_valid', False) or total_errors > 0:
             status = 'failed'
@@ -444,7 +437,6 @@ class WADEPSValidator:
              </div>
          </div>"""
         
-#add_header_validation_section
         html_content += f"""
         <div class="panel">
             <h2>Header Validation</h2>
@@ -477,7 +469,6 @@ class WADEPSValidator:
                 <div style="max-height: 200px; overflow-y: auto; border: 1px solid #e53e3e; background: white; padding: 10px;">
                     <ul style="margin: 0; padding-left: 20px; font-family: monospace; font-size: 12px;">"""
             for header in hv['missing'][:15]:
-#truncate_long_headers
                 display_header = header if len(header) <= 60 else header[:57] + "..."
                 html_content += f'<li style="margin-bottom: 2px; word-break: break-all;">{display_header}</li>'
             if len(hv['missing']) > 15:
@@ -504,7 +495,6 @@ class WADEPSValidator:
                 <p style="margin: 10px 0 0 0; color: #666; font-size: 12px;"><strong>Tip:</strong> These headers don't match the template. Check for typos, remove unnecessary columns, or check for hidden newline characters in your header row.</p>
             </div>"""
         
-#add_quick_fix_guide
         if hv.get('missing') or hv.get('extra'):
             html_content += """
             <div style="background: #e6f3ff; padding: 15px; margin-top: 15px; border: 1px solid #b3d9ff;">
@@ -520,17 +510,14 @@ class WADEPSValidator:
         
         html_content += "</div>"
         
-#add_errors_section
         if total_errors > 0:
             html_content += f"""
         <div class="panel">
             <h2>Data Validation Errors ({total_errors})</h2>
             <p style="color: #666; margin-bottom: 15px;">These errors prevent your data from being accepted. Each error shows the column, row, and what needs to be fixed.</p>"""
             
-#group_errors_by_type
             error_types = self._group_errors_by_type(results.get('data_validation', {}).get('errors', []))
             
-#show_error_summary
             html_content += """
             <div style="background: #f8f9fa; padding: 10px; margin-bottom: 15px; border: 1px solid #dee2e6;">
                 <h3 style="margin: 0 0 10px 0; color: #333;">Error Summary:</h3>"""
@@ -538,7 +525,6 @@ class WADEPSValidator:
                 html_content += f'<div style="margin-bottom: 5px;"><strong>{error_type}:</strong> {len(errors)} errors</div>'
             html_content += "</div>"
             
-#show_detailed_errors
             for error in results.get('data_validation', {}).get('errors', [])[:20]:
                 html_content += f"""
             <div class="error-item">
@@ -550,7 +536,6 @@ class WADEPSValidator:
                 html_content += f'<p style="color: #666; font-style: italic;">... and {total_errors - 20} more errors (see JSON file for complete list)</p>'
             html_content += "</div>"
         
-#add_warnings_section
         if total_warnings > 0:
             html_content += f"""
         <div class="panel">
@@ -565,7 +550,6 @@ class WADEPSValidator:
             html_content += "</div>"
         
         
-#add_subject_id_issues
         if subject_issues > 0:
             sv = results.get('subject_id_validation', {})
             html_content += f"""
@@ -617,7 +601,6 @@ class WADEPSValidator:
             </div>
         </div>"""
         
-#add_success_section
         if hv.get('is_valid', False) and total_errors == 0 and subject_issues == 0:
             html_content += """
         <div class="panel" style="background: #f0fff4; border: 1px solid #9ae6b4;">
@@ -634,7 +617,6 @@ class WADEPSValidator:
             </div>
         </div>"""
         
-#add_recommendations
         html_content += """
         <div class="recommendations">
             <h3>Recommendations</h3>
@@ -659,7 +641,6 @@ class WADEPSValidator:
 </body>
 </html>"""
         
-#save_dashboard
         os.makedirs(os.path.dirname(dashboard_path), exist_ok=True)
         with open(dashboard_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
@@ -696,7 +677,6 @@ class WADEPSValidator:
         report.append(f"Date: {results.get('timestamp', '')[:19]}")
         report.append("")
         
-#header_issues
         headers = results.get('header_validation', {})
         if headers.get('missing'):
             report.append("MISSING HEADERS:")
@@ -716,12 +696,10 @@ class WADEPSValidator:
             report.append("  FIX: Remove line breaks from header row")
             report.append("")
         
-#data_validation_errors
         data_val = results.get('data_validation', {})
         if data_val.get('errors'):
             errors = data_val['errors']
             
-#group_errors_by_type
             error_types = self._group_errors_by_type(errors)
             
             # Convert to detailed format for report
@@ -762,7 +740,6 @@ class WADEPSValidator:
                 report.append(f"       Fix: {info['fix']}")
             report.append("")
         
-#overall_status
         report.append("VALIDATION STATUS:")
         status = results.get('status', 'UNKNOWN')
         if status == 'PASSED':
@@ -776,23 +753,19 @@ class WADEPSValidator:
         """Print a summary of validation results"""
         print(f"\n  Summary for {results['file']}:")
         
-#header_validation
         hv = results['header_validation']
         if len(hv['missing']) > 0:
             print(f"    Missing {len(hv['missing'])} required headers")
         
-#data_validation
         dv = results['data_validation']
         if len(dv['errors']) > 0:
             print(f"    {len(dv['errors'])} data errors found")
         
-#subject_id_validation
         sv = results['subject_id_validation']
         total_issues = sv['unknown_count'] + sv['name_count'] + sv['invalid_count']
         if total_issues > 0:
             print(f"    {total_issues} subject ID issues")
         
-#overall_status
         if hv['is_valid'] and len(dv['errors']) == 0 and total_issues == 0:
             print(f"    PASSED - File meets all requirements")
         elif len(hv['missing']) > 0 or len(dv['errors']) > 10:
@@ -806,7 +779,6 @@ class WADEPSValidator:
         print(f"DETAILED VALIDATION RESULTS: {results['file']}")
         print(f"{'='*60}")
         
-#header_issues
         hv = results['header_validation']
         if hv['missing'] or hv['extra']:
             print(f"\nHEADER VALIDATION:")
@@ -824,7 +796,6 @@ class WADEPSValidator:
                 if len(hv['extra']) > 10:
                     print(f"    ... and {len(hv['extra']) - 10} more")
         
-#data_errors
         dv = results['data_validation']
         if dv['errors']:
             print(f"\nDATA VALIDATION ERRORS ({len(dv['errors'])}):")
@@ -835,7 +806,6 @@ class WADEPSValidator:
             if len(dv['errors']) > 20:
                 print(f"  ... and {len(dv['errors']) - 20} more errors")
         
-#warnings
         if dv['warnings']:
             print(f"\nWARNINGS ({len(dv['warnings'])}):")
             for warning in dv['warnings'][:10]:
@@ -843,7 +813,6 @@ class WADEPSValidator:
             if len(dv['warnings']) > 10:
                 print(f"  ... and {len(dv['warnings']) - 10} more warnings")
         
-#subject_id_issues
         sv = results['subject_id_validation']
         total_subject_issues = sv['unknown_count'] + sv['name_count'] + sv['invalid_count']
         if total_subject_issues > 0:
@@ -857,7 +826,6 @@ class WADEPSValidator:
                 for example in sv['examples'][:5]:
                     print(f"    Row {example['row']}: \"{example['value']}\" - {example['error']}")
         
-#recommendations
         print(f"\nRECOMMENDATIONS:")
         if not hv['is_valid']:
             print(f"  - Fix missing headers before resubmission")
@@ -882,11 +850,9 @@ def process_auto_mode():
     print("Automatically processing files in 'input_source' folder")
     print("-"*60)
     
-#set_up_paths
     input_folder = Path("input_source")
     output_folder = Path("output")
     
-#create_folders_if_needed
     if not input_folder.exists():
         input_folder.mkdir()
         print(f"Created '{input_folder}' folder")
@@ -897,7 +863,6 @@ def process_auto_mode():
         output_folder.mkdir()
         print(f"Created '{output_folder}' folder for results")
     
-#find_csv_files
     csv_files = list(input_folder.glob("*.csv"))
     
     if not csv_files:
@@ -907,11 +872,9 @@ def process_auto_mode():
     
     print(f"{len(csv_files)} CSV file(s) to process\n")
     
-#initialize_validator
     try:
         validator = WADEPSValidator()
         
-#load_template_data
         template_json = Path("../templates/wadeps_uof_template.json")
         if not template_json.exists():
             print("Error: Template data file not found at '../templates/wadeps_uof_template.json'!")
@@ -935,21 +898,17 @@ def process_auto_mode():
         print(f"Error initializing validator: {e}")
         return
     
-#process_each_csv_file
     all_results = []
     for csv_file in csv_files:
         try:
             print(f"{'='*40}")
             results = validator.validate_csv(csv_file)
             
-#save_individual_results
             output_path = output_folder / f"{csv_file.stem}_validation.json"
             validator.save_validation_results(results, str(output_path))
             
-#generate_dashboard
             dashboard_path = validator.generate_dashboard(results)
             
-#print_detailed_results
             validator.print_detailed_results(results)
             
             all_results.append(results)
@@ -958,13 +917,11 @@ def process_auto_mode():
             print(f"  Error processing {csv_file.name}: {e}")
             continue
     
-#print_overall_summary
     print(f"\n{'='*60}")
     print("VALIDATION COMPLETE")
     print(f"{'='*60}")
     print(f"Processed {len(all_results)} file(s)")
     
-#count_overall_stats
     total_passed = sum(1 for r in all_results 
                       if r['header_validation']['is_valid'] 
                       and len(r['data_validation']['errors']) == 0)
@@ -978,7 +935,6 @@ def process_auto_mode():
     print(f"\nResults saved in '{output_folder}' folder")
     print(f"Check individual JSON files and HTML dashboards for detailed validation reports")
     
-#create_summary_report
     summary = {
         'validation_run': datetime.now().isoformat(),
         'total_files': len(all_results),
@@ -1017,7 +973,6 @@ def main():
     
     args = parser.parse_args()
     
-#extract_only_mode
     if args.extract_only:
         validator = WADEPSValidator(args.template)
         try:
@@ -1030,7 +985,6 @@ def main():
             sys.exit(1)
         return
     
-#default_auto_mode
     process_auto_mode()
 
 
