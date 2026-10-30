@@ -1193,6 +1193,10 @@
         "Greater than 11 minutes"
       ]
     },
+    "time_to_force_bwc": {
+      "type": "time",
+      "format": "HH:MM:SS"
+    },
     "pit_manuever": {
       "type": "list",
       "values": [
